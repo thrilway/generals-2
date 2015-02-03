@@ -3,17 +3,81 @@
 % Last Change: Mon Feb 02 07:00 PM 2015 E
 %
 \documentclass[letterpaper]{article}
+\usepackage[margin=1in]{geometry}
 \usepackage[]{amsmath}
 \usepackage{stmaryrd}
 
+\usepackage[]{graphicx}
 \usepackage{linguex}
+
+\usepackage{tikz}
+\usepackage{forest}
+
+\forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
+\forestset{en/.style={parent anchor=center, child anchor=center}}
+\forestset{em/.style={parent anchor=north west, child anchor=north west}}
 
 \usepackage[backend=bibtex,style=authoryear]{biblatex}
 
 \bibliography{GP2}
 \begin{document}
-(\cite{lasersohn1996adnominal})
-\cite{franaappearmodality}
+\begin{center}
+	\textbf{Adnominal Conditionals}
+\end{center}
+\ex. OK, let's begin.
+We have a lot riding on this job, so please be very careful and make no mistakes.
+If we succeed at what we are trying to do, the benefits will be enormous.
+\textbf{But we all know the consequences if we fail.} \hfill (\cite{lasersohn1996adnominal})
+\z.
+
+\ex.
+\a. The fine if you park in a handicapped spot is higher than the fine if your
+meter expires.
+\b. The price if you pay now is predictable; the price if you wait a year is not.
+\c. The outcome if John gets his way is sure to be unpleasant for the rest of
+us. \hfill (\cite{lasersohn1996adnominal})
+
+\ex. $\llbracket$We all know the consequences if we fail$\rrbracket \neq \llbracket$If we fail, we all know the consequences.$\rrbracket$
+
+\ex. [D [N \textit{if} S]]
+
+\ex. $\llbracket$N if S$\rrbracket^{M,w} = \{x \in U |$ for all those worlds w' closest to w such that S is true in w', $x \in \llbracket$N$\rrbracket^{M,w}\}$\hfill(\cite{lasersohn1996adnominal})
+
+\ex. 
+
+\begin{itemize}
+	\item \textit{The outcome if John gets his way} is the outcome in all the closest worlds to the actual world in which John gets his way.
+	\item \textcite{franaappearmodality}, disputes this analysis of AC's
+\end{itemize}
+\ex.The Lost Highway Scenario (variation from von Fintel \& Heim 2011)\\
+Mary and Susan in the car. Susan driving, Mary in the car. They don’t know for sure where they are. However, they do know the following:\\
+a. They are either on Route 87 or Route 91\\
+b. They have passed a park.\\
+Mary checks the map and sees the following pictures:\\
+\includegraphics{lost-highway}
+
+\begin{itemize}
+	\item Given this, the following utterance if made by Mary is judged false:
+\end{itemize}
+\ex. A possible destination if we're on Route 91 is Lockhart.
+
+\ex. $\{x: \forall$w' closest to w s.t. we are on R91 in w', $\exists$w'' compatible with speaker's evidence in w', s.t. $x \in \llbracket\textbf{destination}\rrbracket^{w''}\}$
+
+\ex. 
+\begin{forest}
+	tree defaults
+	[{NP:$\langle e,t\rangle$} 
+		[{$\langle\langle s, et\rangle, et\rangle$} 
+			[{Mod-Adj: $\langle st\langle\langle s, et\rangle, et\rangle\rangle$}]
+			[{$\langle s,t\rangle$} 
+				[{Base: $\langle s,t\rangle$}] 
+				[{if-clause: $\langle s,t\rangle$}]
+			]
+		]
+		[{N:$\langle s, et\rangle$}]
+	]
+\end{forest}\hfill (\cite{franaappearmodality})
+
 \printbibliography
 \end{document}
 
