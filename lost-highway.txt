@@ -1,0 +1,9 @@
+(F) Our destination if we're on route 91 has a Denny's
+(T) Our destination if we're on route 91 might have a Denny's
+(U) Our destination if we're on route 87 has a Denny's
+(T) Our destination if we're on route 87 might have a Denny's
+(F) ? A possible destination if we're on route 91 has a Denny's
+(T) ? A possible destination if we're on route 91 might have a Denny's
+(T) A possible destination if we're on route 87 has a Denny's
+(F?) A possible destination if we're on route 87 might have a Denny's
+
