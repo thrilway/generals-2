@@ -4,9 +4,8 @@
 %
 
 \documentclass[letterpaper,12pt]{article}
-
 \usepackage[margin=1in]{geometry}
-\usepackage{natbib}
+%\usepackage{natbib}
 \usepackage{linguex}
 
 \usepackage[]{amsmath}
@@ -20,6 +19,13 @@
 
 \bibliography{GP2}
 \begin{document}
+\begin{center}
+	\textbf{Adnominal conditionals}\\
+	Forum Presentation\\
+	Dan Milway \\
+	\today\\
+\end{center}
+
 \begin{itemize}
   \item Adnominal conditionals (ACs) are conditional clauses that seem to modify nouns.
 \end{itemize}
@@ -35,8 +41,80 @@ meter expires.
 \b. The price if you pay now is predictable; the price if you wait a year is not.
 \c. The outcome if John gets his way is sure to be unpleasant for the rest of
 us. \hfill (\cite{lasersohn1996adnominal})
+
 \begin{itemize}
-  \item 
-\end{itemize}<++>
+	\item I will be focusing on ACs in indefinite subjects of specificational copular clauses (SCCs).
+	\item While indefinite DPs are the correct type ($\langle e,t\rangle$) to subjects of SCCs \parencite{mikkelsen2004specifying}, they seem to be disallowed in that position.
+\end{itemize}
+\ex.\# A doctor is Rose.
+
+\begin{itemize}
+	\item Plain indefinite DPs with ACs are also unacceptable.
+\end{itemize}
+\ex.\label{ac-unacceptable} \# A doctor if you have high blood pressure is Rose.
+
+\begin{itemize}
+	\item Indefinite DPs with ACs and (certain?) adjectives, however, are acceptable.
+\end{itemize}
+\ex.\label{acceptable} A good doctor if you have high blood pressure is Rose.
+
+\begin{description}
+	\item[\textbf{Question:}] Why is this so?
+		\begin{description}
+			\item[\textbf{Sub-question 1:}] What requirements are placed on indefinite subjects of SCCs.
+			\item[\textbf{Sub-question 2:}] What are the properties of ACs that allow \ref{acceptable} to be accepted.
+		\end{description}
+\end{description}
+
+\begin{itemize}
+	\item To SubQ1: \textcite{mikkelsen2004specifying} argues that subjects of SCCs must be Topics.
+		\begin{itemize}
+			\item A clause's  \textit{Topic} is usually thought to be discourse-old, and be what the discourse is about.
+			\item \textcite{roberts2012information}, and \textcite{buring1999topic} provide a more rigourous discussion of topic-hood
+		\end{itemize}
+	\item To SubQ2: Given the most recent analysis of ACs \parencite{franaappearmodality} there is no obvious reason that \ref{acceptable} is acceptable while \ref{ac-unacceptable} is not.
+	\item According to \textcite{franaappearmodality}, ACs are devices for restricting the bases of modal adjectives
+\end{itemize}
+\ex.
+\begin{forest}
+	tree defaults
+	[{NP:$\langle e,t\rangle$} 
+		[{$\langle\langle s, et\rangle, et\rangle$} 
+			[{Mod-Adj: $\langle st\langle\langle s, et\rangle, et\rangle\rangle$}]
+			[{$\langle s,t\rangle$} 
+				[{Base: $\langle s,t\rangle$}] 
+				[{if-clause: $\langle s,t\rangle$}]
+			]
+		]
+		[{N:$\langle s, et\rangle$}]
+	]
+\end{forest}
+
+\begin{itemize}
+	\item The modal adjective can be overt or covert, but only overt adjectives render an AC-modified DP acceptable as the subject of an SCC.
+\end{itemize}
+\ex. 
+\a. a consequence if we fail = a \textsc{necessary} consequence if we fail.
+\b.\# a consequence if we fail is imprisonment.
+\z.
+
+\ex.
+\a. a possible consequence if we fail is imprisonment.
+
+\begin{itemize}
+	\item Furthermore, the meaning predicted by \textcite{franaappearmodality} for the AC in \ref{acceptable} is odd.
+\end{itemize}
+\ex. $\llbracket$ a good doctor if you have high blood pressure $\rrbracket^{w,c,f}$\\
+= $\exists x \forall w'. Acc(w')(w) \wedge HBP(you)(w') [x \text{ is good in } w'\,and\,x \text{ is a doctor in } w']$
+
+\begin{itemize}
+	\item x being a good doctor would be contingent on \textit{you} having high blood pressure.
+	\item \textit{you} is interpreted impersonally, so it really means if \textit{someone} has high blood pressure, x is a good doctor.
+	\item x does not even have to be particularly good at treating high blood pressure.
+	\item \citeauthor{franaappearmodality}'s (\citeyear{franaappearmodality}) analysis needs reworking.
+	\item Adjectives like \textit{good} are evaluated relative to a comparison class. \parencite{klein1980semantics}
+	\item the AC in \ref{acceptable} seems to be restricting the comparison class of \textit{good}.
+\end{itemize}
+\printbibliography
 \end{document}
 
