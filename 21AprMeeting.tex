@@ -1,0 +1,54 @@
+%        File: 21AprMeeting.tex
+%     Created: Tue Apr 21 10:00 AM 2015 E
+% Last Change: Tue Apr 21 10:00 AM 2015 E
+%
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+%\usepackage{natbib}
+\usepackage{linguex}
+
+\usepackage[]{amsmath}
+\usepackage{stmaryrd}
+
+\usepackage{forest}
+
+\forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
+\usepackage{tikz}
+\usepackage[backend=bibtex,style=authoryear]{biblatex}
+
+\bibliography{GP2}
+\begin{document}
+
+\textbf{\textcite{elbourne2005situations}: Situations}
+\begin{itemize}
+  \item All DPs are quantificational
+  \item Determiners quantify over individuals and situations and introduce situations.
+  \item The quantified situations are parts of the introduced situations
+\end{itemize}
+\ex. $\llbracket Det \rrbracket = \lambda f \dots \lambda s.Qx.Qs^\prime:[\dots s^\prime\preceq s \dots][\dots f(x)(s^\prime)\dots]$
+
+\begin{itemize}
+  \item Compatible with a Heim/Kamp/Lewis theory of indefinites?
+  \item Elbourne only seems to care about definite descriptions
+\end{itemize}
+\textbf{\textcite{kennedy2007vagueness}: Comparison classes}
+\ex.
+\a. Every member of my family is tall.
+\b. $\forall y[\textbf{in-my-family}(y) \longrightarrow [\lambda x:\textbf{k}_y(x).\textbf{tall}(x)](y)\succeq \textbf{s}([\lambda x:\textbf{k}_y(x).\textbf{tall}(x)]) ]$
+\z.
+
+\begin{itemize}
+  \item Each family member's height would be judged relative to a different standard depending on their age, sex, etc.
+  \item $\textbf{k}_y$ restricts the domain of the adjective.
+  \item \textbf{k}$_y$ is a variable over properties `related to \textit{y}'
+    \begin{itemize}
+      \item Kennedy calls these \textit{skolem} functions and refers the reader to \textcite{steedman2000process} for explanation.
+      \item Steedman claims these skolem functions are related to but distinct from choice functions (and gives citations that I should read).
+    \end{itemize}
+  \item Kennedy seems to be proposing that \textbf{k}$_x$ is built into the [\textit{pos}] morpheme, and that it is usually valued contextually, but can be bound (e.g., by a quantified subject).
+\end{itemize}
+
+\end{document}
+
+
