@@ -11,11 +11,13 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[backend=bibtex,style=authoryear]{biblatex}
 
-\usepackage{forest}
 
 \usepackage{linguex}
 
 \bibliography{GP2}
+
+\usepackage{forest}
+\forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
 
 \begin{document}
 Consider the increasing acceptability of the following specificational clauses:
@@ -39,6 +41,7 @@ In a given discourse, the QUD is the root node, and foci of assertions are termi
 \begin{figure}[h]
   \centering
   \begin{forest}
+    tree defaults
     [QUD 
       [SubQ1
 	[SubSubQ1
@@ -73,6 +76,7 @@ This leaves us with the discourse tree below.
 \begin{figure}[h]
   \centering
   \begin{forest}
+    tree defaults
     [What is the history of Generative Grammar?
       [figures?
 	[underrated figures?
@@ -84,12 +88,24 @@ This leaves us with the discourse tree below.
 	  \ldots,align=center]
 	[\ldots]
       ]
-      [events\\
+      [events?\\
 	\ldots,align=center]
     ]
   \end{forest}
   \caption{The Discourse tree for \ref{ex:good}}
   \label{fig:good-dtree}
 \end{figure}
+
+So, to get from the QUD to an appropriate topic for assertion, we must make two ``implicit'' discourse moves: One restricting the question to \textit{figures} and another restricting it to \textit{underrated figures}.
+Based on this I propose a preliminary condition on topics.
+\ex. \textbf{Condition on Topics (to be revised):} Topics must contain two implicit discourse moves.
+
+The fact that this condition requires counting moves makes it suspect.
+To refine it, let's inspect the nature of these moves.
+
+The first move (\textit{history} $\rightarrow$ \textit{figures in history}), is in fact a required move, because a complete answer to the QUD would inevitably involve a litany of the figures and events that are part of the history of GG.
+The second move, however, is not a required move, as it is not necessary when listing the figures in a history to offer an opinion of which were underrated, or controversial, or had some other property.
+This leads me to a revised condition on topics:
+\ex. \textbf{Condition on Topics:} Topics must contain at least one unneccesary discourse move.
 
 \end{document}
