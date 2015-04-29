@@ -1,0 +1,95 @@
+%        File: 28AprilMeetingWriteup.tex
+%     Created: Tue Apr 28 04:00 PM 2015 E
+% Last Change: Tue Apr 28 04:00 PM 2015 E
+%
+% arara: pdflatex
+% arara: bibtex
+% arara: pdflatex
+% arara: pdflatex
+\documentclass[letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=bibtex,style=authoryear]{biblatex}
+
+\usepackage{forest}
+
+\usepackage{linguex}
+
+\bibliography{GP2}
+
+\begin{document}
+Consider the increasing acceptability of the following specificational clauses:
+\ex.
+\a.\label{ex:bad}\# A figure is Eric Lenneberg.
+\b.\label{ex:so-so}\#? A figure in the history of Generative Grammar is Eric Lenneberg.
+\b.\label{ex:good} An underrated figure in the history of Generative Grammar is Eric Lenneberg.
+\z.
+
+What properties of the indefinite DP in \ref{ex:good} makes it an acceptable subject?
+It is not being interpreted as a definite description, as it lacks a presupposition of uniqueness.
+\ex.
+\a. An underrated figure in the history of Generative Grammar is Eric Lenneberg.\\
+Another one is Tanya Reinhart.
+\b. The most underrated figure in the history of Generative Grammar is Eric Lenneberg.\\
+\#Another one is Tanya Reinhart.
+
+As \textcite{mikkelsen2004specifying} argues, specificational subjects are interpreted as topics, so whatever makes the indefinite in \ref{ex:good} a good topic is what allows it to be a subject.
+Following \textcite{buring1999topic,roberts2012information}, I treat the notions of topic and focus in relation to questions under discussion, formalized as discourse trees.
+In a given discourse, the QUD is the root node, and foci of assertions are terminal nodes.
+\begin{figure}[h]
+  \centering
+  \begin{forest}
+    [QUD 
+      [SubQ1
+	[SubSubQ1
+	  [Ans1]
+	  [Ans2]
+	  [Ans3]
+	]
+	[SubSubQ2
+	  [Ans4]
+	  [Ans5]
+	]
+      ]
+      [SubQ23
+	[Ans6]
+	[Ans7]
+	[Ans8]
+      ]
+    ]
+  \end{forest}
+  \caption{A sample discourse tree}
+  \label{fig:dtree}
+\end{figure}
+
+The most general context in which one could felicitously utter \ref{ex:good} is a discussion of the history of Generative Grammar, so I will take this to be the QUD.
+There are two possible subquestions to the QUD \textit{What is the history of Generative Grammar}:
+\ex.
+\a.\label{ex:wrong-subq} What are the underrated parts of the history of Generative Grammar?
+\b.\label{ex:subq} Who are the figures in the history of Generative Grammar?
+
+Since figures (along with events, etc) are inherent parts of any history, \ref{ex:subq} is the most likely subquestion to the QUD\footnote{It also seems to be the case that \ref{ex:wrong-subq} is not a well-formed question. To answer it, it seems that one would have to compare the overrated-ness of figures to that of events.}.
+This leaves us with the discourse tree below.
+\begin{figure}[h]
+  \centering
+  \begin{forest}
+    [What is the history of Generative Grammar?
+      [figures?
+	[underrated figures?
+	  [Eric Lenneberg]
+	  [Tanya Reinhart]
+	  [\ldots]
+	]
+	[controversial figures?\\
+	  \ldots,align=center]
+	[\ldots]
+      ]
+      [events\\
+	\ldots,align=center]
+    ]
+  \end{forest}
+  \caption{The Discourse tree for \ref{ex:good}}
+  \label{fig:good-dtree}
+\end{figure}
+
+\end{document}
