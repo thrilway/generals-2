@@ -11,6 +11,8 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[backend=bibtex,style=authoryear]{biblatex}
 
+\usepackage[]{amsmath}
+\usepackage{stmaryrd}
 
 \usepackage{linguex}
 
@@ -110,6 +112,17 @@ This leads me to a revised condition on topics:
 
 This condition must be further modified if it is to be a testable hypothesis. 
 First, we must distinguish between necessary and unnecessary moves, and depending on how that contrast is resolved, we will likely have to further refine this condition.
+As a preliminary attempt to define necessity with respect to discourse moves, I use the notion of \textit{informativity} as defined by \textcite{buring1999topic}.
+\ex. Informativity: A move M ind discourse D is informative iff
+\a. M is an assertion and the common ground prior to M does neither entail $\llbracket\text{M}\rrbracket^o$ nor it's complement, or
+\b. M is a question and for at least some element p in $\llbracket\text{M}\rrbracket^o$, the common ground prior to M does neither entail p nor p's complement.
+\z.
+
+Necessary moves, then, are uninformative moves.
+The QUD of figure \ref{fig:good-dtree} has the interpretation given below:
+\ex. $\llbracket\text{What is the history of GG?}\rrbracket^o =$\\
+$\left\{ \left\{ x | x \text{ is a figure in the history of GG} \right\}, \left\{ y | y \text{ is an event in the history of GG} \right\},\dots \right\}$
+
 
 
 \end{document}
