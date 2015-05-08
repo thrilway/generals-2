@@ -22,6 +22,10 @@
 \forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
 
 \begin{document}
+\begin{center}
+  {\large Follow-up from 28 April meeting}\\
+  Dan Milway\\
+\end{center}
 Consider the increasing acceptability of the following specificational clauses:
 \ex.
 \a.\label{ex:bad}\# A figure is Eric Lenneberg.
@@ -120,9 +124,15 @@ As a preliminary attempt to define necessity with respect to discourse moves, I 
 
 Necessary moves, then, are uninformative moves.
 The QUD of figure \ref{fig:good-dtree} has the interpretation given below:
-\ex. $\llbracket\text{What is the history of GG?}\rrbracket^o =$\\
+\ex.\label{qud-denote} $\llbracket\text{What is the history of GG?}\rrbracket^o =$\\
 $\left\{ \left\{ x | x \text{ is a figure in the history of GG} \right\}, \left\{ y | y \text{ is an event in the history of GG} \right\},\dots \right\}$
 
+The QUD, and therefore the common ground, then entails the question ``Who are the figures in the history of GG?'' which is therefore, uninformative.
+\ex.\label{subq-denote} $\llbracket\text{Who are the figures in the history of GG?}\rrbracket^o =$\\
+$\left\{ x | x \text{ is a figure in the history of GG} \right\} \in $\ref{qud-denote}
 
+The unnecessary move, ``Who is an underrated figure in the history of GG?'', imposes a partition on the extension of \ref{subq-denote} which is not entailed by the common ground and is therefore informative.
+\ex.\label{ct-denote} $\llbracket\text{Who is an underrated figure in the history of GG?}\rrbracket^o =$\\
+$\left\{ x | x \text{ is a figure in the history of GG} \wedge x \text{ is underrated} \right\}$
 
 \end{document}
