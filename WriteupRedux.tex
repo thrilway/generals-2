@@ -1,0 +1,145 @@
+%        File: WriteupRedux.tex
+%     Created: Fri May 15 04:00 PM 2015 E
+% Last Change: Fri May 15 04:00 PM 2015 E
+%
+% arara: pdflatex
+% arara: bibtex
+% arara: pdflatex
+% arara: pdflatex
+\documentclass[letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=bibtex]{biblatex}
+
+
+\usepackage[]{amsmath}
+\usepackage{stmaryrd}
+
+\usepackage{linguex}
+
+\bibliography{GP2}
+
+\usepackage{forest}
+\forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
+
+\begin{document}
+
+Consider the increasing acceptability of the following specificational clauses:
+\ex.
+\a.\label{ex:bad}\# A figure is Eric Lenneberg.
+\b.\label{ex:so-so}\#? A figure in the history of Generative Grammar is Eric Lenneberg.
+\b.\label{ex:good} An underrated figure in the history of Generative Grammar is Eric Lenneberg.
+\z.
+
+What properties of the indefinite DP in \ref{ex:good} makes it an acceptable subject?
+It is not being interpreted as a definite description, as it lacks a presupposition of uniqueness.
+\ex.
+\a. An underrated figure in the history of Generative Grammar is Eric Lenneberg.\\
+Another one is Tanya Reinhart.
+\b. The most underrated figure in the history of Generative Grammar is Eric Lenneberg.\\
+\#Another one is Tanya Reinhart.
+
+As \textcite{mikkelsen2004specifying} argues, specificational subjects are interpreted as topics, so whatever makes the indefinite in \ref{ex:good} a good topic is what allows it to be a subject.
+Following \textcite{buring1999topic,roberts2012information}, I treat the notions of topic and focus in relation to questions under discussion, formalized as discourse trees.
+In a given discourse, the QUD is the root node, and foci of assertions are terminal nodes.
+\begin{figure}[h]
+  \centering
+  \begin{forest}
+    tree defaults
+    [QUD 
+      [SubQ1
+	[SubSubQ1
+	  [Ans1]
+	  [Ans2]
+	  [Ans3]
+	]
+	[SubSubQ2
+	  [Ans4]
+	  [Ans5]
+	]
+      ]
+      [SubQ23
+	[Ans6]
+	[Ans7]
+	[Ans8]
+      ]
+    ]
+  \end{forest}
+  \caption{A sample discourse tree}
+  \label{fig:dtree}
+\end{figure}
+
+I propose that in order for an indefinite DP to serve as the subject of a specificational clause, it must have as a constituent, a \textit{contrastive topic} (CT).
+Consider the licit clause in \ref{ex:good}.
+The modifier, \textit{underrated}, expresses the CT, while the remainder of the DP expresses the QUD.
+\ex. An (underrated)$_\text{CT}$(figure in the history of Generative Grammar)$_\text{QUD}$
+
+The sentence in \ref{ex:so-so} is marginal because the subject has no constituent that can express a CT.
+To show why this is consider the most likely division between CT and QUD for \ref{ex:so-so} below.
+\ex.\# A (figure)$_\text{CT}$(in the history of Generative Grammar)$_\text{QUD}$
+
+Why is \textit{figure} not a licit CT, while \textit{underrated} is?
+I propose that for a constituent to be a CT it must carry an implication that its opposite could be a a CT.
+\textcite{buring1999topic} gives a  CT-value formation algorithm, reproduced below, which can demonstrate the contrast between \textit{figure} and \textit{underrated}.
+\ex. CT-value formation:\\
+\begin{tabular}[t]{lp{0.6\textwidth}}
+  Step 1: & Replace the focus with a \textit{wh}-word and front the latter\\
+  Step 2: & Form a set of questions from the result of step 1 by replacing the contrastive topic with some alternative to it.
+\end{tabular}
+
+To demonstrate, consider the application of CT-value formation on \ref{ex:good}.
+\ex. CT-value formation:\\
+\begin{tabular}[t]{ll}
+  Step 1: & Who is an underrated figure in the history of GG?\\
+  Step 2: & Who is an underrated figure in the history of GG?\\
+  & Who is an accurately rated figure in the history of GG?\\
+  & Who is an overrated figure in the history of GG?\\
+\end{tabular}
+
+Compare this to the output of CT-value formation on \ref{ex:so-so}.
+\ex. CT-value formation:\\
+\begin{tabular}[t]{ll}
+  Step 1: & Who is a figure in the history of GG?\\
+  Step 2: & Who is a figure in the history of GG?\\
+  & \# Who is an event in the history of GG?\\
+  & \# Who is a circumstance in the history of GG?\\
+  & \ldots
+\end{tabular}
+
+Note that the alternatives given by the algorithm are ill-formed questions due to the mismatch between the \textit{wh}-word and the object of the predicate.
+The failure of the algorithm to generate any alternative CTs, makes \textit{figure} unsuited to be a CT.
+The CT-values for \ref{ex:so-so} and \ref{ex:good} can be expressed as trees as below:
+\ex. $\llbracket\ref{ex:so-so}\rrbracket^{CT}$\\
+\begin{forest}
+  tree defaults
+  [What is the history of GG?
+    [Who is a figure in the history of GG?
+      [Eric Lenneberg]
+      [Noam Chomsky]
+      [Morris Halle]
+      [\ldots]
+    ]
+  ]
+\end{forest}
+
+\ex. $\llbracket\ref{ex:good}\rrbracket^{CT}$\\
+\begin{forest}
+  tree defaults
+  [Who is a figure in the history of GG?
+    [Who is an underrated figure?
+      [Eric Lenneberg]
+      [Tanya Reinhart]
+      [\ldots]
+    ]
+    [Who is an accurately rated figure?
+      [Noam Chomsky]
+      [Morris Halle]
+      [\ldots]
+    ]
+    [\ldots]
+  ]
+\end{forest}
+
+\end{document}
+
+
