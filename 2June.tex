@@ -39,8 +39,68 @@ B: The \textsc{female} pop-stars wore \textsc{caftans}.\\
 A: \# But, What did the pop-stars wear?
 
 \begin{itemize}
-	\item 
-\end{itemize}<++>
+	\item Roberts models QUD as a stack.
+	  \begin{itemize}
+	    \item Q's are pushed in when they are asked.
+	    \item Q's are popped off when they are answered or determined to be unanswerable.
+	  \end{itemize}
+	\item How to CTs work?
+\end{itemize}
+\ex. 
+	\a. Ingredients:
+		\a. \textit{q} = What did the pop-stars wear?
+		\b. \textit{sq1} = What did the female pop-stars wear?
+		\c. \textit{sq2} = What did the male pop-stars wear?
+		\d. \textit{sq3} = What did the non-female pop-stars wear?
+		\z.
+	\b. \textit{m} =\\
+	$\llbracket$The \textsc{female} pop-stars wore \textsc{caftans}$\rrbracket^{CT}=$ 
+		\a. push$_{QUD}$(\textit{sq1}) \hfill (by CT implication)
+		\b. pop$_{QUD}$(\textit{sq1}) \hfill (ans(\textit{sq1}) = caftans)
+		\c. END\\
+		\textit{or}\\
+		push$_{QUD}$(\textit{sq2})\\
+		\textit{or}\\
+		push$_{QUD}$(\textit{sq3})
+		\z.
+	\z.
+
+\begin{itemize}
+  \item B\"uring (2014) proposes conditions on CTs:
+\end{itemize}
+\ex. CT-Interpretation Rule (CIR):\\
+For a sentence S$^\text{CT+F}$ to be felicitous, there must be at least one question meaning in S$^\text{CT+F}$’s CT-value which is
+\a. currently pertinent,
+\b. logically independent of the ordinary interpretation of S
+\c. identifiable.
+\z.
+
+\begin{itemize}
+  \item Pertinence seems to require that questions be answerable.
+  \item Independence seems to require a non-singleton set of questions.
+  \item Identifiability seems to require the set of questions be finite or closed.
+\end{itemize}
+\ex.When are you guys' birthdays?
+\a. \textsc{Marcy}$_\text{CT}$’s birthday is on the 12th of \textsc{September}$_\text{F}$, and \dots
+\b. \# On the 12th of \textsc{September}$_\text{CT}$, it's \textsc{Marcy}$_\text{F}$'s birthday, and \dots \hfill *Identifiability
+\z.
+
+\begin{itemize}
+  \item Given a contextually determined set of addressees we can identify an answerable question \textit{When is x's birthday?} but not \textit{who's birthday is on d?} where \textit{x} is an individual and \textit{d} is a date.
+  \item The sentences in \ref{bad} seem to fail here. We cannot identify an answerable question \textit{Who is a y?}
+  \item Consider:
+\end{itemize}
+\ex.
+\a. \# A red wine is merlot.
+\b. \# A stout is Guinness.
+\z.
+
+\begin{itemize}
+  \item Surely any person familiar with wine or beer can identify an answerable alternative in the CT interpretation of these.
+  \item The relations between red and white wine, stout and lager, and doctors and lawyers are certainly different from those between you and me, John and Mary, and a lager I like and one I don't.
+
+\end{itemize}
+
 \end{document}
 
 

@@ -1,0 +1,57 @@
+%        File: binary-branching-dtree.tex
+%     Created: Thu Jun 04 10:00 AM 2015 E
+% Last Change: Thu Jun 04 10:00 AM 2015 E
+%
+% arara: pdflatex
+% arara: bibtex
+% arara: pdflatex
+% arara: pdflatex
+\documentclass[letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=bibtex,style=authoryear]{biblatex}
+
+\usepackage[]{amsmath}
+\usepackage{stmaryrd}
+
+\usepackage{linguex}
+
+\bibliography{GP2}
+
+\usepackage{forest}
+\forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
+
+\begin{document}
+The goal of a discourse is to identify the actual situation, and situations are identified by the propositions which are true in them.
+I assume, following \textcite{buring1999topic}, that discourse is best modelled as a tree with non-terminal nodes representing questions and terminal nodes representing answers.
+
+A binary branching discourse tree would work as follows.
+Each question represents a strict partition of it's domain.
+For instance the question \textit{What did the pop-stars wear?} partitions the domain of wearable things into \textit{things the pop-stars wore} and its complement \textit{things the pop-stars didn't wear}.
+An answer of \textit{sunglasses} would partition the former subdomain into the singleton set containing \textit{sunglasses} and its complement \textit{other things the pop-stars wore}.
+
+To see what this system rules out, consider the following scenario.
+The domain of individuals is $\left\{ \text{Emily, Arsalan, Paula} \right\}$
+
+
+Consider the increasing acceptability of the following specificational clauses:
+\ex.
+\a.\label{ex:bad}\# A figure is Eric Lenneberg.
+\b.\label{ex:so-so}\#? A figure in the history of Generative Grammar is Eric Lenneberg.
+\b.\label{ex:good} An underrated figure in the history of Generative Grammar is Eric Lenneberg.
+\z.
+
+\begin{forest}
+  tree defaults
+  [Who's a misrated figure in GG?
+    [Who's an underrated figure in GG?
+      [Eric Lenneberg]
+      [Who else?]
+    ]
+    [Who's an overrated figure in GG?]
+  ]
+\end{forest}
+
+\end{document}
+
+
