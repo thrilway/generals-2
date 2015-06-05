@@ -30,9 +30,45 @@ Each question represents a strict partition of it's domain.
 For instance the question \textit{What did the pop-stars wear?} partitions the domain of wearable things into \textit{things the pop-stars wore} and its complement \textit{things the pop-stars didn't wear}.
 An answer of \textit{sunglasses} would partition the former subdomain into the singleton set containing \textit{sunglasses} and its complement \textit{other things the pop-stars wore}.
 
-To see what this system rules out, consider the following scenario.
-The domain of individuals is $\left\{ \text{Emily, Arsalan, Paula} \right\}$
+To see what this system rules out, consider the following scenario:
+\ex. $
+\begin{array}[t]{lll}
+  D & = & \left\{ \text{Emily, Arsalan, Paula} \right\}\\
+  Lawyers & = &\left\{ \text{Emily, Arsalan} \right\}\\
+  Doctors & = &\left\{ \text{Arsalan, Paula} \right\}
+\end{array}
+$
 
+In a dicourse about this scenario we could ask the question \textit{Who is a doctor?}, which could, intuitively, denote two possible partitions.
+One that partitions the domain  into sets of individuals who are doctors and those who are not, and another that partitions the domain into sets of individuals who are doctors and those who have a non-doctor profession (\textit{i.e.}, lawyers).
+\ex. $\left\{x \in D | x \text{ is a doctor} \right\}^\prime =$
+\a.\label{good-partition} $\left\{ x \in D | x \text{ isn't a doctor} \right\} =$\\
+$\left\{ \text{Emily} \right\}$\\
+\textsc{or}
+\b.\label{bad-partition} $\left\{ x \in D | x \text{ is a non-doctor} \right\} =$\\
+$\left\{ \text{Emily, Arsalan} \right\}$
+
+\ex.
+\a. 
+\begin{forest}
+  tree defaults
+  [Who is a doctor?
+    [$\left\{ \text{Arsalan, Paula} \right\}$]
+    [Who isn't a doctor?]
+  ]
+\end{forest}
+\b.
+\begin{forest}
+  tree defaults
+  [Who is a doctor?
+    [$\left\{ \text{Arsalan, Paula} \right\}$]
+    [Who is a non-doctor?]
+  ]
+\end{forest}
+
+Under a binary branching model of discourse, \ref{good-partition} is a possible partition ($X \cap X^\prime = \emptyset$) , while \ref{bad-partition} is not ($X \cap X^\prime \neq \emptyset$)
+
+Given the CT interpretation algorithm, the binary branching requirement on D-Trees, and the proposal that SSs are CTs, we can explain the deviance of the utterance \textit{a doctor is John}.
 
 Consider the increasing acceptability of the following specificational clauses:
 \ex.
