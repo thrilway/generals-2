@@ -22,9 +22,13 @@
 \forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
 
 \begin{document}
-The goal of a discourse is to identify the actual situation, and situations are identified by the propositions which are true in them.
-I assume, following \textcite{buring1999topic}, that discourse is best modelled as a tree with non-terminal nodes representing questions and terminal nodes representing answers.
+\section{Restricted contrast}
+The semantic content of licit specificational clauses can be divided into contrastive and presupposed (in the pragmatic sense) content.
+Contrastive content can be further divided into Focus (F) and  Contrastive Topic (CT) each of which encodes information not previously part of the common ground.
+The presupposed content is part of the common ground that defines the bounds of contrast encoded by F and CT.
+Consider the specificational clauses below,
 
+\section{Binary Branching D-Trees}
 A binary branching discourse tree would work as follows.
 Each question represents a strict partition of it's domain.
 For instance the question \textit{What did the pop-stars wear?} partitions the domain of wearable things into \textit{things the pop-stars wore} and its complement \textit{things the pop-stars didn't wear}.
@@ -90,24 +94,6 @@ Converting this CT interpretation into binary branching structure, yields a bran
 
 As we saw above in \ref{bad-partition}, the top node in this tree does not represent a proper partition, and as such is ill-formed.
 
-
-Consider the increasing acceptability of the following specificational clauses:
-\ex.
-\a.\label{ex:bad}\# A figure is Eric Lenneberg.
-\b.\label{ex:so-so}\#? A figure in the history of Generative Grammar is Eric Lenneberg.
-\b.\label{ex:good} An underrated figure in the history of Generative Grammar is Eric Lenneberg.
-\z.
-
-\begin{forest}
-  tree defaults
-  [Who's a misrated figure in GG?
-    [Who's an underrated figure in GG?
-      [Eric Lenneberg]
-      [Who else?]
-    ]
-    [Who's an overrated figure in GG?]
-  ]
-\end{forest}
 
 \end{document}
 
