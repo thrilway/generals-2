@@ -69,6 +69,27 @@ $\left\{ \text{Emily, Arsalan} \right\}$
 Under a binary branching model of discourse, \ref{good-partition} is a possible partition ($X \cap X^\prime = \emptyset$) , while \ref{bad-partition} is not ($X \cap X^\prime \neq \emptyset$)
 
 Given the CT interpretation algorithm, the binary branching requirement on D-Trees, and the proposal that SSs are CTs, we can explain the deviance of the utterance \textit{a doctor is John}.
+First, the CT interpretation of the offending clause is given below.
+\ex. $\llbracket \text{a doctor is John}\rrbracket^{CT} =$\\
+$\left\{ \left\{ P(x) | x \in D_e \right\} P \in D_{et} \right\}$\\
+$\approx$ Who is what?
+
+Converting this CT interpretation into binary branching structure, yields a branching node corresponding to the focus interpretation (\textit{Who is a doctor}), and a higher node dividing the the domain of individuals into doctors and non-doctors.
+\ex.
+\begin{forest}
+  tree defaults
+  [Who is what?
+    [Who is a doctor?
+      [John]
+      [Who else?]
+    ]
+    [Who is a non-doctor?
+    ]
+  ]
+\end{forest}
+
+As we saw above in \ref{bad-partition}, the top node in this tree does not represent a proper partition, and as such is ill-formed.
+
 
 Consider the increasing acceptability of the following specificational clauses:
 \ex.
