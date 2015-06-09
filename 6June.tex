@@ -1,0 +1,149 @@
+%        File: 6June.tex
+%     Created: Tue Jun 09 09:00 AM 2015 E
+% Last Change: Tue Jun 09 09:00 AM 2015 E
+%
+% arara: pdflatex
+% arara: bibtex
+% arara: pdflatex
+% arara: pdflatex
+
+\documentclass[letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=bibtex,style=authoryear]{biblatex}
+
+\usepackage[]{amsmath}
+\usepackage{stmaryrd}
+
+\usepackage{linguex}
+
+\bibliography{GP2}
+
+\usepackage{forest}
+\forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
+
+\forestset{en/.style={parent anchor=center, child anchor=center}}
+\forestset{em/.style={parent anchor=north west, child anchor=north west}}
+
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{itemize}
+  \item Discourse is binary branching.
+  \item Each move introduces a partition of the domain of discourse.
+\end{itemize}
+\ex.
+\a. A. What did the musicians wear?\\
+B. The musicians wore sunglasses?
+\b. 
+\begin{forest}
+  tree defaults
+  [tell me about the musicians.
+    [What did the musicians wear?
+      [Sunglasses]
+      [What else?]
+    ]
+    [What didn't the musicians wear?]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item This model of discourse can rule out the minimal indefinite SSs (\#\textit{a doctor is John})
+\end{itemize}
+
+\ex. $
+\begin{array}[t]{lll}
+  D & = & \left\{ \text{Emily, Arsalan, Paula} \right\}\\
+  Lawyers & = &\left\{ \text{Emily, Arsalan} \right\}\\
+  Doctors & = &\left\{ \text{Arsalan, Paula} \right\}
+\end{array}
+$
+
+\ex. $\left\{x \in D | x \text{ is a doctor} \right\}^\prime =$
+\a.\label{good-partition} $\left\{ x \in D | x \text{ isn't a doctor} \right\} =$\\
+$\left\{ \text{Emily} \right\}$\\
+\textsc{or}
+\b.\label{bad-partition} $\left\{ x \in D | x \text{ is a non-doctor} \right\} =$\\
+$\left\{ \text{Emily, Arsalan} \right\}$
+
+\ex.
+\a. 
+\begin{forest}
+  tree defaults
+  [Who is a doctor?
+    [$\left\{ \text{Arsalan, Paula} \right\}$]
+    [Who isn't a doctor?]
+  ]
+\end{forest}
+\b.
+\begin{forest}
+  tree defaults
+  [Who is a doctor?
+    [$\left\{ \text{Arsalan, Paula} \right\}$]
+    [Who is a non-doctor?]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item The alternative in \ref{bad-partition} is not a proper partition.
+  \item It is the only ``partition'' available for \textit{a doctor is John}  
+  \item CT and Focus are associated with syntactic constituents.
+    \begin{itemize}
+      \item \textit{is a doctor} is a constituent.
+      \item \textit{A doctor is} is not.
+    \end{itemize}
+\end{itemize}
+\ex.
+\begin{forest}
+  tree defaults
+  [,en
+    [,en,tikz={\node [draw,fit to tree] {};},en
+      [A]
+      [doctor]
+    ]
+    [,en
+      [is]
+	[John,draw]
+      ]
+    ] 
+\end{forest}
+
+\begin{itemize}
+  \item minimal indefinite SSs cannot have a CT constituent that will give us a proper partition.
+\end{itemize}
+\clearpage
+{\Large\textbf{Outline:}}
+
+\textbf{Background}
+\begin{itemize}
+  \item Specificational Clauses
+    \begin{itemize}
+      \item \textcite{higgins1973pseudo}
+      \item \textcite{mikkelsen2004specifying}
+      \item \textcite{heycock2012specification}
+    \end{itemize}
+  \item Discourse
+    \begin{itemize}
+      \item \textcite{roberts2012information}
+      \item \textcite{buring2003d,buringforthcomingtopic}
+    \end{itemize}
+  \item Indefinites
+    \begin{itemize}
+      \item \textcite{diesing1992indefinites}
+      \item \textcite{Heim2011definiteness}
+      \item \textcite{fodorsag1982referential}
+      \item others
+    \end{itemize}
+\end{itemize}
+\textbf{The Paper}
+\begin{itemize}
+  \item SSs as CTs
+    \begin{itemize}
+      \item Exclusion of wide-scope/referential indefinites.
+    \end{itemize}
+  \item Discourse model
+  \item \dots
+\end{itemize}
+
+\end{document}
+
+
