@@ -23,6 +23,42 @@
 \forestset{em/.style={parent anchor=north west, child anchor=north west}}
 
 \usetikzlibrary{positioning}
+\DeclareNameFormat{labelname:poss}{% Based on labelname from biblatex.def
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:last}{#1}{#3}{#5}{#7}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:first-last}{#1}{#4}{#5}{#8}}
+      {\usebibmacro{name:first-last}{#1}{#4}{#6}{#8}}%
+  \or
+    \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
+  \fi
+  \usebibmacro{name:andothers}%
+  \ifnumequal{\value{listcount}}{\value{liststop}}{'s}{}}
+
+\DeclareFieldFormat{shorthand:poss}{%
+  \ifnameundef{labelname}{#1's}{#1}}
+
+\DeclareFieldFormat{citetitle:poss}{\mkbibemph{#1}'s}
+
+\DeclareFieldFormat{label:poss}{#1's}
+
+\newrobustcmd*{\posscitealias}{%
+  \AtNextCite{%
+    \DeclareNameAlias{labelname}{labelname:poss}%
+    \DeclareFieldAlias{shorthand}{shorthand:poss}%
+    \DeclareFieldAlias{citetitle}{citetitle:poss}%
+    \DeclareFieldAlias{label}{label:poss}}}
+
+\newrobustcmd*{\posscite}{%
+  \posscitealias%
+  \textcite}
+
+\newrobustcmd*{\Posscite}{\bibsentence\posscite}
+
+\newrobustcmd*{\posscites}{%
+  \posscitealias%
+  \textcites}
 
 \bibliography{GP2}
 
@@ -33,8 +69,10 @@
 \begin{document}
 \maketitle
 \section{Introduction}
+This paper is concerned with specificational copular clauses (SCs), and specifically those SCs with indefinite subjects.
+For the purposes of this paper, I will adopt \posscite{mikkelsen2004specifying} characterization, according to which SCs are those copular clauses with a predicational (type $\langle e,t\rangle$) precopular DP and a referential (type $e$) postcopular DP.
 
-
+\printbibliography
 \end{document}
 
 
