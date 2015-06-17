@@ -1,0 +1,33 @@
+%        File: GPFinal.tex
+%     Created: Wed Jun 17 01:00 PM 2015 E
+% Last Change: Wed Jun 17 01:00 PM 2015 E
+%
+% arara: pdflatex
+% arara: bibtex
+% arara: pdflatex
+% arara: pdflatex
+\documentclass[letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=bibtex,style=authoryear]{biblatex}
+
+\usepackage{linguex}
+
+\usepackage{stmaryrd}
+\usepackage[]{amsmath}
+\usepackage{forest}
+
+\forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
+
+\forestset{en/.style={parent anchor=center, child anchor=center}}
+\forestset{em/.style={parent anchor=north west, child anchor=north west}}
+
+\usetikzlibrary{positioning}
+
+\bibliography{GP2}
+
+\begin{document}
+
+\end{document}
+
+
