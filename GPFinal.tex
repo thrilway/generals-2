@@ -2,10 +2,10 @@
 %     Created: Wed Jun 17 01:00 PM 2015 E
 % Last Change: Wed Jun 17 01:00 PM 2015 E
 %
-% arara: pdflatex
+% arara: pdflatex: {options: "-draftmode"}
 % arara: bibtex
-% arara: pdflatex
-% arara: pdflatex
+% arara: pdflatex: {options: "-draftmode"}
+% arara: pdflatex: {options: "-file-line-error-style"}
 \documentclass[letterpaper]{article}
 
 \usepackage[margin=1in]{geometry}
@@ -71,6 +71,19 @@
 \section{Introduction}
 This paper is concerned with specificational copular clauses (SCs), and specifically those SCs with indefinite subjects.
 For the purposes of this paper, I will adopt \posscite{mikkelsen2004specifying} characterization, according to which SCs are those copular clauses with a predicational (type $\langle e,t\rangle$) precopular DP and a referential (type $e$) postcopular DP.
+As was observed by \textcite{higgins1973pseudo}, there  seems to be a constraint on indefinites as subjects of SCs.
+Consider the following\footnote{
+	A note on natural language examples:
+	Reported judgements are not intended to imply any sort of analysis.
+	Strings marked with * are judged unacceptable (not necessarily ungrammatical).
+	Those marked with \# are judged unacceptable/unnatural in a given context.
+}.
+\ex.
+\a.* A doctor is Derek.
+\b.* A friend of mine is Ruth.
+\c.* A professor is Will. 
+
+
 
 \printbibliography
 \end{document}
