@@ -15,6 +15,7 @@
 
 \usepackage{stmaryrd}
 \usepackage[]{amsmath}
+\usepackage{amsfonts}
 \usepackage{forest}
 
 \forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
@@ -95,7 +96,7 @@ Since indefinites are usually predicational, they should have the proper type to
 Mikkelsen suggests a pragmatic account of the constraint.
 She notes that, in general, SC subjects are Topics in the Discourse-old sense, and argues that indefinites are by their very nature Discourse-new.
 This approach faces two problems, one empirical and one conceptual.
-The empirical problem, which Mikkelsen herself acknowledges, is that no amount of discourse can render the strings in \ref{bad-scs} acceptable.
+The empirical problem, which Mikkelsen herself acknowledges, is that no amount of discourse can render the strings in \ref{ex:badSCs} acceptable.
 \ex. Bill is a doctor. *A doctor is John (too). \hfill \parencite[Adapted from][p. 236]{mikkelsen2004specifying}
 
 The conceptual issue has to do with defining topic in terms of discourse age, as the terms discourse-old and -new are far too vague to provide the basis of an analysis.
@@ -115,6 +116,20 @@ After this I will address an apparent class of counterexamples.
 Since these theories are crucial to the understanding of B\"uring's theory of CTs, I will outline them before outlining and modifying B\"uring's theory.
 
 \subsection{Alternative Semantics}
+The main claims of an alternative semantics analysis of focus are that (a) in addition to the literal interpretation of a given utterance ($\llbracket \cdot \rrbracket^\mathcal{O}$), there is also a \textit{focus} interpretation ($\llbracket \cdot \rrbracket^f$), (b) the focus interpretation of an utterance is a set of alternative literal interpretations, and (c) those alternative interpretations are derived by replacing the value of the utterance's focused element with a variable.
+
+Consider the alternative semantics analysis of the sentence below.
+\ex.\label{ex:basicfocus} [Mary]$_F$ answered Sue
+
+To derive the focus interpretation of this sentence, we compute the literal interpretation, and replace the portion of that interpretation that corresponds to the focused element with a variable.
+\ex.
+\a. $\llbracket \text{\ref{ex:basicfocus}}\rrbracket^\mathcal{O} = [answered(\textbf{m,s})]$
+\b. $\llbracket \text{\ref{ex:basicfocus}}\rrbracket^f = \left\{ x | answered(x,\textbf{s}) \right\}$
+
+\subsection{Information Structure}
+
+\subsection{Discourse Trees and Contrastive Topics}
+\textcite{buring2003d} presents \posscite{roberts2012information} formalization of discourse as a tree structure with non-terminal nodes representing questions and terminal nodes representing (partial) answers.
 
 \printbibliography
 \end{document}
