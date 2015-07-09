@@ -198,13 +198,76 @@ SC subjects, then, seem to require a tripartite structure commonly assumed for q
   ]
 \end{forest}
 
+To demonstrate that the SC subject, rather than the SC as a whole, is a quantificational domain, compare the distribution of frequency modifiers in predicational vs specificational clauses.
+\ex.
+\a. Frequently, Lyle is a murder suspect.
+\b. Lyle is frequently a murder suspect.
+\b. Lyle is a frequent murder suspect.
+
+\ex.
+\a.*? Frequently, a [murder]$_{CT}$ suspect is Lyle.
+\b.*? A [murder]$_{CT}$ suspect is frequently Lyle.
+\b. A frequent [murder]$_{CT}$ suspect is Lyle.
+
+If we assume, following \textcite{fintel2004minimal}, that these modifiers quantify over situations, then the data above suggests that the SC subject introduces a situation variable that is unavailable to external quantification.
+\subsubsection{Problems}
+\begin{itemize}
+  \item The quantifier cannot bind \textit{e}-type variables, as they must be available for DP2 to saturate.
+    Quantifier must be selective (binds situations, degrees, etc).
+  \item Formalize!
+\end{itemize}
 
 \subsection{A partitioning discourse analysis}
 Another way to analyze the restriction of SC subjects is as arising from well-formedness constraints on discourse trees.
 Suppose we consider a discourse as the process of making successive partitions of its domain of individuals.
 A given assertion about an individual $x$ or a set of individuals, $X$, introduces a set of alternatives which is divided into $x$ and the domain minus $x$ or $X$ and it's complement.
 Crucially $x$ or the members of $X$  cannot be in two sets at once.
+\ex. \textbf{The Partition requirement on discourse}\\
+In a given discourse, every move must partition the domain of discourse.
 
+To see how this analysis works, consider \ref{ex:BadSCs} and \ref{ex:GoodSCs} again.
+The discourse tree for \textit{A doctor is Derek} is given below.
+\ex. 
+\begin{forest}
+  tree defaults
+  [Who is what?
+    [Who is a doctor?
+      [Derek]
+      [$\beta$]
+    ]
+    [$\alpha$]
+  ]
+\end{forest}
+
+Suppose, however, that Derek is also a lawyer, this would mean that the split between \textit{Who is a doctor} and $\alpha$ does not partition the domain of individuals as Derek is ultimately a member of both.
+
+\ex.
+\begin{forest}
+  tree defaults
+  [Who is what?
+    [Who is a doctor?
+      [Derek]
+      [\dots]
+    ]
+    [Who is a lawyer?
+      [Derek]
+      [\dots]
+    ]
+  ]
+\end{forest}
+
+The addition of the CT \textit{newly-minted} makes the SC licit because an individual cannot be in the set of newly-minted doctors and non newly-minted doctors.
+
+For a concrete example of the partition requirement in action, consider the examples below.
+\ex. A: A [Guitarist]$_{CT}$ in the Beatles is John,\\
+B: \# and a [Vocalist]$_{CT}$ (in the Beatles) is John (too).
+
+\subsubsection{Problems}
+\begin{itemize}
+  \item The unacceptability of the SCs in \ref{ex:BadSCs} is context-independant. 
+    A discourse-pragmatic account doesn't seem to be the right fit.
+  \item Seems to make the wrong predictions for definite SC subjects (mentioned in my previous email)
+\end{itemize}
 \subsection{An apparent counterexample}
 There is a class of indefinites which, despite not having a CT-marked constituent, appear to be licit SC subjects.
 Consider a  representative example, given below.
