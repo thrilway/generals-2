@@ -3,13 +3,13 @@
 % Last Change: Wed Jun 17 01:00 PM 2015 E
 %
 % arara: pdflatex: {options: "-draftmode"}
-% arara: bibtex
+% arara: biber
 % arara: pdflatex: {options: "-draftmode"}
 % arara: pdflatex: {options: "-file-line-error-style"}
 \documentclass[letterpaper]{article}
 
 \usepackage[margin=1in]{geometry}
-\usepackage[backend=bibtex,style=authoryear]{biblatex}
+\usepackage[style=authoryear,useprefix=true]{biblatex}
 
 \usepackage{linguex}
 
@@ -207,7 +207,7 @@ Eliding the adjective in the SC subject in \ref{ex:BadSCElipsis} is disallowed f
 *A man is John.(=A tall man is John)
 
 \ex.\label{ex:BadPCElipsis} Josie is a tall woman.\\
-*John is a man. (=John is a tall man)
+\# John is a man. (=John is a tall man)
 
 If the restrictive material is in the form of a relative clause, that material can be elided giving us what appears to be a simple indefinite SC subject.
 \ex.\label{ex:GoodSCElipsis}A band I want to see live is Metz.\\
@@ -224,6 +224,9 @@ This type of restriction is not available for nouns which denote capacities (suc
 \a.* In Toronto, a doctor is Pat.
 \b.* In the group of surrealists, a Catholic is Dal\'i.
 
+\Textcite{swart2007bare} argues that the capacities are individuals (type $e$) that are sortally distinct from kinds \parencite{carlson1977reference} and the two sorts are coverted to predicates (type $\langle e,t\rangle$) by distinct operators (\textsc{Cap} and \textsc{Rel}, respectively).
+I propose that, while \textsc{Rel}$(x)$ introduces a contextual variable, \textsc{Cap}$(x)$ does not.
+This distinction is important if we assume, following \textcite{fintel2004minimal}, that quantifier restrictors are anaphoric
 
 To demonstrate that the SC subject, rather than the SC as a whole, is a quantificational domain, compare the distribution of frequency modifiers in predicational vs specificational clauses.
 \ex.
