@@ -1,0 +1,57 @@
+%        File: Excursus.tex
+%     Created: Thu Sep 10 03:00 PM 2015 E
+% Last Change: Thu Sep 10 03:00 PM 2015 E
+%
+% arara: pdflatex: {options: "-draftmode"}
+% arara: biber
+% arara: pdflatex: {options: "-draftmode"}
+% arara: pdflatex: {options: "-file-line-error-style"}
+\documentclass[GPFinal]{subfiles}
+
+\begin{document}
+Assuming the analysis I have given for the indefinite restriction, it is worth asking how this fits into the general cognitive architecture.
+
+\textcite{fodor2001mind} argues that cognitive processes come in two varieties: local and global.
+Local processes are computational in the sense that they can be carried out by a Turing MAachine.
+For a given local process, we can define a deterministic function from a structured symbolic input to some output.
+An example of a local process, is a derivation of a phrase marker, or the compositional interpretation of a phrase marker.
+These processes depend only of the the input's constituent symbols and their organization.
+
+Global processes, on the other hand, involve many factors external to their input.
+Take for example the interpretation of counterfactuals such as the classic example in \Next, below.
+\ex. If Nixon had pushed the button, there would have been a nuclear holocaust.\hfill <++>
+
+This is interpreted as meaning that the closest possible world to the actual world in which Nixon pushed the button is a world in which there is a nuclear holocaust.
+The selection of the \textit{closest} posible world depends not only on the semantic content of \Last but also on our general understanding of how the world works.
+
+So, are the processes at work in the indefinite restriction local or global?
+It is not immediately clear.
+There are certainly some processes which can be considered local, but other important processes seem to be global in nature.
+If we take the overall process that defines the indefinite restriction to be composed of several ordered subprocesses, we can see which are global and which are local.
+\ex. Assessing CT felicity\\
+Construct a d-tree $\rightarrow$ Populate d-tree $\rightarrow$ Assess d-tree well-formedness
+
+The first step in this process is to construct an appropriate d-tree based on the CT-F structure of an utterance.
+Since \textcite{buring2003d} already defines this process with a simple algorithm, we can safely classify it as a local process.
+The final step is also a local process, as it is only concerned with properties of the d-tree.
+The middle process, however, requires a great deal of encyclopedic and contextual knowledge which interacts in a complex way to generate the alternatives that populate the d-tree.
+
+\ex.
+\begin{tikzpicture}
+  \node[draw,cloud,aspect=1.5,minimum width = 5cm] (knowledge) at (0,2) {Knowledge};
+  \node[draw,rectangle,rounded corners] (population) at (0,0) {Populate d-tree};
+  \node[draw,rectangle,rounded corners] (construct) at (-4,0) {Construct d-tree};
+  \node[draw,rectangle,rounded corners] (assess) at (4,0) {Assess d-tree};
+  \node (input) at (-7.5,0) {Input from $\llbracket\cdot\rrbracket^{CT}$};
+  \node (output) at (6.5,0) {Output};
+  \draw[->,thick] (knowledge.south west) arc[start angle=180,end angle=360,y radius=0.9cm,x radius=1.75cm];
+  \draw[->,thick] (input.east)--(construct.west);
+  \draw[->,thick] (construct.east)--(population.west);
+  \draw[->,thick] (population.east) -- (assess.west);
+  \draw[->,thick] (assess.east) -- (output.west); 
+\end{tikzpicture}
+
+
+\end{document}
+
+

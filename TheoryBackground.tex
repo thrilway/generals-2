@@ -26,21 +26,81 @@ This relation between focus interpretation and question interpretation is key to
 
 \textcite{roberts2012information} models discourse as a cooperative game, following \textcite{lewis1979scorekeeping}, the goal of which is to answer the \textit{questions under discussion} (QUDs).
 Utterences are represented as moves, with questions being setup moves and assertions being payoff moves.
+At a given point in the discourse there is a QUD, and discourse proceeds either by answering that QUD or by asking a subquestion (\textit{i.e.} one whose answer is a partial answer to the QUD), which becomes the new QUD.
+Roberts models the QUDs as a stack which new subquestions are pushed into and questions are popped off of upon being answered
+So, a move is considered relevant based on the question at the top of the QUD stack.
 
-\ex. Who ate what?
-	\a. What did Hilary eat?
-		\a.\label{ex:HilaryBagels} Did Hilary eat bagels\\
-		Ans\ref{ex:HilaryBagels} = yes
-		\b.\label{ex:HilaryTofu} Did Hilary eat tofu\\
-		Ans\ref{ex:HilaryTofu} = yes
+\ex.[($\mathcal{D}_0$)] Who ate what?
+	\a.[\texttt{a}.] What did Hilary eat?
+		\a.[\texttt{i}.] Did Hilary eat bagels?\\
+		Ans(\texttt{a}$_\texttt{i}$) = yes
+		\b.[\texttt{ii}.]Did Hilary eat tofu?\\
+		Ans(\texttt{a}$_\texttt{ii}$) = no
 		\z.
-	\b. What did Robin eat?
-		\a.\label{ex:RobinBagels} Did Robin eat bagels\\
-		Ans\ref{ex:RobinBagels} = yes
-		\b.\label{ex:RobinTofu} Did Robin eat tofu\\
-		Ans\ref{ex:RobinTofu} = yes
+	\b.[\texttt{b}.] What did Robin eat?
+		\a.[\texttt{i}.]Did Robin eat bagels?\\
+		Ans(\texttt{b}$_\texttt{i}$) = no
+		\b.[\texttt{ii}.]Did Robin eat tofu?\\
+		Ans(\texttt{b}$_\texttt{ii}$) = yes
 		\z.
 	\z.
+
+Note, that this discourse goes beyond the explicitness we see in natural speech.
+For example, when question (a) is asked, we don't require that (a$_\text{i}$) and (a$_\text{ii}$) are asked so that we may answer \textit{yes} or \textit{no}.
+Instead we can answer with an assertion that includes a focused constituent that matches the wh-word of the QUD.
+\ex. A: \texttt{a}/\#\texttt{b}\\
+B: Hilary ate [bagels]$_F$.
+
+To ensure that an assertion is used felicitously, Roberts exploits the fact that focus interpretations of assertions are of the same type as question interpretations.
+An assertion, like that in \Last is felicitous if its focus interpretation is equal to the interpretation of the QUD.
+\ex.
+\a.
+$\llbracket\text{Hilary ate [bagels]}_F.\rrbracket^f = 
+\begin{Bmatrix}
+  \text{Hilary ate bagels.}\\
+  \text{Hilary ate tofu.}
+\end{Bmatrix}
+$
+\b.
+$\llbracket\text{What did Hilary eat?}\rrbracket^\mathcal{O} =
+\begin{Bmatrix}
+  \text{Hilary ate bagels.}\\
+  \text{Hilary ate tofu.}
+\end{Bmatrix}
+$\hfill (=\Last[a])
+\b.
+$\llbracket\text{What did Robin eat?}\rrbracket^\mathcal{O} =
+\begin{Bmatrix}
+  \text{Robin ate bagels.}\\
+  \text{Robin ate tofu.}
+\end{Bmatrix}
+$\hfill ($\neq$\Last[a])
+
+
+\textcite{buring2003d} represents Roberts' structured discourses as \textit{d(iscourse)-trees}.
+The discourse $\mathcal{D}_0$, then is represented by the tree below.
+\ex.
+\begin{forest}
+  tree defaults
+  [question\\Who ate what?,for tree={align=center}
+    [subquestion\\\texttt{a}
+      [subsubquestion\\\texttt{a}$_\texttt{i}$
+	[Ans(\texttt{a}$_\texttt{i}$)]
+      ]
+      [subsubquestion\\\texttt{a}$_\texttt{ii}$
+	[Ans(\texttt{a}$_\texttt{ii}$)]
+      ]
+    ]
+    [subquestion\\\texttt{b}
+      [subsubquestion\\\texttt{b}$_\texttt{i}$
+	[Ans(\texttt{b}$_\texttt{i}$)]
+      ]
+      [subsubquestion\\\texttt{b}$_\texttt{ii}$
+	[Ans(\texttt{b}$_\texttt{ii}$)]
+      ]
+    ]
+  ]
+\end{forest}
 
 \end{document}
 
