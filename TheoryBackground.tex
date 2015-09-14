@@ -76,6 +76,22 @@ $\llbracket\text{What did Robin eat?}\rrbracket^\mathcal{O} =
 \end{Bmatrix}
 $\hfill ($\neq$\Last[a])
 
+Roberts goes on to address contrastive topics in much the same way as she treats focus.
+Structures with CT and focus are given focus interpretation, meaning they are interpreted as a set of alternatives under alternative semantics.
+An example of a CT-F utterance and its focus interpretation is given below in \Next.
+\ex.
+\a. [Hilary]$_{CT}$ ate [bagels]$_F$.
+\b. $\left\{ x\text{ ate }y | x,y \in D_e \right\}$
+
+This suggests that \Last[a] presupposes the question in \Last[b] (\textit{Who ate what?}), a proposal that Roberts shows does not hold up to further scrutiny.
+This hypothesis predicts that \Last[a] ought to have the same felicity conditions if its CT and F marking were reversed as in \Next below.
+\ex. 
+\a. [Hilary]$_F$ ate [bagels]$_{CT}$.
+\b. $\left\{ x\text{ ate }y | x,y \in D_e \right\}$
+
+Roberts suggests that, rather than only presupposing a QUD, CT-F structured utterances also presuppose ``a possibly complex strategy of questions.'' \parencite[][p.50]{roberts2012information}
+As Roberts acknowledges, this is a very preliminary account of the pragmatics of CT which will require further empirical and theoretical investigation.
+This account is built upon by \textcite{buring2003d,buringforthcomingtopic}.
 
 \textcite{buring2003d} represents Roberts' structured discourses as \textit{d(iscourse)-trees}.
 The discourse $\mathcal{D}_0$, then is represented by the tree below.
@@ -101,6 +117,120 @@ The discourse $\mathcal{D}_0$, then is represented by the tree below.
     ]
   ]
 \end{forest}
+
+B\"uring also distinguishes between the focus value ($\llbracket\cdot\rrbracket^f$) and the CT value ($\llbracket\cdot\rrbracket^{ct}$) of an utterance and defines an algorithm for determining the CT value, given below in \Next.
+\ex. CT-value formation:
+\a.[step 1:] Replace the focus with a \textit{wh}-word and front the latter; if focus marks the finite verb or negation, front the finite verb instead.
+\b.[step 2:] Form a set of questions from the result of step 1 by replacing the contrastive topic with some alternative to it.\hfill\parencite{buring2003d}
+\z.
+
+Note, as demonstrated below, this algorithm generates a set of questions, which is a set of sets of propositions.
+This way, \textcite{buring2003d} is able to build into his representations the fact that a CT-F structure presupposes a QUD and a strategy for answering it.
+\ex.
+\a.\label{ex:HilBagCT-F} [Hilary]$_{CT}$ ate [bagels]$_F$.
+	\b. CT-value formation:
+		\a.[step 1:] What did Hilary eat?
+		\b.[step 2:] What did Hilary eat?\\
+		What did Robin eat?
+		\z.
+	\b. $\llbracket$[Hilary]$_{CT}$ ate [bagels]$_F$.$\rrbracket^{ct} = \left\{ \left\{ x\text{ ate }y | y \in D_e \right\} | x \in D_e \right\}$
+	\z.
+
+Under this analysis of CT-value, the CT-F structure of an utterance is represented by the value. 
+So the CT-value of \Last[a] is distinct from that \Next[a], below, which inverts the CT-F structure.
+\ex.
+\a.\label{ex:HilBagF-CT} [Hilary]$_F$ ate [bagels]$_{CT}$.
+\b. CT-value formation:
+\a.[step 1:] Who ate bagels?
+\b.[step 2:] Who ate bagels?\\
+Who ate tofu?
+\z.
+\b. $\llbracket$[Hilary]$_F$ ate [bagels]$_{CT}$.$\rrbracket = \left\{ \left\{ x\text{ ate }y | x \in D_e \right\} y \in D_e \right\}$\hfill($\neq\llbracket\LLast[a]\rrbracket^{ct}$)
+\z.
+
+The nested nature of these CT-values, makes them directly translatable into d-trees which I provide below.
+\ex.
+\a. \begin{forest}
+  tree defaults
+  [{$\llbracket\ref{ex:HilBagCT-F}\rrbracket^{ct}$}
+    [What did Robin eat?]
+    [What did Hilary eat
+      [Hilary ate bagels]
+    ]
+  ]
+\end{forest}
+\b.
+\begin{forest}
+  tree defaults
+  [{$\llbracket\ref{ex:HilBagF-CT}\rrbracket^{ct}$}
+    [Who ate tofu?]
+    [Who ate bagels
+      [Hilary ate bagels]
+    ]
+  ]
+\end{forest}
+
+D-trees provide a perspicuous way of representing varios aspects of discourse structure in a way that leverages a vocabulary already used by generative linguists.
+They allow us to define pragmatic notions such as assertions, questions, alternatives, \textit{etc} in terms of nodes, sisterhood, dominance, \textit{etc.}
+For instance, assertions and questions are distinguished by the fact that the former are terminal nodes while the latter are non-terminal.
+
+It should be noted that CT-F structures are used in a variety of discourse contexts to acheive subtly different conversational goals.
+Consider the following examples.
+\ex.\label{ex:ChinaCTF}
+\a.[A:] When are you going to China? \hfill \parencite{roberts2012information}
+\b.[B:] I'm going to [China]$_{CT}$ in [April]$_F$.
+\z.
+
+\ex.\label{ex:CaftansCTF}
+\a.[A:] What did the pop stars wear? \hfill \parencite{buring2003d}
+\b.[B:] The [female]$_{CT}$ popstars wore [caftans]$_F$.
+\z.
+
+\ex.\label{ex:DoctorChiroCTF}
+\a.[A:] Who's a good doctor to treat my back pain?
+\b.[B:] [My sister Monica]$_{F}$ is a [chiropractor]$_{CT}$.
+\z.
+
+All of these instances of CT-F structures signal what B\"uring calls \textit{implicit moves}, each instance has a different sort of implicit move that can be easily represented by its d-tree.
+In \ref{ex:ChinaCTF} the assertion directly answers the question, but implies the existence of a relevant superquestion (\textit{When are you going to which place?}).
+The d-tree in \Next shows this by marking the explicit moves in bold.
+\ex.
+\begin{forest}
+  tree defaults
+  [When are you going which place?
+    [When are you going to \ldots?]
+    [\textbf{When are you going to China?}
+      [\textbf{April}]
+    ]
+  ]
+\end{forest}
+
+The assertion in \ref{ex:CaftansCTF}, on the other hand, does not answer the explicit question, but instead answers an implied subquestion (\textit{What did the female pop-stars wear}).
+Again this can be represented clearly in the d-tree in \Next.
+\ex.
+\begin{forest}
+  tree defaults
+  [\textbf{What did the pop stars wear?}
+    [What did the male pop stars wear?]
+    [What did the female pop stars wear?
+      [\textbf{The female pop stars wore caftans.}]
+    ]
+  ]
+\end{forest}
+
+Finally, the assertion in \ref{ex:DoctorChiroCTF} answers neither the explicit question, nor an implied subquestion.
+Instead, it answers an implicit subquestion of a superquestion of the explicit question, as we can see in its d-tree in \Next.
+\ex.
+\begin{forest}
+  tree defaults
+  [Who's a good $\langle profession\rangle$ to treat back pain?
+    [\textbf{Who's a good doctor \ldots}]
+    [Who's a good chiropractor,
+      [\textbf{Monica}]
+    ]
+  ]
+\end{forest}
+
 
 \end{document}
 
