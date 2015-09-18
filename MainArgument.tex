@@ -1,0 +1,221 @@
+%        File: MainArgument.tex
+%     Created: Wed Sep 09 12:00 PM 2015 E
+% Last Change: Wed Sep 09 12:00 PM 2015 E
+%
+% arara: pdflatex: {options: "-draftmode"}
+% arara: biber
+% arara: pdflatex: {options: "-draftmode"}
+% arara: pdflatex: {options: "-file-line-error-style"}
+\documentclass[GPFinal]{subfiles}
+
+\begin{document}
+I am now prepared to modify Mikkelsen's (\citeyear{mikkelsen2004specifying}) analysis of SCs so that is properly captures the indefinite restriction.
+Recall that Mikkelsen argued that SCs have a fixed information structure, with the postcopular DP being focus and the subject being topic, as shown in \Next below, and that for Mikkelsen, topicality requires discourse familiarity.
+\ex. [My favourite singer]$_\text{Top}$ is [Ian]$_F$.
+
+I propose that SC subjects must \textit{contain} (but not be) a \textit{contrastive} topic, in the sense of \textcite{buring2003d,buringforthcomingtopic}.
+I will show, in the remainder of this section, that this addition to Mikkelsen's analysis effectively captures the indefinite restriction.
+Specifically, requiring SC subjects to contain a CT will account for the fact that more complex/heavy indefinites (such as those in \ref{ex:MikkPhilosopher}-\ref{ex:MikkBarcan}) are more likely to be acceptable SC subjects as well as the fact that simple indefinites are almost never allowed as SC subjects.
+
+Consider the following SCs with their natural CT-F structure marked.
+\ex.\label{ex:GoodSCs}
+	\a. A [newly minted]$_{CT}$ doctor is [Derek$_F$].
+	\b. A building on campus [no one]$_{CT}$ likes is [Robart's Library]$_F$.
+	\c. An [underrated]$_{CT}$ figure in the history of Generative Grammar is [Eric Lenneberg]$_F$.
+	\z.
+
+Using \posscite{buring2003d} algorithm for CT-F interpretation we can compute the alternatives for each of these SCs and determine types of contexts they could be felicitously uttered in.
+Consider the CT value of \Last[b].
+To derive that we first replace the focus with \textit{what} and form a wh-question (\textit{What is a building on campus [no one]$_{CT}$ likes?}), then we replace the CT with \textit{who} to get the implied QUD (\textit{What is a building on campus who likes?}). 
+This is formalized below in \Next.
+\ex.\label{ex:GoodSCAnalysis}
+	\a. 
+		\a. $\llbracket\LLast[b]\rrbracket^f = \left\{ BuildingOnCampus(x) \wedge likes(x)(\emptyset) | x \in D_e \right\}$
+		\b. $\llbracket\LLast[b]\rrbracket^{CT} = \left\{\left\{ BuildingOnCampus(x) \wedge likes(x)(y) | x \in D_e \right\} | y \in D_e\right\}$
+		\z.
+	\b. 
+	\begin{forest}
+	  tree defaults
+	  [What is a building on campus who likes?
+	    [What is \dots Joe likes?
+	      [\dots]
+	    ]
+	    [\dots,triangle]
+	    [What is \dots no one likes?
+	      [\dots,triangle] 
+	      [A building on campus\\no one likes\\is Robart's Library,align=center]
+	    ]
+	  ]	    
+	\end{forest}
+	\z.
+
+\subsection{Simple indefinites}
+Having only shown how indefinites can be licit SC subjects, we are no further to a full explanation of the indefinite restriction than Mikkelsen, who also could explain these facts.
+We are left with the problem of explaining why simple indefinites seem to be so ill-suited as SC subjects.
+In other words, we have a hypothesis that includes the examples in \ref{ex:GoodSCs}, we need to show that it also excludes the strings in \ref{ex:BadSCs}, below.
+\ex.\label{ex:BadSCs}
+\a.* A doctor is Derek.
+\b.* A building is Robarts Library.
+\c.* A figure is Eric Lenneberg.
+\z.
+
+So, why are the strings in \Last unacceptable?
+The hypothesis that I have been pursuing in this paper provides an initial answer: Simple indefinite SC subjects cannot be CTs.
+This of course is not a satisfactory answer, because it simply reframes the question as: Why can't simple indefinite SC subjects be CTs?
+The theoretical framework developed by \textcite{rooth1992theory,roberts2012information,buring2003d,buringforthcomingtopic}, however, makes the reframed question tractable.
+
+Consider how \Last[a] would be interpreted.
+The postcopular DP would be focused, and, since the indefinite article cannot ordinarily\footnote{<++>} bear CT stress, \textit{doctor} would bear CT Stress.
+To compute the CT interpretation, we use \posscite{buring2003d} algorithm.
+The focus value would be equivalent to \textit{Who is a doctor?} and the CT value would be approximately equivalent to \textit{Who is a what?}, as formalized below.
+\ex.\label{ex:BadSCAnalysis}
+	\a.
+		\a. $\llbracket\LLast[a]\rrbracket^f = \left\{ Doctor(x) | x \in D_e \right\}$
+		\b. $\llbracket\LLast[a]\rrbracket^{CT} = \left\{ \left\{ P(x) | x \in D_e \right\} | P \in D_{et} \right\}$
+		\z.
+	\b. 
+	\begin{forest}
+	  tree defaults
+	  [Who is a what?
+	    [Who is a doctor
+	      [A doctor is Derek]
+	      [A doctor is Mary]
+	      [\dots]
+	    ]
+	    [Who is a lawyer?]
+	    [Who is a socialist
+	      [A socialist is Mary]
+	    ]
+	    [\dots]
+	  ]
+	\end{forest}
+
+Compare the QUD implied here, to that of \ref{ex:GoodSCAnalysis}.
+The QUD derived in \Last is exceedingly broad, essentially asking what properties hold of which individuals.
+There seems to be no restriction on what properties and which individuals for the domains of this QUD.
+Perhaps, the alternative properties is restricted to those that could possibly hold of human individuals, but even that is not very much of a restriction.
+The QUD derived in \ref{ex:GoodSCAnalysis} is quite restricted by comparison.
+The domain of the focus alternatives is restricted to buildings on (some salient) campus, while the domain of the CT-alternatives is restricted (implicitly) to individuals who might hold some opinion of some buildings on campus.
+
+A result of the unrestricted nature of the QUD derived in \Last, is that a given individual can be in multiple terminal nodes in the d-tree.
+This, I argue, is an unwanted result, which is at the centre of why simple indefinite SC subjects make poor CTs.
+As evidence of this claim consider the following example of an SC, which is infelicitous for this reason.
+\ex. \label{ex:Beatles} \textbf{Context:} The Beatles were a band with four members John, Paul, George, and Ringo. Each member played an instrument and sang.
+\a. Paul was a vocalist in the Beatles.
+\b. \#A [guitarist]$_{CT}$ in the Beatles was [John]$_F$.
+\z.
+
+Despite the fact that there is no reason in principle for the indefinite in \Last[b] to be an illicit SC subject, the context makes it illicit.
+Consider the d-tree that would be constructed from \Last[b].
+\ex.
+\begin{forest}
+  tree defaults
+  [Who was what in the in the Beatles?
+    [Who was a guitarist \dots
+      [\dots was John]
+      [\dots was George]
+    ]
+    [Who was a vocalist \dots
+      [\dots was Paul]
+      [\dots was John]
+      [\dots]
+    ]
+    [\dots]
+  ]
+\end{forest}
+
+The fact that \textit{John} is referenced in two terminal nodes renders \LLast[b] infelicitous.
+Note, however, that the SC \LLast[b] can be made more felicitous in a context that doesn't explicitly mention vocalists.
+This is because the exclusion of the role of vocalist, allows the domain of the CT alternatives to be restricted to instrumentalist roles.
+\ex.
+\a.
+\a. Paul was the bassist in the Beatles,
+\b. A [guitarist]$_{CT}$ in the Beatles was John.
+\z.
+\b. $\llbracket\Last[a-i]\rrbracket^{ct}$\\
+\begin{forest}
+  tree defaults
+  [Who was $\langle instrumentalist\rangle$ in the Beatles?
+    [Who was a bassist in \ldots?
+      [\ldots was Paul]
+    ]
+    [Who was a drummer in \ldots?
+      [\ldots was Ringo]
+    ]
+    [who was a guitarist in \ldots?
+      [\ldots was George]
+      [\ldots was John]
+    ]
+  ]
+\end{forest}
+
+Similarly, there are examples of simple indefinites which are licit SC subjects in a given context because their nominal has an inherently restricted alternative set.
+Two such nominals are the antonyms \textit{hero} and \textit{villain}.
+Consider the following examples.
+\ex.
+\a. In \textit{Othello},\\
+a villain is Iago.
+\b. In \textit{War \& Peace},\\
+a hero is Pierre.
+
+<++>
+
+It seems that d-trees (at least, those generated by CT+F structures) require that no one individual whose properties are under discussion be referred to in multiple terminal nodes.
+Rather than merely stipulating this as a condition on d-trees, we ought to build it into how we construct those trees.
+Instead of constructing a tree from alternatives in which each alternative is a node, I propose that d-trees be binary branching.
+The three values of a CT-F utterance ($\llbracket\cdot\rrbracket^\mathcal{O}$,$\llbracket\cdot\rrbracket^{f}$,$\llbracket\cdot\rrbracket^{ct}$), are assigned to nodes with $\llbracket\cdot\rrbracket^{ct}$ in the highest node (a branching node), which immediately dominates $\llbracket\cdot\rrbracket^{f}$ (a branching node), which in turn immediately dominates $\llbracket\cdot\rrbracket^\mathcal{O}$ (a teminal node) as in \Next.
+\ex. 
+\begin{forest}
+  tree defaults
+  [{$\llbracket\cdot\rrbracket^{ct}$}
+    [{$\alpha$}]
+    [{$\llbracket\cdot\rrbracket^{f}$}
+      [{$\beta$}]
+      [{$\llbracket\cdot\rrbracket^\mathcal{O}$}]
+    ]
+  ]
+\end{forest}
+
+This first step leaves empty nodes $\alpha$ and $\beta$, which are filled by sets containing the alternatives such each alternative is a member of the immediately dominating node, and no member is identical to the sister node.
+That is to say branching represents a two member partition of the parent node.
+The d-tree in \Next demonstrates how the empty nodes are filled.
+\ex. 
+\begin{forest}
+  tree defaults
+  [{$\llbracket\cdot\rrbracket^{ct}$}
+    [{$\llbracket\cdot\rrbracket^{ct}\setminus\left\{\llbracket\cdot\rrbracket^{f}\right\}$}]
+    [{$\llbracket\cdot\rrbracket^{f}$}
+      [{$\llbracket\cdot\rrbracket^{f}\setminus\left\{ \llbracket\cdot\rrbracket^\mathcal{O} \right\}$}]
+      [{$\llbracket\cdot\rrbracket^\mathcal{O}$}]
+    ]
+  ]
+\end{forest}
+
+This binary branching, partitioning d-tree can rule out SCs such as \textit{A doctor is Mary} given a few extra, though not outlandish, assumptions.
+I first assume (as does \textcite{roberts2012information}), following <stalnaker1978+>, that the goal of discourse is the communal discovery of how the world is.
+This goal, of course is much too ambitious for real world discourse, which instead can only realistically address parts of the world (\textit{i.e.}, situations).
+I also assume \posscite{kratzer1989investigation} ontology of situations, which states that situations are partially ordered into semilattices joined at worlds with individuals as lower bounds.
+<+MaybeMoreHere+>
+
+So, the task of discovering the way the world is involves discovering which properties hold of which individuals.
+
+If propositions are situation denoting, and questions are sets of propositions, then questions are sets of situations.
+Since every situation is ultimately composed of smaller situations and ultimately individuals
+
+The partitions represented by branching d-trees, then, require a partitioning of the set of individuals.
+So, \textit{A doctor is Mary} can be ruled out because it essentially asserts that the property of being a doctor holds of Mary to the exclusion of all other properties.
+On the other hand, if the domain of properties is sufficiently restricted, a similar assertion can be made.
+The sentence \textit{A doctor you SHOULD see is Mary}, for instance, would assert (in one context) that Mary is a doctor you should talk to and is not a doctor you should not talk to.
+Similarly, the sentence \textit{In Othello, a VILLAIN is Iago} asserts that Iago is a villain and is not a hero in \textit{Othello}.
+
+This is not to say that there is an absolute restriction on which lexical items can serve as CTs.
+Capacity nominals such as \textit{doctor}, though they cannot be CTs in simple indefinites, can be CTs so long as their alternative sets can be restricted in such a way that a partition of individuals is possible.
+Consider for instance the discourse in \Next.
+\ex.
+\a.[A:] I'm having the worst back pain. Do you know any doctors who could cure it?
+\b.[B:] Well, a [chiropractor]$_{CT}$ you should see is Mary.\\
+
+In this discourse, the context, that A needs a someone to treat her back pain, restricts the alternatives generated by the CT to professions that would treat back pain.
+So, while \textit{doctor}, \textit{chiropractor}, and \textit{physiotherapist} would be alternatives in this context, \textit{semanticist}, \textit{man}, and \textit{American} would not.
+
+\end{document}
