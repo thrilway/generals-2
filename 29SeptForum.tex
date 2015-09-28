@@ -1,0 +1,276 @@
+%        File: 29SeptForum.tex
+%     Created: Mon Sep 28 10:00 AM 2015 E
+% Last Change: Mon Sep 28 10:00 AM 2015 E
+%
+% arara: pdflatex: {options: "-draftmode"}
+% arara: biber
+% arara: pdflatex: {options: "-draftmode"}
+% arara: pdflatex: {options: "-file-line-error-style"}
+\documentclass[letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=biber,style=authoryear-comp,useprefix=true]{biblatex}
+
+\usepackage{linguex}
+
+\usepackage[normalem]{ulem}
+
+\usepackage{stmaryrd}
+\usepackage[]{amsmath}
+\usepackage{amsfonts}
+\usepackage{forest}
+
+\forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
+
+\forestset{en/.style={parent anchor=center, child anchor=center}}
+\forestset{em/.style={parent anchor=north west, child anchor=north west}}
+
+\usetikzlibrary{positioning}
+\DeclareNameFormat{labelname:poss}{% Based on labelname from biblatex.def
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:last}{#1}{#3}{#5}{#7}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:first-last}{#1}{#4}{#5}{#8}}
+      {\usebibmacro{name:first-last}{#1}{#4}{#6}{#8}}%
+  \or
+    \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
+  \fi
+  \usebibmacro{name:andothers}%
+  \ifnumequal{\value{listcount}}{\value{liststop}}{'s}{}}
+
+\DeclareFieldFormat{shorthand:poss}{%
+  \ifnameundef{labelname}{#1's}{#1}}
+
+\DeclareFieldFormat{citetitle:poss}{\mkbibemph{#1}'s}
+
+\DeclareFieldFormat{label:poss}{#1's}
+
+\newrobustcmd*{\posscitealias}{%
+  \AtNextCite{%
+    \DeclareNameAlias{labelname}{labelname:poss}%
+    \DeclareFieldAlias{shorthand}{shorthand:poss}%
+    \DeclareFieldAlias{citetitle}{citetitle:poss}%
+    \DeclareFieldAlias{label}{label:poss}}}
+
+\newrobustcmd*{\posscite}{%
+  \posscitealias%
+  \textcite}
+
+\newrobustcmd*{\Posscite}{\bibsentence\posscite}
+
+\newrobustcmd*{\posscites}{%
+  \posscitealias%
+  \textcites}
+
+\bibliography{GP2}
+\newcommand\quelle[1]{{%
+  \unskip\nobreak\hfil\penalty50
+  \hskip2em\hbox{}\nobreak\hfil#1%
+  \parfillskip=0pt \finalhyphendemerits=0 \par}}
+\begin{document}
+\section{The indefinite restriction}
+\begin{itemize}
+  \item Specificational and predicational clauses appear to be the inverse of each other
+\end{itemize}
+\ex.
+\a. Lydia is my favourite singer. (Predicational)
+\b. My favourite singer is Lydia. (Specificational)
+\z.
+
+\begin{itemize}
+  \item Simple indefinites cannot be subjects of specificational copular clauses (SCs)
+\end{itemize}
+\ex.\label{ex:BadSCs}
+\a.* A doctor is Mike.
+\b.* A building is Robarts.
+\b.* A figure is Eric Lenneberg.
+\z.
+
+\begin{itemize}
+  \item More complex indefinites can be SC subjects
+\end{itemize}
+\ex.\label{ex:GoodSCs}
+\a. A newly-minted doctor is Mike.
+\b. A building on campus no one likes is Robarts.
+\b. An underrated figure in the history of generative grammar is Eric Lenneberg.
+\z.
+
+\begin{itemize}
+  \item A proper analysis of the indefinite restriction will bring us closer to a proper analysis of SCs in general.
+  \item If SCs are inverted predicational clauses \parencite{moro1997raising,mikkelsen2004specifying}, their subjects should be predicates (type $\langle e,t\rangle$)
+    \begin{itemize}
+      \item Indefinites are prototypical predicates and should be good SC subjects
+      \item The indefinite restriction should be pragmatic.
+    \end{itemize}
+  \item If SCs are distinct from predicational clauses \parencite{heycockkroch1999pseudocleft,heycock2012specification}, their subjects are likely argumental (type $e$)
+    \begin{itemize}
+      \item The indefinite restriction should be semantic
+    \end{itemize}
+\end{itemize}
+\textbf{My Claim:} SC subjects must contain \textit{contrastive topics} and the indefinite restriction can be derived from this requirement.
+\section{Outline}
+\begin{itemize}
+  \item A brief theoretical background on contrastive topics (CTs).
+  \item Predicting good indefinite subjects.
+  \item Ruling out bad indefinite subjects.
+\end{itemize}
+\section{Theoretical Background}
+\begin{itemize}
+  \item The notion of CT comes from \posscite{jackendoff1972Ssemantics} A- and B-Accents.
+\end{itemize}
+\ex.
+\a.
+\a.[A:] Well, what about FRED? What did HE eat?
+\b.[B:] FRED$_B$ ate the BEANS$_A$.
+\z.
+\b.
+\a.[A:] Well, what about the BEANS? Who ate THEM?
+\b.[B:] FRED$_A$ ate the BEANS$_B$
+\z.
+\z.
+
+\begin{itemize}
+  \item The A-Accent, which corresponds to the wh-consituent of the question is the focus.
+  \item Following \textcite{buring2003d}, I refer to B-Accent as the CT (\textcite{roberts2012information} calls it \textit{dependant focus})
+  \item In addition to an ordinary interpretation ($\llbracket\cdot\rrbracket^\mathcal{O}$), utterances have focus interpretation ($\llbracket\cdot\rrbracket^f$)\parencite{rooth1992theory}, and a CT interpretation ($\llbracket\cdot\rrbracket^{ct}$)\parencite{buring2003d}
+  \item Focus interpretations are sets of alternatives \parencite{rooth1992theory} equivalent to the interpretations of questions \parencite{groenendijkstokhof1996questions}
+  \item CT interpretations are sets of sets of alternatives \parencite{buring2003d}.
+\end{itemize}
+\ex. 
+\a. $\llbracket\text{FRED}_B\text{ ate the BEANS}_A\rrbracket^{f} = 
+\begin{Bmatrix}
+  \text{Fred ate the corn}\\
+  \text{Fred ate the beans}\\
+  \text{Fred ate the apples}\\
+  \cdots
+\end{Bmatrix}
+= \llbracket\text{What did Fred eat?}\rrbracket
+$
+\b.$\llbracket\text{FRED}_B\text{ ate the BEANS}_A\rrbracket^{ct} = 
+\begin{Bmatrix}
+  \text{What did Fred eat?}\\
+  \text{What did Mary eat?}\\
+  \text{What did Robin eat?}\\
+  \cdots
+\end{Bmatrix}
+= \llbracket\text{What did who eat?}\rrbracket
+$
+
+\begin{itemize}
+  \item B\"uring represents these interpretations as d(iscourse)-trees
+\end{itemize}
+\ex. $\llbracket\text{FRED}_{CT}\text{ ate the BEANS}_{F}\rrbracket^{ct}$\\
+\begin{forest}
+  tree defaults
+  [What did who eat?
+    [What did Mary eat?]
+    [What did Robin eat?]
+    [What did Fred eat?
+      [Fred ate the corn]
+      [Fred ate the apples]
+      [\textbf{Fred ate the beans}]
+    ]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item Generally, CT-F structures identify a question and superquestion that they answer.
+  \item CT-F structures have multiple discourse functions that the d-trees can represent.
+\end{itemize}
+\ex.\label{ex:ChinaCTF}
+\a.
+\a.[A:] When are you going to China? \hfill \parencite{roberts2012information}
+\b.[B:] I'm going to [China]$_{CT}$ in [April]$_F$.
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [When are you going which place?
+    [When are you going to \ldots?]
+    [\textbf{When are you going to China?}
+      [\textbf{April}]
+    ]
+  ]
+\end{forest}
+\z.
+
+\ex.\label{ex:CaftansCTF}
+\a.
+\a.[A:] What did the pop stars wear? \hfill \parencite{buring2003d}
+\b.[B:] The [female]$_{CT}$ popstars wore [caftans]$_F$.
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [\textbf{What did the pop stars wear?}
+    [What did the male pop stars wear?]
+    [What did the female pop stars wear?
+      [\textbf{The female pop stars wore caftans.}]
+    ]
+  ]
+\end{forest}
+\z.
+
+\ex.\label{ex:DoctorChiroCTF}
+\a.
+\a.[A:] Who's a good doctor to treat my back pain?
+\b.[B:] [My sister Monica]$_{F}$ is a [chiropractor]$_{CT}$.
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [Who's a good $\langle profession\rangle$ to treat back pain?
+    [\textbf{Who's a good doctor \ldots?}]
+    [Who's a good \ldots?]
+    [Who's a good chiropractor \ldots?
+      [\textbf{Monica}]
+    ]
+  ]
+\end{forest}
+\z.
+
+\section{When indefinites can be SC subjects}
+\ex.\label{ex:GoodSCsRepeat}
+\a. A newly-minted doctor is Mike.
+\b. A building on campus no one likes is Robarts.
+\b. An underrated figure in the history of generative grammar is Eric Lenneberg.
+\z.
+
+\begin{itemize}
+  \item All of the SCs in \Last are most naturally uttered with intonational stress on some part of the subject.
+  \item The placement of stress marks the CT.
+  \item DP2 is the focus.
+\end{itemize}
+\ex. $\llbracket\text{A building on campus NO ONE likes is Robarts}\rrbracket^{ct}$\\
+\begin{forest}
+  tree defaults
+  [What is a BOC that who likes?
+    [What is a BOC someone likes?]
+    [What is a BOC no one likes?
+      [A BOC no one likes is \ldots]
+      [\textbf{A BOC no one likes is Robarts}]
+    ]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item The SC in \Last is felicitous in discourse contexts in which who likes what building is under discussion
+\end{itemize}
+\ex. 
+\a. Not many people like Sid Smith but,
+\a. A building on campus NO ONE likes is Robarts.
+\b.\# A BUILDING on campus no one likes is Robarts.
+\z.
+\b. No one likes Philosopher's Walk but,
+\a.\# A building on campus NO ONE likes is Robarts.
+\b. A BUILDING on campus no one likes is Robarts.
+\z.
+
+\textbf{Generalization:} Subjects of specificational clauses must contain both discourse-new and discourse-given material.
+
+\section{When indefinites cannot be SC subjects: simple indefinites}
+
+\end{document}
+
+
