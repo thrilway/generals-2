@@ -17,6 +17,7 @@ I propose that SC subjects must \textit{contain} (but not be) a \textit{contrast
 I will show, in the remainder of this section, that this addition to Mikkelsen's analysis effectively captures the indefinite restriction.
 Specifically, requiring SC subjects to contain a CT will account for the fact that more complex/heavy indefinites (such as those in \ref{ex:MikkPhilosopher}-\ref{ex:MikkBarcan}) are more likely to be acceptable SC subjects as well as the fact that simple indefinites are almost never allowed as SC subjects.
 
+\subsection{When indefinites can be SC subjects}
 Consider the following SCs with their natural CT-F structure marked.
 \ex.\label{ex:GoodSCs}
 	\a. A [newly minted]$_{CT}$ doctor is [Derek$_F$].
@@ -48,6 +49,28 @@ This is formalized below in \Next.
 	  ]	    
 	\end{forest}
 	\z.
+
+This correctly predicts that \LLast[b], for instance, should only be felicitous in discourse contexts where buildings on campus and who likes them is under discussion.
+If, as shown in \Next, things on campus that no one likes is under discussion, \LLast[b] is infelicitous, but a version of the same string with a modified CT-F structure is felicitous
+\ex. No one likes Philosopher's walk but,\footnote{Philosopher's walk is a foot-path that most people at UofT do like}
+\a.\# A building on campus [no one]$_{CT}$ likes is Robart's Library.
+\b. A [building]$_{CT}$ on campus no one likes is Robart's Library.
+\z.
+
+The context in \Last can be expressed as the QUD \textit{What is what-kind-of-thing on campus no one likes?} which is not available in the d-tree constructed in \LLast from \Last[a].
+
+In addition to NP internal costituents, some indefinite determiner elements can act as CTs.
+In particular, \textit{one} and \textit{another}, are able to bear the stress that marks CT.
+When these do serve as CTs, the remaining material in the SC subject is treated as discourse-given.
+For concrete examples consider the examples in \Next.
+\ex.
+\a.\label{ex:One} [One]$_{CT}$ building on campus no-one likes is Robart's library.
+\b.\label{ex:Another}[Another]$_{CT}$ newly minted doctor is Ail\'is.
+
+In \ref{ex:One}, buildings on campus that no one likes must be discourse-given and Robart's library being a member of that set is discourse-new.
+The function of marking \textit{one} as CT is not immediately clear, though.
+
+
 
 \subsection{Simple indefinites}
 Having only shown how indefinites can be licit SC subjects, we are no further to a full explanation of the indefinite restriction than Mikkelsen, who also could explain these facts.
@@ -93,7 +116,7 @@ The focus value would be equivalent to \textit{Who is a doctor?} and the CT valu
 Compare the QUD implied here, to that of \ref{ex:GoodSCAnalysis}.
 The QUD derived in \Last is exceedingly broad, essentially asking what properties hold of which individuals.
 There seems to be no restriction on what properties and which individuals for the domains of this QUD.
-Perhaps, the alternative properties is restricted to those that could possibly hold of human individuals, but even that is not very much of a restriction.
+Perhaps, the set of alternative properties is restricted to those that could possibly hold of human individuals, but even that is not very much of a restriction.
 The QUD derived in \ref{ex:GoodSCAnalysis} is quite restricted by comparison.
 The domain of the focus alternatives is restricted to buildings on (some salient) campus, while the domain of the CT-alternatives is restricted (implicitly) to individuals who might hold some opinion of some buildings on campus.
 
@@ -200,6 +223,21 @@ I also assume \posscite{kratzer1989investigation} ontology of situations, which 
 \singlespacing \textit{\textbf{Note:} I may end up just stipulating that discourse moves are must define a partition. I'm not sure if I can come up with a coherent explanation as to why this would be.}
 \doublespacing
 
+The restriction on simple indefinite SC subjects may also be ruled out by what \textcite{groenendijkstokhof1996questions} call \textit{Hamblin's postulates} reproduced below.
+\ex. \textbf{Hamblin's postulates} \parencite[][emphasis mine]{groenendijkstokhof1996questions}
+\a.[i] An answer to a question is a sentence, or statement.
+\b.[ii] The possible answers to a question form an \textit{exhaustive set of mutually exclusive posibilities}.
+\b.[iii] To know the meaning of a question, is to know what counts as an answer to that question.
+\z.
+
+Hamblin's second postulate, as \textcite{groenendijkstokhof1996questions} elaborate on it, highlights what is so problematic about the examples in \ref{ex:BadSCs}.
+For \citeauthor{groenendijkstokhof1996questions}, questions divide possible worlds into equivalence classes, so, \textit{Did John answer?} divides the possible world into those in which John answered and those in which he didn't.
+The question implied by those unacceptable SCs in \ref{ex:BadSCs}, \textit{Who/what does what property hold of?}, would need to define mutually exclusive classes of properties such that the property named by the subject (\textit{Doctor}, \textit{building}, \textit{figure}) defines a class that excludes not those individuals for whom it doesn't hold, but those individuals for whom a different property holds.
+
+To take a concrete example, \textit{*A doctor is Mary} picks out the set of worlds in which Mary is a doctor and no other property holds of Mary.
+Worlds in which Mary holds (or does not hold) any number of political or aesthetic beliefs, for example, cannot be included in the set of worlds picked out by the SC, as are worlds in which Mary has (or does not have) hair of a certain colour, length, or type.
+This is, fairly obviously, an absurdity.
+
 So, the task of discovering the way the world is involves discovering which properties hold of which individuals.
 
 If propositions are situation denoting, and questions are sets of propositions, then questions are sets of situations.
@@ -222,7 +260,8 @@ In this discourse, the context, that A needs a someone to treat her back pain, r
 So, while \textit{doctor}, \textit{chiropractor}, and \textit{physiotherapist} would be alternatives in this context, \textit{semanticist}, \textit{man}, and \textit{American} would not.
 
 
-\subsubsection{Felicity vs Well-formedness}
+
+\subsection{Felicity vs Well-formedness}
 Two factors in the (un)acceptability of utterances have been shown in this section: felicity and well-formedness.
 The two factors are distinguishable from each other in how they interact with context.
 The felicity of an utterance is its appropriateness in a given discourse, so it is completely context dependant.
@@ -287,6 +326,13 @@ The well-formed d-tree projected by \LLast[b] would not include the question \te
 We are left with the following picture of utterances, d-trees and felicity.
 Well-formedness judgements are the result of a function from d-trees to truth-values.
 Felicity judgements can be considered a function from well-formed d-trees to contexts to truth-values.
-So the felicity of an ill-formed utterance is undefined in all contexts.
+So the felicity of an ill-formed utterance is undefined in all contexts.\footnote{
+  Felicity can indeed be recast as a well-formedness condition on discourse, but this would still be distinct from the well-formedness conditions discussed here which are conditions on individual utterances  
+}
 
+\section{Summary}
+In this section I argued that the indefinite restriction, specifically the restriction on simple indefinite SC subjects, is the result of well-formedness constraints on d-trees.
+Given the observation that SC subjects must contain CT constituents, and the alternative semantics of CT-F structures represented by \posscite{buring2003d} d-trees, we can see that the CT-F structure required by simple indefinite SC subjects generates a d-tree with individuals represented in multiple terminal nodes.
+These structures, I argued, seem to be ruled out regardless of context.
+In the next section I will address some apparent counterevidence to this claim.
 \end{document}

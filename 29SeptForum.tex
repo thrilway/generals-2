@@ -69,6 +69,11 @@
   \hskip2em\hbox{}\nobreak\hfil#1%
   \parfillskip=0pt \finalhyphendemerits=0 \par}}
 \begin{document}
+\begin{center}
+  {\Large On the Topic of Indefinite Specificational Subjects\\}
+  {\large Dan Milway}\\
+  Forum Presentation
+\end{center}
 \section{The indefinite restriction}
 \begin{itemize}
   \item Specificational and predicational clauses appear to be the inverse of each other
@@ -115,6 +120,10 @@
   \item Predicting good indefinite subjects.
   \item Ruling out bad indefinite subjects.
 \end{itemize}
+\paragraph{A note on notation}
+The acceptability judgement notations are not meant to presuppose any analysis.
+Strings that are unacceptable regardless of context are marked *.
+Those that are unacceptable in a given context are marked \#.
 \section{Theoretical Background}
 \begin{itemize}
   \item The notion of CT comes from \posscite{jackendoff1972Ssemantics} A- and B-Accents.
@@ -270,7 +279,67 @@ $
 \textbf{Generalization:} Subjects of specificational clauses must contain both discourse-new and discourse-given material.
 
 \section{When indefinites cannot be SC subjects: simple indefinites}
+\ex.
+\a.* A doctor is Mike.
+\b.* A building is Robarts.
+\b.* A figure is Eric Lenneberg.
+\z.
 
+\begin{itemize}
+  \item The generalization above obviously rules these out.
+    \begin{itemize}
+      \item The substantive material in these subjects is the noun, which cannot be simultaneously new and given.
+    \end{itemize}
+  \item Simple indefinites allow us to probe why such a generalization should hold at all.
+\end{itemize}
+\ex. $\llbracket\text{A doctor}_{CT}\text{ is Mike}\rrbracket^{ct}$\\
+\begin{forest}
+  tree defaults
+  [Who is what?
+    [Who is a lawyer?]
+    [Who is a socialist?
+      [\ldots]
+      [A socialist is Mike]
+    ]
+    [\ldots]
+    [Who is brown-eyed?]
+    [Who is a doctor?
+      [\ldots]
+      [A doctor is Mike]
+    ]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item Impressionistically, \textit{Who is what?} is too vague to ever be asked. But why?
+  \item \textcite[citing Hamblin][]{groenendijkstokhof1996questions} provide a possible explanation\\
+    ``The possible answers to a question form an exhaustive set of mutually exclusive possibilities''
+  \item One possible answer is a set of worlds which is mutually exclusive with every other possible answer.
+  \item In \Last, the worlds in which Mike is a doctor would be exclude those worlds in which Mike has brown eyes and vice versa.
+  \item The question \textit{Who is What?} is ill-formed, which rules out virtually every simple indefinite as SC subject.
+\end{itemize}
+\subsection{Another ruled-out SC}
+\begin{itemize}
+  \item Consider The Beatles.
+  \item Each of the members had a primary instrument (John:Guitar, Paul:Bass, George:Guitar, Ringo:Drums), and all of them were also vocalists.
+\end{itemize}
+\ex. 
+\a. Paul was the Bassist in The Beatles\\
+A GUITARIST in the Beatles was John.
+\b. Paul was a vocalist in the Beatles\\
+\#A GUITARIST in the Beatles was John.
+
+\begin{itemize}
+  \item \textit{Guitarist} and \textit{bassist} are mutally exclusive in this context, so they can be contrasted
+  \item \textit{Guitarist} and \textit{vocalist} are not mutually exclusive, so we cannot contrast them.
+\end{itemize}
+
+\section{Conclusion}
+\begin{itemize}
+  \item A requirement that SC subjects include CT-marked material plus well-formedness conditions on alternative sets/questions allows us to derive the indefinite restriction.
+  \item The explanation is pragmatic in nature and consistent with \posscite{mikkelsen2004specifying} inversion analysis of SCs.
+\end{itemize}
+\printbibliography
 \end{document}
 
 
