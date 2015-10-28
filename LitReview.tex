@@ -23,7 +23,56 @@ Predicative clauses surface when the argument raises, and SCs surface when the p
 \a.\label{ex:SCPCPairPC} Ian is my favourite singer.
 \b.\label{ex:SCPCPairSC} My favourite singer is Ian.
 
-\ex.\label{ex:CopUnderlying} $[_{VP} \text{be} [_{SC} [_{Arg} \text{Ian}] [_{Pred} \text{my favourite singer}]]]$
+\ex.\label{ex:CopUnderlying} \textbf{Base Structure}\\
+\begin{forest}
+  tree defaults
+  [,l=8mm,s=10mm
+    [be] 
+    [,el
+      [Arg\\\textit{Ian},align=center]
+      [Pred
+	[\textit{my favourite singer},triangle]
+      ]
+    ]
+  ]
+\end{forest}
+%$[_{VP} \text{be} [ [_{Arg} \text{Ian}] [_{Pred} \text{my favourite singer}]]]$
+\a.\label{ex:PCStruct} \textbf{Predicational Clause}\\
+\begin{forest}
+  tree defaults
+  [,l=8mm,s=10mm
+    [Arg\\\textit{Ian},align=center,name=subj]
+    [,el,l=8mm,s=10mm
+      [be]
+      [,el,l=8mm,s=5mm
+	[{$\langle \text{Arg}\rangle$},name=arg]
+	[Pred
+	  [\textit{my favourite singer},triangle]
+	]
+      ]
+    ]
+  ]
+  \draw[->,thick](arg) to[out=south west, in=south] (subj);
+  \end{forest}
+%$[ [_{Arg} \text{Ian} ] \ldots [_{VP} \text{be} [ t_{Arg} [_{Pred} \text{my favourite singer}]]]]$
+\b.\label{ex:SCStructure} \textbf{Specificational Clause}\\
+\begin{forest}
+  tree defaults
+  [,l=8mm,s=10mm
+    [Pred
+      [\textit{my favourite singer},triangle,name=subj]
+    ]
+    [,el,l=8mm,s=10mm
+      [be]
+      [,el,l=8mm,s=5mm
+	[Arg\\\textit{Ian},align=center]
+	[{$\langle\text{Pred}\rangle$},name=pred]
+      ]
+    ]
+  ]
+  \draw[->,thick](pred) to[out=south west, in=south] (subj);
+\end{forest}
+%$[ [_{Pred} \text{My favourite singer}] \ldots [_{VP} \text{be} [ [_{Arg} \text{Ian}] t_{Pred}]]]$
 
 Semantically, this analysis requires that SC subjects be construed as predicates (type $\langle e,t\rangle$ or higher) rather than arguments (type \textit{e}).
 
@@ -35,12 +84,6 @@ If SC subjects were inverted predicates, the argument goes, we would expect all 
 As I will describe in more detail in section \ref{sec:Mikkelsen}, \textcite{mikkelsen2004specifying} proposes that pragmatic factors are responsible for the indefinite restriction.
 Specifically, SC's have a fixed information structure, requiring their subjects to be topics, a role which indefinites are not well-suited for.
 \textcite{heycock2012specification}, responds to Mikkelsen's analysis and data  by arguing that, rather than a requirement that SC subjects be topics, the indefinite restriction is actually a restriction on \textit{weak} indefinites (\textit{i.e.}, DPs headed by weak determiners) as SC subjects.
-This proposal may, in fact, be correct, although it does not seem explanatory for two reasons.
-First, the exact nature of the contrast between weak and strong determiners is not well understood.
-Second, the terms \textit{weak} and \textit{strong} in this context, properly refer to interpretations rather than lexical items.
-A determiner is called \textit{strong} if it is always interpreted as strong, while \textit{weak determiners} can be interpreted as either weak or strong depending on the context.
-
-Supposing we take \posscite{heycock2012specification} analysis to be true, the question changes from ``Why is the indefinite X a licit SC subject, while Y is illicit?'' to ``Why can X receive a strong interpretation, while Y cannot?''.
 
 The restriction on indefinites, then is a fact that must be explained or allowed for in any syntactic/semantic analysis of SCs.
 
@@ -95,10 +138,71 @@ This, however, does not seem to hold.
 Utterences, such as \ref{ex:MikkRepeat}, that are barred because of repeated indefinites are made better if the first occurrence of the indefinite is modified.
 If the barred utterance has an SC with an indefinite subject, as in \ref{ex:MikkFamSC}, then only changing the SC will improve it.
 \ex. I know many doctors.
-  \a. \#A doctor is Patrick.
-  \b. A doctor came to dinner last night.
-  \z.
+\a. \#A doctor is Patrick.
+\b. A doctor came to dinner last night.
+\z.
 
+\subsection{\textcite{heycock2012specification}}
+Addressing the indefinite restriction, \textcite{heycock2012specification} begins with the information structural pattern shown in \ref{ex:MikkQandA}, which she frames as a restriction on focusing SC subjects.
+She notes that this is parallel to a fact about scrambling in German observed by \textcite{lenerz1977zur}.
 
+\ex.
+\ag.Wem hat Peter das Futter gegeben?\\
+who.\textsc{dat} has Peter the.\textsc{acc} food given\\
+``Who has Peter given the food?''
+\ag. Peter hat der Katze das Futter gegeben.\\
+Peter has the.\textsc{dat} cat the.\textsc{acc} food given\\
+``Peter has given the cat the food''\hfill[Default order]
+\bg. Peter hat das Futter der Katze gegeben.\\
+Peter has the.\textsc{acc} food the.\textsc{dat} cat given\\
+``Peter has given the food to the cat''\hfill[Scrambled order]
+\z.
+\bg. Was hat Peter der Katze gegeben?\\
+what.\textsc{acc} has Peter the.\textsc{dat} cat given\\
+``What has Peter given (to) the cat?''
+\ag. Peter hat der Katze das Futter gegeben.\\
+Peter has the.\textsc{dat} cat the.\textsc{acc} food given\\
+``Peter has given the cat the food''\hfill[Default order]
+\bg.\# Peter hat das Futter der Katze gegeben.\\
+Peter has the.\textsc{acc} food the.\textsc{dat} cat given\\
+``Peter has given the food to the cat''\hfill[Scrambled order]
+\z.
+\z.
+
+As \Last demonstrates the canonical order for ditransitive objects in German is \textsc{dat} $\prec$ \textsc{acc}.
+The scrambled order, \textsc{acc} $\prec$ \textsc{dat}, is unavailable when the accusative argument is focused, as shown in \Last[b-ii]. 
+Just as SCs subjects cannot be focused in English, scrambled objects cannot be focused in German.
+
+With this information structure parallel established, \textcite{heycock2012specification} attempts to extend the comparison of English SC subjects with German scrambled objects to a semantic parallel.
+Following \textcite{dehoop1992case} and \textcite{diesing1992indefinites} Heycock assumes that scrambled DPs in German are necessarily interpreted as strong DPs.
+She claims that SC subjects are also restricted to strong interpretations.
+As evidence for this claim she presents another parallel.
+A property of weak indefinites, according to \textcite{milsark1974existential}, is that they cannot serve as subjects of Individual-Level predicates, as shown in \Next
+\ex. I had been struggling with a complicated set of data \ldots
+\a.?* A problem was particularly hard.
+\b. One problem was particularly hard.
+\b. \{?A/one\} problem that I came across was particularly hard.
+\b. One of the problems was particularly hard.\hfill\parencite{heycock2012specification}
+
+Heycock argues that the same pattern holds for indefinite SC subjects as shown in \Next.
+\ex.
+\a.?* A problem was that we didn't understand all the parameters.
+\b. One problem was that we didn't understand all the parameters.
+\b. \{A/one\} problem that I came across was that we didn't understand all the parameters.
+\b. One of the problems was that we didn't understand all the parameters.\hfill\parencite{heycock2012specification}
+
+Given these parallels, Heycock proposes that the indefinite restriction is actually a restriction on \textit{weak} indefinites as SC subjects.
+
+This proposal is problematic for a number of reasons.
+First, \textcite{heycock2012specification} provides no independent evidence for it.
+Second, the terms \textit{weak} and \textit{strong} in this context, properly refer to interpretations rather than lexical items.
+A determiner is called \textit{strong} if it is always interpreted as strong, while \textit{weak determiners} can be interpreted as either weak or strong depending on the context.
+Finally, as I will demonstrate in <+LaterSection+>, weak indefinites can be SC subjects.
+So, supposing we take \posscite{heycock2012specification} analysis to be true, the question changes from ``Why is the indefinite X a licit SC subject, while Y is illicit?'' to ``Why can X receive a strong interpretation, while Y cannot?''.
+
+\subsection{Summary}
+Each of the two approaches to explaining the indefinite restriction reviewed in this section has its own issues.
+The pragmatic approach of \textcite{mikkelsen2004specifying} covers a greater portion of the data thanks in large part to its theoretical vagueness.
+The semantic approach of \textcite{heycockkroch1999pseudocleft} and \textcite{heycock2012specification} is much more theoretically precise at the expense of its empirical coverage.
+In the following sections I will outline a pragmatic explanation of the indefinite restriction that increases not only the precision of \posscite{mikkelsen2004specifying} approach, but its empirical coverage.
 \end{document}
-
