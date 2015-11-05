@@ -1,0 +1,440 @@
+%        File: 29SeptForum.tex
+%     Created: Mon Sep 28 10:00 AM 2015 E
+% Last Change: Mon Sep 28 10:00 AM 2015 E
+%
+% arara: pdflatex: {options: "-draftmode"}
+% arara: biber
+% arara: pdflatex: {options: "-draftmode"}
+% arara: pdflatex: {options: "-file-line-error-style"}
+\documentclass[letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=biber,style=authoryear-comp,useprefix=true]{biblatex}
+
+\usepackage{linguex}
+
+\usepackage[normalem]{ulem}
+
+\usepackage{stmaryrd}
+\usepackage[]{amsmath}
+\usepackage{amsfonts}
+\usepackage{forest}
+
+\forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
+
+\forestset{en/.style={parent anchor=center, child anchor=center}}
+\forestset{em/.style={parent anchor=north west, child anchor=north west}}
+
+\usetikzlibrary{positioning}
+\DeclareNameFormat{labelname:poss}{% Based on labelname from biblatex.def
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:last}{#1}{#3}{#5}{#7}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:first-last}{#1}{#4}{#5}{#8}}
+      {\usebibmacro{name:first-last}{#1}{#4}{#6}{#8}}%
+  \or
+    \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
+  \fi
+  \usebibmacro{name:andothers}%
+  \ifnumequal{\value{listcount}}{\value{liststop}}{'s}{}}
+
+\DeclareFieldFormat{shorthand:poss}{%
+  \ifnameundef{labelname}{#1's}{#1}}
+
+\DeclareFieldFormat{citetitle:poss}{\mkbibemph{#1}'s}
+
+\DeclareFieldFormat{label:poss}{#1's}
+
+\newrobustcmd*{\posscitealias}{%
+  \AtNextCite{%
+    \DeclareNameAlias{labelname}{labelname:poss}%
+    \DeclareFieldAlias{shorthand}{shorthand:poss}%
+    \DeclareFieldAlias{citetitle}{citetitle:poss}%
+    \DeclareFieldAlias{label}{label:poss}}}
+
+\newrobustcmd*{\posscite}{%
+  \posscitealias%
+  \textcite}
+
+\newrobustcmd*{\Posscite}{\bibsentence\posscite}
+
+\newrobustcmd*{\posscites}{%
+  \posscitealias%
+  \textcites}
+
+\bibliography{GP2}
+\newcommand\quelle[1]{{%
+  \unskip\nobreak\hfil\penalty50
+  \hskip2em\hbox{}\nobreak\hfil#1%
+  \parfillskip=0pt \finalhyphendemerits=0 \par}}
+\begin{document}
+\begin{center}
+  {\Large On the Topic of Indefinite Specificational Subjects\\}
+  {\large Dan Milway}\\
+  Forum Presentation
+\end{center}
+\section{The indefinite restriction}
+\begin{itemize}
+  \item Specificational and predicational clauses appear to be the inverse of each other
+\end{itemize}
+\ex.
+\a. Lydia is my favourite singer. (Predicational)
+\b. My favourite singer is Lydia. (Specificational)
+\z.
+
+\begin{itemize}
+  \item Simple indefinites cannot be subjects of specificational copular clauses (SCs)
+\end{itemize}
+\ex.\label{ex:BadSCs}
+\a.* A doctor is Mike.
+\b.* A building is Robarts.
+\b.* A figure is Eric Lenneberg.
+\z.
+
+\begin{itemize}
+  \item More complex indefinites can be SC subjects
+\end{itemize}
+\ex.\label{ex:GoodSCs}
+\a. A newly-minted doctor is Mike.
+\b. A building on campus no one likes is Robarts.
+\b. An underrated figure in the history of generative grammar is Eric Lenneberg.
+\z.
+
+\textbf{Question:} What is the nature of the indefinite restriction? How is it best characterized?
+\begin{itemize}
+  \item A proper analysis of the indefinite restriction will bring us closer to a proper analysis of SCs in general.
+  \item If SCs are inverted predicational clauses \parencite{moro1997raising,mikkelsen2004specifying}, their subjects should be predicates (type $\langle e,t\rangle$)
+    \begin{itemize}
+      \item Indefinites are prototypical predicates and should be good SC subjects
+      \item The indefinite restriction should be pragmatic.
+    \end{itemize}
+  \item If SCs are equational \parencite{heycockkroch1999pseudocleft,heycock2012specification}, their subjects are likely argumental (type $e$)
+    \begin{itemize}
+      \item The indefinite restriction should be semantic
+    \end{itemize}
+\end{itemize}
+\textbf{My Claim:} SC subjects must contain \textit{contrastive topics} and the indefinite restriction can be derived from this requirement.
+\section{Outline}
+\begin{itemize}
+  \item A brief theoretical background on contrastive topics (CTs).
+  \item Predicting good indefinite subjects.
+  \item Ruling out bad indefinite subjects.
+  \item Residual issues.
+\end{itemize}
+\paragraph{A note on notation}
+The acceptability judgement notations are not meant to presuppose any analysis.
+Strings that are unacceptable regardless of context are marked *.
+Those that are unacceptable in a given context are marked \#.
+\section{Theoretical Background}
+\begin{itemize}
+  \item The notion of CT comes from \posscite{jackendoff1972Ssemantics} A- and B-Accents.
+\end{itemize}
+\ex. (Well, what about FRED? What did HE eat?)\\
+FRED$_B$ ate the BEANS$_A$.
+
+\ex.(Well, what about the BEANS? Who ate THEM?)\\
+FRED$_A$ ate the BEANS$_B$
+
+\begin{itemize}
+  \item The A-Accent, which corresponds to the wh-consituent of the question is the focus.
+  \item Following \textcite{buring2003d}, I refer to B-Accent as the CT (\textcite{roberts2012information} calls it \textit{dependant focus})
+  \item In addition to an ordinary interpretation ($\llbracket\cdot\rrbracket^\mathcal{O}$), utterances have focus interpretation ($\llbracket\cdot\rrbracket^f$)\parencite{rooth1992theory}, and a CT interpretation ($\llbracket\cdot\rrbracket^{ct}$)\parencite{buring2003d}
+  \item Focus interpretations are sets of alternatives \parencite{rooth1992theory} equivalent to the interpretations of questions \parencite{groenendijkstokhof1996questions}
+  \item CT interpretations are sets of sets of alternatives \parencite{buring2003d}.
+\end{itemize}
+\ex. 
+\a. $\llbracket\text{FRED}_B\text{ ate the BEANS}_A\rrbracket^{f} = 
+\begin{Bmatrix}
+  \text{Fred ate the corn}\\
+  \text{Fred ate the beans}\\
+  \text{Fred ate the apples}\\
+  \cdots
+\end{Bmatrix}
+= \llbracket\text{What did Fred eat?}\rrbracket
+$
+\b.$\llbracket\text{FRED}_B\text{ ate the BEANS}_A\rrbracket^{ct} = 
+\begin{Bmatrix}
+  \text{What did Fred eat?}\\
+  \text{What did Mary eat?}\\
+  \text{What did Robin eat?}\\
+  \cdots
+\end{Bmatrix}
+= \llbracket\text{What did who eat?}\rrbracket
+$
+
+\begin{itemize}
+  \item B\"uring represents these interpretations as d(iscourse)-trees
+\end{itemize}
+\ex. $\llbracket\text{FRED}_{CT}\text{ ate the BEANS}_{F}\rrbracket^{ct}$\\
+\begin{forest}
+  tree defaults
+  [What did who eat?
+    [What did Mary eat?]
+    [What did Robin eat?]
+    [What did Fred eat?
+      [Fred ate the corn]
+      [Fred ate the apples]
+      [\textbf{Fred ate the beans}]
+    ]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item Generally, CT-F structures identify a question and superquestion that they answer.
+  \item CT-F structures have multiple discourse functions that the d-trees can represent.
+\end{itemize}
+\ex.\label{ex:ChinaCTF}
+\a.
+\a.[A:] When are you going to China? \hfill \parencite{roberts2012information}
+\b.[B:] I'm going to [China]$_{CT}$ in [April]$_F$.
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [When are you going which place?
+    [When are you going to \ldots?]
+    [\textbf{When are you going to China?}
+      [\textbf{April}]
+    ]
+  ]
+\end{forest}
+\z.
+
+\ex.\label{ex:CaftansCTF}
+\a.
+\a.[A:] What did the pop stars wear? \hfill \parencite{buring2003d}
+\b.[B:] The [female]$_{CT}$ popstars wore [caftans]$_F$.
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [\textbf{What did the pop stars wear?}
+    [What did the male pop stars wear?]
+    [What did the female pop stars wear?
+      [\textbf{The female pop stars wore caftans.}]
+    ]
+  ]
+\end{forest}
+\z.
+
+\ex.\label{ex:DoctorChiroCTF}
+\a.
+\a.[A:] Who's a good doctor to treat my back pain?
+\b.[B:] [My sister Monica]$_{F}$ is a [chiropractor]$_{CT}$.
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [Who's a good $\langle profession\rangle$ to treat back pain?
+    [\textbf{Who's a good doctor \ldots?}]
+    [Who's a good \ldots?]
+    [Who's a good chiropractor \ldots?
+      [\textbf{Monica}]
+    ]
+  ]
+\end{forest}
+\z.
+
+\section{When indefinites can be SC subjects}
+\ex.\label{ex:GoodSCsRepeat}
+\a. A newly-minted doctor is Mike.
+\b. A building on campus no one likes is Robarts.
+\b. An underrated figure in the history of generative grammar is Eric Lenneberg.
+\z.
+
+\begin{itemize}
+  \item All of the SCs in \Last are most naturally uttered with intonational stress on some part of the subject.
+  \item The placement of stress marks the CT.
+  \item DP2 is the focus.
+\end{itemize}
+\ex. $\llbracket\text{A building on campus NO ONE likes is Robarts}\rrbracket^{ct}$\\
+\begin{forest}
+  tree defaults
+  [What is a BOC that who likes?
+    [What is a BOC someone likes?]
+    [What is a BOC no one likes?
+      [A BOC no one likes is \ldots]
+      [\textbf{A BOC no one likes is Robarts}]
+    ]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item The SC in \Last is felicitous in discourse contexts in which who likes what building is under discussion
+\end{itemize}
+\ex. 
+\a. Not many people like Sid Smith but,
+\a. A building on campus NO ONE likes is Robarts.
+\b.\# A BUILDING on campus no one likes is Robarts.
+\z.
+\b. No one likes Philosopher's Walk but,
+\a.\# A building on campus NO ONE likes is Robarts.
+\b. A BUILDING on campus no one likes is Robarts.
+\z.
+
+\textbf{Generalization:} Subjects of specificational clauses must contain both discourse-new and discourse-given material.
+
+\section{When indefinites cannot be SC subjects: simple indefinites}
+\ex.
+\a.* A doctor is Mike.
+\b.* A building is Robarts.
+\b.* A figure is Eric Lenneberg.
+\z.
+
+\begin{itemize}
+  \item The generalization above obviously rules these out.
+    \begin{itemize}
+      \item The substantive material in these subjects is the noun, which cannot be simultaneously new and given.
+    \end{itemize}
+  \item Simple indefinites allow us to probe why such a generalization should hold at all.
+\end{itemize}
+\ex. $\llbracket\text{A [doctor]}_{CT}\text{ is Mike}\rrbracket^{ct}$\\
+\begin{forest}
+  tree defaults
+  [Who is what?
+    [Who is a lawyer?]
+    [Who is a socialist?
+      [\ldots]
+      [A socialist is Mike]
+    ]
+    [\ldots]
+    [Who is brown-eyed?]
+    [Who is a doctor?
+      [\ldots]
+      [A doctor is Mike]
+    ]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item Impressionistically, \textit{Who is what?} is too vague to ever be asked. But why?
+  \item  Citing Hamblin, \textcite{groenendijkstokhof1996questions} provide a possible explanation\\
+    ``The possible answers to a question form an exhaustive set of mutually exclusive possibilities''
+  \item One possible answer is a set of worlds which is mutually exclusive with every other possible answer.
+  \item In \Last, the worlds in which Mike is a doctor would be exclude those worlds in which Mike has brown eyes and vice versa.
+  \item The question \textit{Who is What?} is ill-formed, which rules out virtually every simple indefinite as SC subject.
+\end{itemize}
+%\subsection{Another ruled-out SC}
+%\begin{itemize}
+%  \item Consider The Beatles.
+%  \item Each of the members had a primary instrument (John:Guitar, Paul:Bass, George:Guitar, Ringo:Drums), and all of them were also vocalists.
+%\end{itemize}
+%\ex. 
+%\a. Paul was the Bassist in The Beatles\\
+%A GUITARIST in the Beatles was John.
+%\b. Paul was a vocalist in the Beatles\\
+%\#A GUITARIST in the Beatles was John.
+%
+%\begin{itemize}
+%  \item \textit{Guitarist} and \textit{bassist} are mutally exclusive in this context, so they can be contrasted
+%  \item \textit{Guitarist} and \textit{vocalist} are not mutually exclusive, so we cannot contrast them.
+%\end{itemize}
+\section{Residual issues}
+\subsection{One and Another}
+\ex.
+\a.\label{ex:AnotherSC} aNOTHer doctor is Mary.
+\b.\label{ex:OneSC} ONE doctor is Mary.
+
+
+\begin{itemize}
+  \item Why are these acceptable?
+  \item Because they don't imply the question \textit{Who is what?}
+  \item \ref{ex:AnotherSC} can be uttered in a context in which some doctors have been discussed and named
+\end{itemize}
+\ex.
+\a.\# Another doctor is Mary. (out of the blue)
+\b. Let me tell you about doctors \dots\\
+\# Another doctor is Mary.
+\c. Andrew is a doctor\dots\\
+Another doctor is Mary.
+
+\begin{itemize}
+  \item \Last[c] can be represented in the following d-tree
+\end{itemize}
+\ex. 
+\begin{forest}
+  tree defaults
+  [Who is a doctor?
+    [\textbf{Andrew is a doctor}]
+    [Who is another doctor?
+      [\textbf{Another doctor is Mary.}]
+      [\dots]
+    ]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item \ref{ex:OneSC} can be uttered when doctors have been discussed but not named
+\end{itemize}
+\ex.
+\a.\# One doctor is Mary. (out of the blue)
+\b. Let me tell you about doctors \dots\\
+One doctor is Mary.
+\c. Andrew is a doctor\dots\\
+\# One doctor is Mary.
+
+\begin{itemize}
+  \item Unfortunately, this is a little too vague of a context to know how to build a d-tree.
+\end{itemize}
+\ex.
+\begin{forest}
+  tree defaults
+  [\dots doctors\dots?
+    [???]
+    [Who is one doctor?
+      [One doctor is Mary]
+      [\dots]
+    ]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item What alternatives does \textit{one} generate?
+  \item \textcite{kayne2015one} argues that \textit{one} is a complex determiner (\textit{a/an} + singular classifier)
+  \item What alternatives do classifiers generate?
+\end{itemize}
+
+\subsection{Predicational Clauses}
+\begin{itemize}
+  \item My proposal rules out certain d-trees/QUDs.
+  \item As a result, some linguistic expressions are rendered unacceptable.
+  \item What about simple indefinites in predicate position?
+\end{itemize}
+\ex. Mary is a doctor.
+
+\begin{itemize}
+  \item These are predicted to be bad with certain CT-Foc structures
+\end{itemize}
+\ex. 
+\a.{()} Mary$_F$ is a doctor.
+\b.{()} Mary is a doctor$_F$.
+\b.{(*)} Mary$_{CT}$ is a doctor$_F$.
+\b.{(*)} Mary$_F$ is a doctor$_{CT}$.
+\z.
+
+\begin{itemize}
+  \item \Last[a] and \Last[b] are predicted to be acceptable, and seem to be acceptable.
+  \item \Last[c] and \Last[d] are predicted to be bad, and I have no idea if they are.
+  \item In order to check this prediction, I would need to carefully control for discourse context and intonational contour.
+  \item Nevertheless this is a falsifiable (in principle) prediction made by my proposal. (A feature, not necessarily a bug)
+\end{itemize}
+%\ex.
+%\a.
+%\a. $\llbracket$\ref{ex:OneSC}$\rrbracket^f$ = Who is one doctor?
+%\b. $\llbracket$\ref{ex:OneSC}$\rrbracket^{ct}$ = Who is a doctor?
+%\z.
+%\b. 
+%\a. $\llbracket$\ref{ex:AnotherSC}$\rrbracket^f$ = Who is another doctor?
+%\b. $\llbracket$\ref{ex:AnotherSC}$\rrbracket^{ct}$ = Who is a doctor?
+%\z.
+
+\section{Conclusion}
+\begin{itemize}
+  \item A requirement that SC subjects include CT-marked material plus well-formedness conditions on alternative sets/questions allows us to derive the indefinite restriction.
+  \item The explanation is pragmatic in nature and consistent with \posscite{mikkelsen2004specifying} inversion analysis of SCs.
+\end{itemize}
+\printbibliography
+\end{document}
+
+
