@@ -69,6 +69,33 @@ For concrete examples consider the examples in \Next.
 
 To summarize, the claim that SC subjects must contain some CT-marked constituent predicts not only which indefinites can be SC subjects, but also the discourse contexts in which a given CT-F structured SC can be uttered.
 In the next section, I will show how the same claim can rule out those indefinites that cannot be SC subjects.
+\subsubsection{It's about contrast not aboutness}
+A natural objection to the proposal made above is that the defining characteristic of SC subjects is \textit{aboutness} rather than \textit{contrast}.
+A test developed by \textcite{reinhart1981pragmatics}, however, can demonstrate that SC subjects can lack aboutness topics, so long as they contain a contrastive topic.
+According to Reinhart, if a sentence $S$ is about some constituent $X$, then the sentence can be embedded by the clause \textit{She said \{of/about\} X that S.} as demonstrated below
+\ex.Kracauer's book is probably the most famous ever written on the subject of the cinema.
+\a. Mary said of the book that many more people are familiar with its catchy title than are acquainted with its turgid text.\hfill\parencite{reinhart1981pragmatics}
+
+When we consider the SCs above, we can see that parts of the subjects can be aboutness topics, but only if some contrastive element is not part of the aboutness topic.
+\ex.
+\a. A building on campus NO ONE likes is Robarts.
+\a. Mary said of buildings on campus that one NO ONE likes is Robarts.
+\b.\# Mary said of buildings on campus no one likes that one is Robarts.
+\z.
+\b. A NEWLY-minted doctor is Ail\'is.
+\a. John said about doctors that a NEWLY-minted one is Ail\'is.
+\b.\# John said about newly-minted doctors that one is Ail\'is.
+
+Further evidence comes from how aboutness affects the interpretation of definite DPs in SC-like clauses.
+If the aboutness and contrastive topic are disjoint, the SC interpretation is available, but if the entire subject is the aboutness topic the sunject is only interpreted \textit{de re}
+\ex. 
+\a. My FAVOURITE singer is David Bowie.
+\b. John said of singers that his FAVOURITE (one) is David Bowie.
+\c. John said of his favourite singer that \{*it/he\} is David Bowie.\\
+= Ziggy Stardust is John's favourite singer and John said of Ziggy Stardust that he is David Bowie.
+
+Based on Reinhart's test, there seems to be good reason to believe that contrast rather than aboutness is the necessary factor in what makes a licit SC subject.
+
 \subsection{Simple indefinites}
 Having only shown how indefinites can be licit SC subjects, we are no further to a full explanation of the indefinite restriction than Mikkelsen, who also could explain these facts.
 We are left with the problem of explaining why simple indefinites seem to be so ill-suited as SC subjects.
@@ -87,28 +114,42 @@ The theoretical framework developed by \textcite{rooth1992theory,roberts2012info
 Consider how \Last[a] would be interpreted.
 The postcopular DP would be focused, and, since the indefinite article cannot ordinarily\footnote{<++>} bear CT stress, \textit{doctor} would bear CT Stress.
 To compute the CT interpretation, we use \posscite{buring2003d} algorithm.
-The focus value would be equivalent to \textit{Who is a doctor?} and the CT value would be approximately equivalent to \textit{Who is a what?}, as formalized below.
+The focus value would be equivalent to \textit{Who is a doctor?} and the CT value would be approximately equivalent to \textit{Who is a what?} or \textit{What about who?}, as formalized below.
 \ex.\label{ex:BadSCAnalysis}
 	\a.
-		\a. $\llbracket\LLast[a]\rrbracket^f = \left\{ Doctor(x) | x \in D_e \right\}$
-		\b. $\llbracket\LLast[a]\rrbracket^{CT} = \left\{ \left\{ P(x) | x \in D_e \right\} | P \in D_{et} \right\}$
-		\z.
-	\b. 
-	\begin{forest}
-	  tree defaults
-	  [Who is a what?
-	    [Who is a doctor
-	      [A doctor is Derek]
-	      [A doctor is Mary]
-	      [\dots]
-	    ]
-	    [Who is a lawyer?]
-	    [Who is a socialist
-	      [A socialist is Mary]
-	    ]
-	    [\dots]
-	  ]
-	\end{forest}
+	\begin{tabular}[t]{lclcl}
+	  $\llbracket\LLast[a]\rrbracket^f$&$=$&$\left\{ Doctor(x) | x \in D_e \right\}$&$\approx$&\textit{Who is a doctor}\\
+	  $\llbracket\LLast[a]\rrbracket^{CT}$&$=$&$\left\{ \left\{ P(x) | x \in D_e \right\} | P \in D_{et} \right\}$&$\approx$&\textit{Who is what?}\\
+	  {}&{}&{}&{}&\textit{What about who?}
+	\end{tabular}
+%	\b. 
+%	\begin{forest}
+%	  tree defaults
+%	  [Who is a what?
+%	    [Who is a doctor
+%	      [A doctor is Derek]
+%	      [A doctor is Mary]
+%	      [\dots]
+%	    ]
+%	    [Who is a lawyer?]
+%	    [Who is a socialist
+%	      [A socialist is Mary]
+%	    ]
+%	    [\dots]
+%	  ]
+%	\end{forest}
+
+It is important to note that the approximations to linguistic expressions given above are just that, approximations.
+Consider the most natural context for asking \textit{Who is what?}, the one that yields a pair-list answer.
+This is only licit when the context gives a fixed set of individuals and a fixed (or at least restricted) set of relevant properties.
+\ex. \textbf{Context:} John and Mary see three people. John does not know any of them. Mary tells John that they are a doctor, a lawyer, and a teacher.
+\a.[John: ] Who is what?
+\b.[Mary: ] (pointing) She's the doctor. She's the lawyer. He's the teacher.
+
+The CT-value of \textit{*A doctor is Mary}, on the other hand, is not restricted to any contextually relevant or salient individuals or properties.
+To get an idea of what this version of \textit{Who is what?} is asking, consider the following scenario:
+
+\ex. \textbf{Scenario:} As an excercise in a fiction writing class, students
 
 Compare the QUD implied here, to that of \ref{ex:GoodSCAnalysis}.
 The QUD derived in \Last is exceedingly broad, essentially asking what properties hold of which individuals.
