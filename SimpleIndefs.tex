@@ -1,0 +1,109 @@
+%
+% arara: pdflatex: {options: "-draftmode"}
+% arara: biber
+% arara: pdflatex: {options: "-draftmode"}
+% arara: pdflatex: {options: "-file-line-error-style"}
+\documentclass[GPFinal]{subfiles}
+\begin{document}
+Given the surface generalization (\textit{SC subjects must contain but not be a CT-Marked constituent}) proposed above, the constraint on simple indefinites as SC subjects is fairly obvious.
+In the examples below in \Next, the only candidate for CT marking would be the nominal.
+CT-marking on the indefinite article would render the these strings acceptable, and DP2 is inherently focused. 
+\ex.\label{ex:BadSCs}
+\a.* A doctor is Derek.
+\b.* A building is Robarts Library.
+\c.* A linguist is Eric Lenneberg.
+\z.
+
+If we assume, following \textcite{heim1982semantics}, the indefinite article in English if semantically vacuous, CT-marking on the nominal is equivalent to CT-Marking on the entire subject.
+Even without this assumption, we can see that CT-marking on the nominal of a simple indefinite has odd consequences.
+If the nominal is our CT constituent, then what is the discourse/information-structure function of the determiner?
+Is it the aboutness topic?
+Unlikely, because what does it mean for a sentence to be about \textit{a(n)}?
+Is it the Background?
+Again, unlikely, because what does it mean for an assertion to presuppose \textit{a(n)}?
+The (deaccented) indefinite article does not seem to serve any discourse role on its own, so CT-marking on the nominal of a simple indefinite is equivalent to CT-Marking on the entire DP.
+Since simple indefinite SC subjects would be, rather than contain, CT-marked constituents, they violate the surface generalization and are ruled out. 
+
+Simple indefinites also allow us to investigate why the surface generalization should hold.
+What's wrong with an SC subject being, rather than containing, a CT-marked constituent?
+Let's consider how \Last[a] would be interpreted.
+\ex.
+\a.
+\a. $\llbracket$A doctor is Derek$\rrbracket = Doctor(\mathbf{d})$
+\b. $\llbracket$A doctor is Derek$\rrbracket^f = \{x \in Alt(\mathbf{d}) | Doctor(x)\}$
+\b. $\llbracket$A doctor is Derek$\rrbracket^{ct} = \{P \in Alt(Doctor)|\{x \in Alt(\mathbf{d}) | P(x)\}\}$
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [Who is what?\\What about who?,align=center
+    [Who is a doctor?
+      [Is Derek a doctor?
+	[Yes]
+      ]
+      [Who is another doctor?
+	[\ldots,triangle]
+      ]
+    ]
+    [Who is what else?\\What else about who?,align=center
+      [\ldots,triangle]
+    ]
+  ]
+\end{forest}
+\z.
+
+If we also recall that CT-marking triggers an exhaustivity implicature, then \textit{A doctor is Derek} would trigger an implicature that Derek is a doctor and no alternative property holds of Derek.
+This leads to the question: What are the excluded alternative properties?
+
+In his original formulation of aternative semantics, \textcite{rooth1985diss,rooth1992theory} considered a constituent's alternative set to be the domain of items of the same semantic type, so the alternatives of \textit{doctor} would be the domain of properties of individuals.
+More recent work \parencite[][among others]{wagner2006givenness,katzir2007structurally,katzir2013note,fox2011characterization} has argued that for a given item, its alternative set is much more restricted.
+%The source of this restriction varies depending on the proposal, but
+%\textcite{wagner2006givenness} argues that the alternative set for a focused element X that has a sister Y is the set of elements that contrast with X as sisters of Y.
+%So, in \Next, \textit{BLUE convertibles} has as its alternatives only \textit{RED convertibles}.
+%\ex.
+%\a. John only owns BLUE convertibles.
+%\b. \textbf{Alternatives:}
+%\a. John owns red convertibles.
+%\b.* John owns expensive convertibles.
+%\b.* John owns cheap convertibles.
+%\z.
+%\z.
+%
+%Applying this to \textit{*A doctor is Derek} yields no alternatives.
+%Suppose the unrestrictive alternatives to \textit{A doctor} when its sister is \textit{is Derek} is the set of professions.
+%Professions do not contrast with one another, as no two professions are mutually exclusive.
+%So, \textit{A doctor} yields no contrastive alternatives, and therefore, since the function of CT-marking is alternative generation, \textit{A doctor} cannot be a contrastive topic.
+%
+%\textcite{katzir2013note}, however points out that under an intensional verb such as \textit{collect}, the the alternative set no longer seems to depend on contrast given local environment.
+%\ex.
+%\a. John only collects BLUE convertibles.
+%\b. \textbf{Alternatives:}
+%\a. John collects red convertibles.
+%\b. John collects expensive convertibles.
+%\b. John collects cheap convertibles.
+%\z.
+%\z.
+%
+%
+%<+Alternatives+>
+%
+The source of this restriction varies depending on the proposal, but common to all the approaches is the assumption of some larger domain of alternatives which is restricted in a particular use by syntactic or contextual factors.
+For the purposes of this paper, I will assume, following \textcite{rooth1985diss,rooth1992theory}, that the base alternative set is the the set of all items of the same semantic type.
+Given that the (un)acceptability of the pair of strings in \Next is context-independent, I will assume that contextual factors are irrelevant here.
+\ex. 
+\a. A MALE doctor is Derek.
+\b.* A doctor is Derek.
+
+So, how would the syntactic environment pare down the alternatives?
+If we make the assumption that the given/non-contrastive material in a sentence restricts the alternatives generated by CT (and Foc), then we are forced to say syntactic factors cannot restrict the CT alternatives in \textit{*A doctor is Derek}.
+Recall that, in SCs, DP2 is always the focused.
+This means that the material DP2 is not given, and therefore cannot help to restrict the CT alternative set.
+So we are left with the copula, and therefore tense, aspect, modality, \textit{etc.}, as given material.
+It is not clear that the material encoded in the copula could meaningfully restrict the CT alternatives in \textit{*A doctor is Derek}, so I will assume that it does not.
+With nothing to restrict it, we are left with the unrestricted alternative set.
+
+When combined, the exhaustivity implicature that CTs trigger and the unrestricted alternative set generated by simple indefinite SC subjects lead to the conclusion that \textit{*A doctor is Derek} implies that the individual Derek has the property of being a doctor and no other property. 
+This implicature is implausible and is ruled out.
+Given their structure, every SC with a simple indefinite subject triggers this implausible implicature and is therefore ruled out.
+
+\end{document}
