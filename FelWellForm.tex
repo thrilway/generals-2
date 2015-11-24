@@ -1,0 +1,76 @@
+%
+% arara: pdflatex: {options: "-draftmode"}
+% arara: biber
+% arara: pdflatex: {options: "-draftmode"}
+% arara: pdflatex: {options: "-file-line-error-style"}
+\documentclass[GPFinal]{subfiles}
+\begin{document}
+\subsection{Felicity vs Well-formedness}
+Two factors in the (un)acceptability of utterances have been shown in this section: felicity and well-formedness.
+The two factors are distinguishable from each other in how they interact with context.
+The felicity of an utterance is its appropriateness in a given discourse, so it is completely context dependant.
+Well-formedness, on the other hand, depends only on the structures projected by an utterance, meaning that it is context independant.
+Put another way, a well-formed utterance used in the wrong discourse context is infelicitous, but an ill-formed utterance is unacceptable in any context.
+
+So, is the indefinite restriction based on felicity or well-formedness?
+\textcite{mikkelsen2004specifying} suggests that, because the restriction is due to the fact that SC subjects must be topics, it is pragmatic in nature and therefore based on felicity.
+\textcite{heycockkroch1999pseudocleft,heycock2012specification}, however argue that the restriction is semantic in nature and therefore based on well-formedness.
+It seems, based on the above discussion however, that the indefinite restriction is pragmatic in nature \textit{and} based on well-formedness.
+Since my analysis of the indefinite restriction starts with the proposal that SC subjects must contain a CT constituent and the notion of CT is pragmatic in nature, the indefinite restriction is essentially pragmatic according to my analysis.
+SCs with simple indefinite subjects, however, are ruled out because there is no possible CT-F structure associated with them that projects a well-formed d-tree, so the indefinite restriction must be based on well-formedness considerations.
+
+In the above discussion of CT-F structures and the discourse pragmatics of SCs, we have seen clear instances of infelicity and ill-formedness, and one instance in which the source of unacceptability is in some way mixed.
+The assertion in \ref{ex:HilBagelInfel}, reproduced below in \Next, projects a well-formed d-tree that is incongruent with it's context, making the utterance infelicitous.
+\ex. 
+\a.
+\a.[A:] Who ate bagels?
+\b.[B:] \#[Hilary]$_{CT}$ ate [bagels]$_F$.
+\z.
+\b. $\llbracket$[Hilary]$_{CT}$ ate [bagels]$_F\rrbracket^{ct}$\\
+\begin{forest}
+  tree defaults
+  [What did who eat?
+    [What did Robin eat?]
+    [What did Hilary eat?
+      [\textbf{Hilary ate bagels}]
+    ]
+  ]
+\end{forest}
+\z.
+
+The SCs with simple indefinite subjects like those in \ref{ex:BadSCs} are unacceptable because the d-trees constructed from them are ill-formed.
+Since they are ill-formed \textit{per se}, considerations of felicity do not enter into their assessment.
+
+A more complex case is that of \ref{ex:Beatles}, reproduced below in \Next.
+\ex.
+\a. Paul was a vocalist in the Beatles.
+\b. \#A [guitarist]$_{CT}$ in the Beatles was [John]$_F$.
+
+I have marked this SC as infelicitous, but it is presented as evidence of the well-formedness condition on d-trees.
+While there is a d-tree that \Last[b] could project that would be felicitous in this context (reproduced in \Next below), that d-tree is ill-formed.
+\ex. 
+\begin{forest}
+  tree defaults
+  [Who was what in the in the Beatles?
+    [Who was a guitarist \dots
+      [\dots was John]
+      [\dots was George]
+    ]
+    [Who was a vocalist \dots
+      [\dots was Paul]
+      [\dots was John]
+      [\dots]
+    ]
+    [\dots]
+  ]
+\end{forest}
+
+The well-formed d-tree projected by \LLast[b] would not include the question \textit{Who was a vocalist in The Beatles?}, rendering the utterance infelicitous.
+
+We are left with the following picture of utterances, d-trees and felicity.
+Well-formedness judgements are the result of a function from d-trees to truth-values.
+Felicity judgements can be considered a function from well-formed d-trees to contexts to truth-values.
+So the felicity of an ill-formed utterance is undefined in all contexts.\footnote{
+  Felicity can indeed be recast as a well-formedness condition on discourse, but this would still be distinct from the well-formedness conditions discussed here which are conditions on individual utterances  
+}
+\end{document}
