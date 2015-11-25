@@ -23,7 +23,9 @@ Predicative clauses surface when the argument raises, and SCs surface when the p
 \a.\label{ex:SCPCPairPC} Ian is my favourite singer.
 \b.\label{ex:SCPCPairSC} My favourite singer is Ian.
 
-\ex.\label{ex:CopUnderlying} \textbf{Base Structure}\\
+\ex.\label{ex:CopUnderlying} 
+\begin{minipage}[t]{\textwidth}
+  \textbf{Base Structure}\\
 \begin{forest}
   tree defaults
   [,l=8mm,s=10mm
@@ -36,8 +38,11 @@ Predicative clauses surface when the argument raises, and SCs surface when the p
     ]
   ]
 \end{forest}
+\end{minipage}
 %$[_{VP} \text{be} [ [_{Arg} \text{Ian}] [_{Pred} \text{my favourite singer}]]]$
-\a.\label{ex:PCStruct} \textbf{Predicational Clause}\\
+\a.\label{ex:PCStruct}
+\begin{minipage}[t]{\textwidth}
+\textbf{Predicational Clause}\\
 \begin{forest}
   tree defaults
   [,l=8mm,s=10mm
@@ -54,8 +59,11 @@ Predicative clauses surface when the argument raises, and SCs surface when the p
   ]
   \draw[->,thick](arg) to[out=south west, in=south] (subj);
   \end{forest}
+\end{minipage}
 %$[ [_{Arg} \text{Ian} ] \ldots [_{VP} \text{be} [ t_{Arg} [_{Pred} \text{my favourite singer}]]]]$
-\b.\label{ex:SCStructure} \textbf{Specificational Clause}\\
+\b.\label{ex:SCStructure}
+\begin{minipage}[t]{\textwidth}
+\textbf{Specificational Clause}\\
 \begin{forest}
   tree defaults
   [,l=8mm,s=10mm
@@ -73,6 +81,7 @@ Predicative clauses surface when the argument raises, and SCs surface when the p
   \draw[->,thick](pred) to[out=south west, in=south] (subj);
 \end{forest}
 %$[ [_{Pred} \text{My favourite singer}] \ldots [_{VP} \text{be} [ [_{Arg} \text{Ian}] t_{Pred}]]]$
+\end{minipage}
 
 Semantically, this analysis requires that SC subjects be construed as predicates (type $\langle e,t\rangle$ or higher) rather than arguments (type \textit{e}).
 
@@ -198,21 +207,7 @@ First, \textcite{heycock2012specification} provides no independent evidence for 
 Second, the terms \textit{weak} and \textit{strong} in this context, properly refer to interpretations rather than lexical items.
 A determiner is called \textit{strong} if it is always interpreted as strong, while \textit{weak determiners} can be interpreted as either weak or strong depending on the context.
 So, supposing we take \posscite{heycock2012specification} analysis to be correct, the question changes from ``Why is the indefinite X a licit SC subject, while Y is illicit?'' to ``Why can X receive a strong interpretation, while Y cannot?''.
-Finally, \posscite{heycock2012specification} proposal is not borne out.
-Strong indefinites don't seem to be able to function as SC subjects, as demonstrated below in \Next.
-\ex.
-\a. Each doctor is Mary, Bill, Sue, and John. (*Specificational)
-\b.? Most early generative grammarians are Chomsky and Halle. (*Specificational)
-\b.? SOME side-effects are drowsiness and blurred vision. (*Specificational)
-
-Copular clauses with strong indefinite subjects, instead are most naturally interpreted as identificational.
-Consider also, the minimal pair in \Next, with only strong/weak varying between the two.
-\ex.
-\a. SOME side-effects are drowsiness and blurred vision. (*Specificational)
-\b. sm side-effects are drowsiness and blurred vision.
-
-Contrary to \posscite{heycock2012specification} proposal, it s the weak counterpart that can be the subject of an SC.
-It seems, then, that the proposal that weak indefinites are barred from being SC subjects cannot stand.
+Second, an perhaps most compelling, I will demonstrate below in section \ref{sec:HeycockRedux}, that \posscite{heycock2012specification} proposal is not borne out.
 
 \subsection{Summary}
 Each of the two approaches to explaining the indefinite restriction reviewed in this section has its own issues.
