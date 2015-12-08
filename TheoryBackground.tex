@@ -30,9 +30,9 @@ This relation between focus interpretation and question interpretation is key to
 \subsection{Discourse Pragmatics \parencite{roberts2012information}}
 \textcite{roberts2012information} models discourse as a cooperative game, following \textcite{lewis1979scorekeeping}, the goal of which is to answer the \textit{questions under discussion} (QUDs).
 Utterences are represented as moves, with questions being setup moves and assertions being payoff moves.
-At a given point in the discourse there is a QUD, and discourse proceeds either by answering that QUD or by asking a subquestion (\textit{i.e.} one whose answer is a partial answer to the QUD), which becomes the new QUD.
-Roberts models the QUDs as a stack which new subquestions are pushed into and questions are popped off of upon being answered
-So, a move is considered (ir)relevant based on the question at the top of the QUD stack.
+At a given point in the discourse there is an immediate QUD, and discourse proceeds either by answering that question or by asking a subquestion (\textit{i.e.} one whose answer is a partial answer to the QUD), which becomes the new immediate QUD.
+Roberts models the QUDs as a stack structure, so new subquestions are pushed into the stack when asked, and the immediate QUD is popped off of stack upon being answered.
+A move is considered (ir)relevant based on the question at the top of the QUD stack.
 
 Roberts' model of a particular discourse is given below as a series of questions, subquestions, and answers. 
 \ex.[($\mathcal{D}_0$)] Who ate what?
@@ -82,7 +82,7 @@ $\llbracket\text{What did Robin eat?}\rrbracket^\mathcal{O} =
 $\hfill ($\neq$\Last[a])
 
 Roberts goes on to address contrastive topics, which she refers to as \textit{dependent focus}, in much the same way as she treats focus.
-Structures with CT and focus are given focus interpretation, meaning they are interpreted as a set of alternatives under alternative semantics.
+Structures with CT and focus are given focus interpretation, that is, they are interpreted as a set of alternatives under alternative semantics.
 An example of a CT-F utterance and its focus interpretation is given below in \Next.
 \ex.
 \a. [Hilary]$_{CT}$ ate [bagels]$_F$.
@@ -134,9 +134,12 @@ This way, \textcite{buring2003d} is able to build into his representations the f
 \ex.
 \a.\label{ex:HilBagCT-F} [Hilary]$_{CT}$ ate [bagels]$_F$.
 	\b. CT-value formation:
-		\a.[step 1:] What did Hilary eat?
-		\b.[step 2:] What did Hilary eat?\\
-		What did Robin eat?
+		\a.[step 1: ] What did Hilary eat?
+		\b.[step 2: ] $
+		\begin{Bmatrix}
+		  \text{What did Hilary eat?}\\
+		  \text{What did Robin eat?}
+		\end{Bmatrix}$
 		\z.
 	\b. $\llbracket$[Hilary]$_{CT}$ ate [bagels]$_F$.$\rrbracket^{ct} = \left\{ \left\{ x\text{ ate }y | y \in D_e \right\} | x \in D_e \right\}$
 	\z.
@@ -147,8 +150,11 @@ So the CT-value of \Last[a] is distinct from that \Next[a], below, which inverts
 \a.\label{ex:HilBagF-CT} [Hilary]$_F$ ate [bagels]$_{CT}$.
 \b. CT-value formation:
 \a.[step 1:] Who ate bagels?
-\b.[step 2:] Who ate bagels?\\
-Who ate tofu?
+\b.[step 2:] $
+\begin{Bmatrix}
+  \text{Who ate bagels?}\\
+  \text{Who ate tofu?}
+\end{Bmatrix}$
 \z.
 \b. $\llbracket$[Hilary]$_F$ ate [bagels]$_{CT}$.$\rrbracket = \left\{ \left\{ x\text{ ate }y | x \in D_e \right\} y \in D_e \right\}$\hfill($\neq\llbracket\LLast[a]\rrbracket^{ct}$)
 \z.
@@ -244,6 +250,7 @@ Q is a question.\\
 M is felicitous in the context of the QUD Q iff the M defines a d-tree DT such that Q is represented in DT.
 
 Though informal, this condition can effectively rule out several examples of infelicitous CT-F structures.
+The infelicity of the CT-Foc structures in \Next and \NNext is predicted by the fact that the explicit question that they answer is not found in the d-trees they project. 
 \ex.\label{ex:HilBagelInfel} 
 \a.
 \a.[A:] Who ate bagels?
@@ -261,7 +268,7 @@ Though informal, this condition can effectively rule out several examples of inf
 \end{forest}
 \z.
 
-\ex.
+\ex.\label{ex:MonChiroInfel}
 \a.
 \a.[A:] Who's a good doctor to treat my back pain?
 \b.[B:]\# [My sister Monica]$_{CT}$ is a [chiropractor]$_{F}$
