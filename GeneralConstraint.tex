@@ -40,7 +40,7 @@ In this case we can see that, even though both argument constituents are entirel
 The same holds of every example of licit CT-Foc structured uterrances.
 In fact we can even have utterences in which the entire sentence as uttered is marked as either CT or Foc so long as there is some implicit given/presupposed material.
 Consider the example in \Next.
-\ex. (What about FRED? what did HE do?)\\
+\ex.\label{ex:FredDo} (What about FRED? what did HE do?)\\
 FRED$_{CT}$ [ate the beans]$_F$.
 \a.
 \a.[\textbf{Focus:} ] ate the beans
@@ -63,7 +63,22 @@ FRED$_{CT}$ [ate the beans]$_F$.
 \z.
 
 So, in \Last, even though it is not pronounced, the given/presupposed infomation that allows the CT-Foc structure is the fact that there is some event with an agent.
-Given the data used to propose CT-Foc structure, it should come as no surprise that there has been no explicit mention of any constrain on CT-Foc structure of the nature I propose here.
+In fact, most current conceptions of clause structure assume a phonologically null head, \textit{v}/\textit{v*}/Voice, that assigns the agent thematic role, so the given material is encoded directly in the syntax as shown in the tree below.
+\ex.
+\begin{forest}
+  tree defaults
+  [VoiceP 
+  [Fred$_{CT}$,draw] 
+    [,en 
+      [Voice] 
+      [VP$_F$,draw 
+	[ate the beans,triangle]
+      ]
+    ]
+  ]
+\end{forest}
+
+Given the data used to propose CT-Foc structure, it should come as no surprise that there has been no explicit mention of any constraint on CT-Foc structure of the nature I propose here.
 Copular structures however are distinct from utterences with ordinary verbs in their absence of thematic structure, since copular structures only seem to encode the fact that some predicate holds of some individual.
 As shown below, ruled-out SCs would only presuppose a predicate-argument relation, which is not enough to be considered given/presupposed
 \ex.* A doctor is Mary
@@ -106,6 +121,69 @@ JOHN$_{CT}$ is ALTRUISTIC$_F$.
 \c.[\textbf{given/presupposed:} ] $\exists x[\text{Altruistic}(x) \in \left\{ 0,1 \right\}]$
 
 This type of CT-Foc structure, though allowed by the general constraint, is unavailable in SCs because the subject, where CT must be marked, and the copula, where polarity is encoded, do not form a syntactic constituent.
+
+Another type of predicational clause that seems problematic for this general constraint is demonstrated below in \Next.
+\ex.\label{ex:MaryDoctorPred} MARY$_{CT}$ is [a doctor]$_F$.
+
+If we assume that these clauses are uninverted versions of SCs, we would expect the following type of information structure from them.
+\ex.
+\a.[\textbf{Focus:} ] A doctor
+\b.[\textbf{CT:} ] Mary
+\c.[\textbf{given/presupposed:} ] $\emptyset$
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [??
+    [What is Mary?
+      [Is Mary a doctor?
+	[Mary is a doctor]
+      ]
+      [\ldots]
+    ]
+    [\ldots]
+  ]
+\end{forest}
+\z.
+
+If this were the information structure of \LLast, it would violate the general constraint I propose here.
+Of course, it isn't obvious that \Last represents the information structure of \LLast when we consider how \LLast is most naturally used and interpreted.
+Consider the mini-discourse in \Next.
+\ex. 
+\a.[A:] What about MARY? What does SHE do?
+\b.[B:] MARY$_{CT}$ is [a doctor]$_F$.
+
+Notice the parallel between \Last and \ref{ex:FredDo}, which was another apparent counterexample until we saw that the subject's agency was discourse given.
+Likewise, in the discourse in \Last, the question is \textit{What does she do?}, so the focus value of the answer would be things that can be \textit{done}, that is, activities.
+This gives us a different information structure,shown below in \Next, one that does not violate the general constraint.
+\ex.
+\a.
+\a.[A:] What about MARY? What does SHE do?
+\b.[B:] MARY$_{CT}$ is [a doctor]$_F$.
+\z.
+\b.
+\a.[\textbf{Focus:} ] A doctor
+\b.[\textbf{CT:} ] Mary
+\c.[\textbf{given/presupposed:} ] x does y
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [Who does what?
+    [What does Mary do?
+      [Is Mary a doctor?
+	[Mary is a doctor.]
+      ]
+      [\ldots]
+    ]
+    [\ldots]
+  ]
+\end{forest}
+\z.
+
+This analysis of the CT-Foc structure of \ref{ex:MaryDoctorPred}, seems to predict that its syntactic structure is distinct from ordinary predicational copular clauses.
+Specifically, it predicts that the syntactic structure of \ref{ex:MaryDoctorPred} contains an agent-assigning Voice head.
+Since an explication of the particulars of syntactic strucures is beyond the scope of this paper, I will leave this as a prediction to be tested in later work.
 
 The general constraint on CT-Foc structure that I have proposed here seems to hold, but why it should hold is not immediately clear.
 There are a few options that we can rule out, though.
