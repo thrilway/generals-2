@@ -24,23 +24,34 @@ English SCs are most naturally uttered with intonational stress on some part of 
 \b.? A building on campus no-one likes is Robarts.
 \z.
 
-English intonational stress is associated with informational prominence, and since, as Mikkelsen shows, DP2 position in SCs is necessarily focused, the intonation stress in the subjects of \Last cannot be focus.
+English intonational stress is associated with informational prominence, and since, as Mikkelsen shows, DP2 position in SCs is necessarily focused, the intonational stress in the subjects of \Last cannot be primary focus.
 
 Pragmatically, CT-Foc structures are characterized by association with a complex discourse strategy of a question and subquestion.
 SCs can indeed be associated with a question-subquestion strategy.
-\ex.Not many people like the Athletic Centre.\\
-A building on campus no one likes is Robarts.
-\a. 
-\a.[QUD: ] What is a building on campus who likes?
-\b.[SubQ: ] What is a building on campus no one likes?
-\z.
-\b. 
+Consider the example in \Next.
+\ex.(Not many people like the Athletic Centre.)\\
+A building on campus NO ONE likes is Robarts.
+
+If DP2 is Foc-Marked, and the stressed constituent \textit{no one} is CT-Marked, then we can use \posscite{buring2003d} CT-value formation procedure to construct the d-tree associated with it.
+
+\ex. CT-value formation:
+\a.[step 1: ] What's a building on campus no one likes?
+\b.[step 2: ] $
+\begin{Bmatrix}
+  \text{What's a building on campus no one likes?}\\
+  \text{What's a building on campus  someone likes?}\\
+  \cdots\\
+  \text{What's a building on campus  everyone likes?}
+\end{Bmatrix}
+$
+
+\ex.
 \begin{forest}
   tree defaults
   [What is a building on campus who likes?
     [What is a building on campus no one likes?
       [Is Robarts a building on campus no one likes?
-	[Yes]
+	[A building on campus no one likes is Robarts.]
       ]
       [\ldots]
     ]
@@ -174,9 +185,9 @@ If we calculate the CT-value of \ref{ex:AnotherCT} given this understanding of i
 
 \ex. 
 \a.
-\a. $\llbracket$ANOTHER$_{CT}$ doctor is Mary$_F\rrbracket^f = \left\{ doctor(x) \wedge other(x)(\Sigma doctor)(y) | x \in D_e \right\} (y \text{y is a doctor})$\\
+\a. $\llbracket$ANOTHER$_{CT}$ doctor is Mary$_F\rrbracket^f = \left\{ doctor(x) \wedge other(x)(\bigwedge doctor)(y) | x \in D_e \right\} (y \text{ is a doctor})$\\
 (Who is another doctor?)
-\b. $\llbracket$ANOTHER$_{CT}$ doctor is Mary$_F\rrbracket^{ct} = \left\{ \left\{ doctor(x) \wedge P(x)(y)(\Sigma doctor) | x \in D_e \right\} | P \in D_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}\right\}$\\
+\b. $\llbracket$ANOTHER$_{CT}$ doctor is Mary$_F\rrbracket^{ct} = \left\{ \left\{ doctor(x) \wedge P(x)(y)(\bigwedge doctor) | x \in D_e \right\} | P \in D_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}\right\}$\\
 ($\approx$ Who is a doctor?)
 \z.
 \b. Molly$_i$ is a doctor.\\
@@ -231,73 +242,70 @@ He also notes that the syntactic distribution of \textit{a/an} differs from \tex
 		\b. They're selling one-drawer desks in the back of the store.
 		\z.\hfill\parencite{kayne2015one}
 
-Kayne argues that \textit{one} is a complex determiner that is composed of \textit{a/an} and what he refers to as a \textit{singular classifier} the specific syntax/semantics of \textit{one} is beyond the scope of this paper.
-What is important is that \textit{one} is semantically richer than \textit{a/an} so that it can be CT-marked.
-
-For the purpose of illustration, I will assume \posscite{kayne2015one} analysis of \textit{one} is correct.
-What does this predict about the CT interpretation of \textit{One doctor is Mary}, then?
-The focus interpretation is the question \textit{Who is one doctor?}, and the CT interpretation would be \textit{Who is a doctor?}, as shown below in \Next.
+Kayne argues that \textit{one} is a complex determiner composed of \textit{a/an} and a \textit{singular classifier}, with the syntactic structure given below in \Next
+Since the locus of CT marking is not the indefinite article, it must be the \textit{singular classifier}, which means that the classifier ought to be contentful enough to generate alternatives.
 \ex.
 \begin{forest}
   tree defaults
-  [Who is a doctor?
-    [\(\cdots\)]
-    [Who is one doctor?
-      [\textbf{One doctor is Mary}]
-      [\(\cdots\)]
+  [DP
+    [D
+      [Clf\\\textit{w-},align=center]
+      [D\\\textit{an},align=center]
+    ]
+    [ClfP
+      [$\langle \text{Clf} \rangle$]
+      [NP]
     ]
   ]
 \end{forest}
 
+The licit SC \textit{One doctor is Mary} would, by hypothesis, have the following CT-Foc structure.
+\ex.
+\a.[\textbf{CT}: ] $\llbracket w-\rrbracket$
+\b.[\textbf{Focus}: ] Mary
+\b.[\textbf{given/presupposed}: ] doctor/doctors/a doctor
 
-According to Kayne's analysis, the question \textit{Who is one doctor?} is only answerable with singular and therefore, its alternative questions ask for plural answers.
+If this is correct, then the singular classifier must be able to generate alternatives.
+The question is, what counts as an alternative to \textit{one}.
+A proper answer to that question would require an in depth study of the semantics and pragmatics of \textit{one}, which is beyond the scope of this paper.
+In lieu of a proper analysis of the singular classifier component of \textit{one} I will stipulate that it encodes \posscite{carlson1977reference} REL operator, which defines the set of individuals that \textit{realize} its kind referring argument, with an additional singularity assertion.
+\ex. $\llbracket w-\rrbracket = \lambda k \in D_e . \lambda y \in D_e (REL(k)(y) \wedge Sg(y) )$
 
+So the alternatives to \textit{ONE doctor} would be non-singular realizations of the kind doctor, or perhaps all the other sets of individuals generable from the kind doctor.
+The focus-value for \textit{One doctor is Mary} would, then, be equivalent to the question \textit{Who is one doctor?}, leading to the following d-tree.
 \ex.
 \begin{forest}
   tree defaults
-  [$\left\{ x \in D_e | doctor(x) \right\}$
-    [$\left\{ x \in D_e | doctor(x) \wedge \neg \textsc{sing}(x) \right\}$]
-    [$\left\{ x \in D_e | doctor(x) \wedge \textsc{sing}(x) \right\}$]
+  [Who is a doctor?
+    [Who is one doctor?
+      [Is one doctor Mary?
+	[One doctor is Mary.]
+      ]
+      [\ldots]
+    ]
+    [\ldots]
   ]
 \end{forest}
 
-%\ex.
-%\begin{forest}
-%  tree defaults
-%  [{$
-%    \begin{Bmatrix}
-%      \text{Mary}\oplus\text{Molly}\oplus\text{John,}\\
-%      \text{Mary}\oplus\text{Molly,}\\
-%      \text{Molly}\oplus\text{John,}\\
-%      \text{Mary}\oplus\text{Molly,}\\
-%      \text{Mary, Molly, John}
-%    \end{Bmatrix}
-%  $}
-%  [{$
-%    \begin{Bmatrix}
-%      \text{Mary}\oplus\text{Molly}\oplus\text{John,}\\
-%      \text{Mary}\oplus\text{Molly,}\\
-%      \text{Molly}\oplus\text{John,}\\
-%      \text{Mary}\oplus\text{Molly}
-%    \end{Bmatrix}
-%  $}]
-%  [{$
-%    \begin{Bmatrix}
-%      \text{Mary,}\\
-%      \text{Molly,}\\
-%      \text{John}\\
-%    \end{Bmatrix}
-%  $}]
-%]
-%\end{forest}
-%
-Again, whether this particular d-tree is correct is not vital for my proposal, just that some d-tree consistent with the one in \LLast is correct.
+This is, of course, a first attempt based on a stipulated meaning for \textit{one}.
+Future analyses of \textit{one} will likely suggest a different denotation and therefore a different alternative set.
+So long as it is not demonstrated that \textit{one}, in fact, does not generate alternatives, however, these future analyses will be consistent with the overall claim of this paper.
 
-%It is often assumed that stressed \textit{one} is actually a covert partitive (\textit{one of the \ldots}), though it does not behave quite as such.
-%For instance \textit{one of the Xs} presupposes that the set of X's is non-singleton, while \textit{one X} merely implies it.
-%\ex.
-%\a. ONE ugly building on campus is Robarts. In fact, it's the only one.
-%\b. One of the ugly buildings on campus is Robarts. \# In fact, it's the only one.
+\subsection{Simple Definite SC Subjects}
+
+\textcite{heycock2010variability} and \textcite{bejarkahnemuyipour2013agreement} discuss a particular reading of SCs with simple definite subjects, called ``the Poirot reading'' which is shown below in \Next.
+\ex.And Poirot pointed at the Major and said ``For a long time now we have been trying to establish the identity of the murderer. But now I know\ldots\\
+\ldots The murderer is you''
+
+At first blush, this seems to be a counterexample to my proposal.
+In this context, the existence and relevance \textit{the murderer} is entirely given/presupposed, while the fact that the identity of the murderer is Poirot's addressee seems to be new/contrastive. 
+This would mean that no part of the subject is CT-marked, which should render the clause unacceptable.
+
+If we consider the context carefully, we can see that this is not the entire story.
+The sentence \textit{The murderer is you} would occur at the culmination of a murder mystery at which point many properties of \textit{the murderer} have been gleaned from the evidence.
+The only relevant ``property'' left is \textit{the murderer}'s identity.
+So, what is given is \textit{the murderer} and several of \textit{the murderer}'s properties.
+What is new/contrastive is the identity of \textit{the murderer}, and that that identity is Poirot's addressee.
 
 \subsection{Summary}
 In this section I have presented evidence that the restriction on indefinite SC subjects comes from a requirement that SC subjects contain but not be CT marked constituents.
