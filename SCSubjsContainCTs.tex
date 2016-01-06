@@ -77,7 +77,13 @@ So, intonational stress in SC subjects is consistent with CT-Foc structure.
 If \textcite{mikkelsen2004specifying} is correct, and SC subjects are necessarily givenness topics, we would expect that a maximally given DP is the ideal SC subject.
 As \Next demonstrates, however, maximally given DPs are not good SC subjects, but SC subjects that are minimally contrastive are acceptable.
 \ex. Many philosophers have written about the mind-body problem.
-\a.\# A philosopher who has written about the mind-body problem is Chomsky.
+\a.\# A philosopher who has written about the mind-body problem is Chomsky.\footnote{
+  This infelicity is not due to a constraint on repeating indefinites.
+  Consider the following pair:
+  \ex. Many philosophers have written about the mind-body problem.
+  \a.\# A philosopher who has written about the mind-body problem is Chomsky.
+  \b. A philosopher who has written about the mind-body problem came to dinner last night.
+}
 \b. A modern philosopher who has written about the mind-body problem is Chomsky.
 
 So, SC subjects are not givenness topics.
@@ -125,7 +131,7 @@ So, if the entirety of the SC subject is new/contrastive, the SC is unacceptable
 \b.[B:]\# A BUILDING on campus no-one likes is Robarts.
 \z.
 
-If SC subjects must minimally contain a CT marked constituent, it follows directly from the unacceptibility of simple indefinite SC subjects that SC subject DPs cannot be CT-marked.
+If SC subjects must minimally contain a CT marked constituent, it follows directly from the unacceptability of simple indefinite SC subjects that SC subject DPs cannot be CT-marked.
 Consider the unacceptable SC \textit{*A doctor is Mary}.
 The subject \textit{a doctor} must contain a CT-marked constituent, in this case \textit{doctor}.
 Since the indefinite article does not encode any particular information, CT marking on the nominal is equivalent to CT marking on the entire DP.
@@ -143,7 +149,9 @@ As mentioned in above The determiner-like elements \textit{one} and \textit{anot
 \b.\label{ex:OneCT} One$_{CT}$ doctor is Mary.
 \b.\label{ex:AnotherCT} Another$_{CT}$ doctor is Mary.
 
-If \textit{one} and \textit{another} can be CT marked, they must be able to generate alternatives, but what are these alternatives?
+In this section I argue that \textit{one} and \textit{another} can be CT marked, meaning they encode enough semantic material to generate alternatives.
+Where possible I will attempt to sketch what is encoded by these items and what their alternatives might be.
+Since \textit{one} and \textit{another} each warrant a dedicated research project, these sketches are decidedly preliminary.
 
 Let's consider \textit{another} first.
 Following \textcite{heim1991reciprocity}, I take the meaning of  \textit{other} to include two crucial parts: anaphoricity and distinctness.
@@ -176,7 +184,7 @@ Assuming that \textit{other} is CT marked in \ref{ex:AnotherCT}, and, following 
   \textcite{heim1991reciprocity}, discussing the reciprocals \textit{each other} and \textit{one another} give the following denotation for \textit{other}: \textit{z} is an atomic part of \textit{y}, a plural individual, and \textit{z} is distinct from \textit{x}.
   \ex. $\llbracket$other$\rrbracket = \lambda x\lambda y\lambda z(x \cdot\Pi y \wedge z \neq x)$
 
-  If we were to translate this directly into the example under discussion, \textit{x} would be the contextually given doctor, \textit{y} would be the plural individual \textit{doctor} and \textit{z} would \textit{Mary}.
+  If we were to translate this directly into the example under discussion, \textit{x} would be the contextually given doctor, \textit{y} would be the plural individual \textit{doctor} and \textit{z} would be \textit{Mary}. 
 }, we can calculate the SC's CT-value.\footnote{
   There may be good reason to question the particulars of both of these assumptions.
   There is also good reason to believe that the particulars of these assumptions are irrelevant to the discussion at hand.
@@ -268,28 +276,28 @@ The licit SC \textit{One doctor is Mary} would, by hypothesis, have the followin
 If this is correct, then the singular classifier must be able to generate alternatives.
 The question is, what counts as an alternative to \textit{one}.
 A proper answer to that question would require an in depth study of the semantics and pragmatics of \textit{one}, which is beyond the scope of this paper.
-In lieu of a proper analysis of the singular classifier component of \textit{one} I will stipulate that it encodes \posscite{carlson1977reference} REL operator, which defines the set of individuals that \textit{realize} its kind referring argument, with an additional singularity assertion.
-\ex. $\llbracket w-\rrbracket = \lambda k \in D_e . \lambda y \in D_e (REL(k)(y) \wedge Sg(y) )$
-
-So the alternatives to \textit{ONE doctor} would be non-singular realizations of the kind doctor, or perhaps all the other sets of individuals generable from the kind doctor.
-The focus-value for \textit{One doctor is Mary} would, then, be equivalent to the question \textit{Who is one doctor?}, leading to the following d-tree.
-\ex.
-\begin{forest}
-  tree defaults
-  [Who is a doctor?
-    [Who is one doctor?
-      [Is one doctor Mary?
-	[One doctor is Mary.]
-      ]
-      [\ldots]
-    ]
-    [\ldots]
-  ]
-\end{forest}
-
-This is, of course, a first attempt based on a stipulated meaning for \textit{one}.
-Future analyses of \textit{one} will likely suggest a different denotation and therefore a different alternative set.
-So long as it is not demonstrated that \textit{one}, in fact, does not generate alternatives, however, these future analyses will be consistent with the overall claim of this paper.
+%In lieu of a proper analysis of the singular classifier component of \textit{one} I will stipulate that it encodes \posscite{carlson1977reference} REL operator, which defines the set of individuals that \textit{realize} its kind referring argument, with an additional singularity assertion.
+%\ex. $\llbracket w-\rrbracket = \lambda k \in D_e . \lambda y \in D_e (REL(k)(y) \wedge Sg(y) )$
+%
+%So the alternatives to \textit{ONE doctor} would be non-singular realizations of the kind doctor, or perhaps all the other sets of individuals generable from the kind doctor.
+%The focus-value for \textit{One doctor is Mary} would, then, be equivalent to the question \textit{Who is one doctor?}, leading to the following d-tree.
+%\ex.
+%\begin{forest}
+%  tree defaults
+%  [Who is a doctor?
+%    [Who is one doctor?
+%      [Is one doctor Mary?
+%	[One doctor is Mary.]
+%      ]
+%      [\ldots]
+%    ]
+%    [\ldots]
+%  ]
+%\end{forest}
+%
+%This is, of course, a first attempt based on a stipulated meaning for \textit{one}.
+%Future analyses of \textit{one} will likely suggest a different denotation and therefore a different alternative set.
+%So long as it is not demonstrated that \textit{one}, in fact, does not generate alternatives, however, these future analyses will be consistent with the overall claim of this paper.
 
 \subsection{Simple Definite SC Subjects}
 
@@ -304,9 +312,24 @@ This would mean that no part of the subject is CT-marked, which should render th
 If we consider the context carefully, we can see that this is not the entire story.
 The sentence \textit{The murderer is you} would occur at the culmination of a murder mystery at which point many properties of \textit{the murderer} have been gleaned from the evidence.
 The only relevant ``property'' left is \textit{the murderer}'s identity.
-So, what is given is \textit{the murderer} and several of \textit{the murderer}'s properties.
+So, what is given is the existence, salience and uniqueness of  some murderer and several of \textit{the murderer}'s properties.
 What is new/contrastive is the identity of \textit{the murderer}, and that that identity is Poirot's addressee.
 
+Consider the following alternative discourse:
+\ex. We already know the following: The murderer is 6 feet tall. The murder has dark hair. The murderer walks with a limp. From this I have deduced that \\
+The murderer is you.
+
+In the discourse leading up to \textit{The murderer is you}, we can see that \textit{the murderer} is only used referentially.
+The culminating accusation shifts the usage of \textit{the murderer} to that of a predicate.
+For the purposes of this paper, I will assume that shifting \textit{the murderer} from $e$ to $\langle e, t\rangle$ is accomplished by an \textsc{ident} operator \parencite[cf.][]{partee1987noun}.
+The SC in \Last and \LLast, then, has the following CT-Foc structure:
+\ex. The murderer is you.
+\a.[\textbf{Focus: }] \textit{you}
+\b.[\textbf{CT: }] \textsc{ident}
+\c.[\textbf{Given/presupposed:} ] \textit{the murderer}
+\z.
+
+So, simple definite SC subjects can, in fact, be accounted for by the proposal in this paper, and therefore do not represent a counterexample.
 \subsection{Summary}
 In this section I have presented evidence that the restriction on indefinite SC subjects comes from a requirement that SC subjects contain but not be CT marked constituents.
 I first showed that \textit{contrastive} rather than aboutness or givenness topichood is the source of the restriction.
