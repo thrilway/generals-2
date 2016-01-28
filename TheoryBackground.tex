@@ -198,8 +198,8 @@ Consider the following examples.
 \z.
 
 \ex.\label{ex:DoctorChiroCTF}
-\a.[A:] Who's a good doctor to treat my back pain?
-\b.[B:] [My sister Monica]$_{F}$ is a [chiropractor]$_{CT}$.
+\a.[A:] Who's a good psychiatrist?
+\b.[B:] [My sister Monica]$_{F}$ is a [psychologist]$_{CT}$.
 \z.
 
 All of these instances of CT-F structures signal what B\"uring calls \textit{implicit moves}, each instance has a different sort of implicit move that can be easily represented by its d-tree.
@@ -234,10 +234,10 @@ Instead, it answers an implicit subquestion of a superquestion of the explicit q
 \ex.
 \begin{forest}
   tree defaults
-  [Who's a good $\langle profession\rangle$ to treat back pain?
-    [\textbf{Who's a good doctor \ldots?}]
+  [Who's a good mental health professional}?
+    [\textbf{Who's a good psychiatrist \ldots?}]
     [Who's a good \ldots?]
-    [Who's a good chiropractor \ldots?
+    [Who's a good psychologist \ldots?
       [\textbf{Monica}]
     ]
   ]
@@ -270,17 +270,17 @@ The infelicity of the CT-Foc structures in \Next and \NNext is predicted by the 
 
 \ex.\label{ex:MonChiroInfel}
 \a.
-\a.[A:] Who's a good doctor to treat my back pain?
-\b.[B:]\# [My sister Monica]$_{CT}$ is a [chiropractor]$_{F}$
+\a.[A:] Who's a good psychiatrist?
+\b.[B:]\# [My sister Monica]$_{CT}$ is a [psychologist]$_{F}$
 \z.
 \b.
 \begin{forest}
   tree defaults
-  [Who's a good $\langle profession\rangle$ to treat back pain?
-    [Monica's a good $\langle profession\rangle$ to treat back pain?
-      [\textbf{Monica's a good chiropractor}]
+  [Who's a good mental health professional?
+    [Monica's a good mental health professional?
+      [\textbf{Monica's a good psychologist}]
     ]
-    [Joe's a good $\langle profession\rangle$ to treat back pain?
+    [Joe's a good mental health professional?
       [\ldots]
     ]
   ]
