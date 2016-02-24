@@ -1,0 +1,162 @@
+%        File: defence.tex
+%     Created: Mon Feb 22 03:00 PM 2016 E
+% Last Change: Mon Feb 22 03:00 PM 2016 E
+%
+% arara: pdflatex: {options: "-draftmode"}
+% arara: biber
+% arara: pdflatex: {options: "-draftmode"}
+% arara: pdflatex: {options: "-file-line-error-style"}
+\documentclass[letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=biber,style=authoryear-comp,useprefix=false]{biblatex}
+
+\usepackage{linguex}
+
+\usepackage[normalem]{ulem}
+
+\usepackage{stmaryrd}
+\usepackage[]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{forest}
+
+\forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
+
+\forestset{en/.style={parent anchor=center, child anchor=center}}
+\forestset{em/.style={parent anchor=north west, child anchor=north west}}
+\forestset{el/.style={parent anchor=north, child anchor=north}}
+
+\usetikzlibrary{positioning}
+\DeclareNameFormat{labelname:poss}{% Based on labelname from biblatex.def
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:last}{#1}{#3}{#5}{#7}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:first-last}{#1}{#4}{#5}{#8}}
+      {\usebibmacro{name:first-last}{#1}{#4}{#6}{#8}}%
+  \or
+    \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
+  \fi
+  \usebibmacro{name:andothers}%
+  \ifnumequal{\value{listcount}}{\value{liststop}}{'s}{}}
+
+\DeclareFieldFormat{shorthand:poss}{%
+  \ifnameundef{labelname}{#1's}{#1}}
+
+\DeclareFieldFormat{citetitle:poss}{\mkbibemph{#1}'s}
+
+\DeclareFieldFormat{label:poss}{#1's}
+
+\newrobustcmd*{\posscitealias}{%
+  \AtNextCite{%
+    \DeclareNameAlias{labelname}{labelname:poss}%
+    \DeclareFieldAlias{shorthand}{shorthand:poss}%
+    \DeclareFieldAlias{citetitle}{citetitle:poss}%
+    \DeclareFieldAlias{label}{label:poss}}}
+
+\newrobustcmd*{\posscite}{%
+  \posscitealias%
+  \textcite}
+
+\newrobustcmd*{\Posscite}{\bibsentence\posscite}
+
+\newrobustcmd*{\posscites}{%
+  \posscitealias%
+  \textcites}
+
+\bibliography{GP2}
+\newcommand\quelle[1]{{%
+  \unskip\nobreak\hfil\penalty50
+  \hskip2em\hbox{}\nobreak\hfil#1%
+  \parfillskip=0pt \finalhyphendemerits=0 \par}}
+
+\title{Specifying why a doctor isn't Mary\\
+  Generals Paper Defence
+}
+\author{Daniel Milway}
+
+\begin{document}
+\maketitle
+\begin{itemize}
+  \item Simple indefinite DPs tend to make poor subjects of specificational copular clauses (SCCs).
+\end{itemize}
+\ex.\label{ex:BadSCs} 
+\a.* A doctor is Mary.
+\b.* A building is Robarts Library.
+\b.* A linguist is Eric Lenneberg
+\z.
+
+\begin{itemize}
+  \item More complex indefinites are better SCC subjects.
+\end{itemize}
+\ex.\label{ex:GoodSCCs}
+\a. A newly-minted doctor is Mary.
+\b. A building on campus no-one likes is Robarts Library.
+\b. An underrated figure in the history of generative grammar is Eric Lenneberg.
+\z.
+
+\begin{itemize}
+  \item My solution:
+\end{itemize}
+\ex.\label{def:CTCondition} \textbf{The Contrastive Topic requirement on Specificational Clauses}\\
+A clause of the form $X$ \textsc{be} $Y$ is a licit specificational clause iff
+\a. $\llbracket X\rrbracket(\llbracket Y\rrbracket)$ is defined,
+\b. $Y$ is F-marked, \parencite{mikkelsen2004specifying}
+\b.\label{def:Contain} Some constituent of $X$ is CT-marked, and
+\b.\label{def:NotBe} $X$ is not CT-Marked.
+
+\begin{itemize}
+  \item \Last[a] and \Last[b] are assumed.
+  \item \Last[c] rules in the SCCs in \ref{ex:GoodSCCs}, provided they are pronounced with appropriate intonation
+\end{itemize}
+\ex. Who is a veteran doctor?
+\a. A NEWLY$_{CT}$-minted doctor is Mary.
+\b.\# A newly-minted DOCTOR$_{CT}$ is Mary.
+\z.
+
+\begin{itemize}
+  \item \LLast[d] rules out the strings in \ref{ex:BadSCs}
+\end{itemize}
+\ex. *A doctor is Mary
+
+\begin{itemize}
+  \item By \ref{def:Contain}, part of \textit{a doctor} must be CT-Marked.
+  \item The indefinite article \textit{a} is not CT-Marked, so \textit{doctor} must be.
+  \item \textit{a [doctor]}$_{CT} \approx$ \textit{[a doctor]}$_{CT}$
+\end{itemize}
+\section{Syntactic Instantiation (How?)}
+\begin{itemize}
+  \item Consider a particularly difficult SCC in \Next.
+\end{itemize}
+\ex. $[_{DP}$A figure $[_{PP}$in the history $[_{PP}$of generative$_{CT}$ grammar $]]]$ is Eric Lenneberg.
+
+\subsection{CT Projection?}
+\begin{itemize}
+  \item A CT diacritic on an adjective embedded in an adjunct licenses the the indefinite subject.
+  \item Assuming CT projects like focus, we don't expect it to project sufficiently in \Last.
+\end{itemize}
+\ex. \textbf{Focus Projection} \parencite{selkirk1996sentence}\\
+\a. F-marking of the \textit{head} of a phrase licenses the F-marking of the phrase.
+\b. F-marking of an \textit{internal argument} of a head licenses the F-marking of the head.
+
+\begin{itemize}
+  \item Selkirk explicitly argues that F-marking on adjuncts does not project.
+  \item We cannot rely on CT projection to license indefinite SCC subjects.
+\end{itemize}
+\subsection{Agree + Pied-piping?}
+\begin{itemize}
+  \item Using Agree to license indefinite SCC subjects such as \LLast is also problematic.
+  \item Assuming the Agree probe is seeking a CT diacritic/feature, it shouldn't find it in \LLast.
+  \item The CT-Marked constituent is in at least one island.
+  \item Agree cannot reliably license indefinite SCC subjects.
+\end{itemize}
+\subsection{Free Merge + Interface constraints}
+\begin{itemize}
+  \item 
+\end{itemize}<++>
+\section{Pragmatic Grounding (Why?)}
+
+\end{document}
+
+
