@@ -78,6 +78,8 @@
 
 \begin{document}
 \maketitle
+\maketitle
+\section{The puzzle: the indefinite restriction}
 \begin{itemize}
   \item Simple indefinite DPs tend to make poor subjects of specificational copular clauses (SCCs).
 \end{itemize}
@@ -96,35 +98,321 @@
 \b. An underrated figure in the history of generative grammar is Eric Lenneberg.
 \z.
 
+\ex.[\textbf{Question:}] What is the nature of the indefinite restriction? How is it best characterized?
+
+\ex.[\textbf{My Answer:}] An SCC subject must contain, but not be, a contrastive topic marked constituent.
+
+\subsection{Outline}
 \begin{itemize}
-  \item My solution:
+  \item \posscite{mikkelsen2004specifying} pragmatic analysis of SCC subjects. 
+  \item Theory background \parencite{buring2003d}
+  \item Arguments for my solution
+  \item Ruling in \ref{ex:GoodSCCs} and ruling out \ref{ex:BadSCs}
+  \item Conclusion
 \end{itemize}
-\ex.\label{def:CTCondition} \textbf{The Contrastive Topic requirement on Specificational Clauses}\\
-A clause of the form $X$ \textsc{be} $Y$ is a licit specificational clause iff
-\a. $\llbracket X\rrbracket(\llbracket Y\rrbracket)$ is defined,
-\b. $Y$ is F-marked, \parencite{mikkelsen2004specifying}
-\b.\label{def:Contain} Some constituent of $X$ is CT-marked, and
-\b.\label{def:NotBe} $X$ is not CT-Marked.
+
+\section{\posscite{mikkelsen2004specifying} Analysis}
+\begin{itemize}
+  \item Mikkelsen argues for a discourse-pragmatic analysis of the indefinite restriction.
+    \begin{itemize}
+      \item This is in contrast to a semantic analysis argued for \textit{e.g.} by \textcite{heycock2012specification}. \ref{sec:Heycock}) 
+    \end{itemize}
+  \item She observes that SCCs have a rigid information structure: DP2 must be focus/DP1 cannot be focus.
+\end{itemize}
+\ex.\label{ex:SCCIS} 
+\a. Who is the winner?
+\a. The winner is John. \hfill (Specificational)
+\b. John is the winner. \hfill (Predicational)
+\z.
+\b. What is John?
+\a.\# The winner is John. \hfill (Specificational)
+\b. John is the winner. \hfill (Predicational)
 
 \begin{itemize}
-  \item \Last[a] and \Last[b] are assumed.
-  \item \Last[c] rules in the SCCs in \ref{ex:GoodSCCs}, provided they are pronounced with appropriate intonation
+  \item It follows that DP1 must be topical. (\textit{i.e.}, discourse given)
+  \item Indefinites introduce new discourse referents. (\posscite{heim1982semantics} Novelty Condition)
+  \item The indefinite restriction, then, is due to a clash between the topichood requirement on SCC subjects and the Novelty Condition on indefinites.
+  \item Those indefinites that are licit SCC subjects are relatively given compared to DP2.
 \end{itemize}
-\ex. Who is a veteran doctor?
-\a. A NEWLY$_{CT}$-minted doctor is Mary.
-\b.\# A newly-minted DOCTOR$_{CT}$ is Mary.
+\textbf{However:}
+\begin{itemize}
+  \item Simple indefinites (\textit{a(n)} N) cannot be SCC subjects regardless of how given/topical they are.
+\end{itemize}
+\ex. Bill is a doctor. \#A doctor is John (too) \parencite[][p236]{mikkelsen2004specifying}
+
+\begin{itemize}
+  \item Mikkelsen leaves this puzzle open, suggesting the unacceptibility of \Last may be related to the general infelicity of two adjecent instances of a DP as in \Next.
+\end{itemize}
+\ex. Sally is a doctor. \#A doctor came to dinner last night. \parencite[][p236]{mikkelsen2004specifying}
+
+\begin{itemize}
+  \item The second sentence in \Last is acceptable if \textit{a doctor} is not uttered in the previous sentence.
+  \item The SCC in \LLast cannot be made acceptable.
+\end{itemize}
+\ex. I know some doctors.
+\a. A doctor came to dinner last night.
+\b.\# A doctor is John.
 \z.
 
 \begin{itemize}
-  \item \LLast[d] rules out the strings in \ref{ex:BadSCs}
+  \item If we require that \textit{part} of the SCC subject be marked as \textit{contrastive} topic, we can capture the data.
 \end{itemize}
-\ex. *A doctor is Mary
+\section{Theoretical Background: Contrastive Topics}
+\begin{itemize}
+  \item The notion of Contrastive Topic (CT) comes from \posscite{buring2003d} analysis of \posscite{jackendoff1972Ssemantics} A- and B-Accents
+\end{itemize}
+\ex. (Well, what about FRED? What did HE eat?)\\
+FRED$_B$ ate the BEANS$_A$.
+
+\ex. (Well, what about the BEANS? Who ate THEM?)\\
+FRED$_A$ ate the BEANS$_B$.
 
 \begin{itemize}
-  \item By \ref{def:Contain}, part of \textit{a doctor} must be CT-Marked.
-  \item The indefinite article \textit{a} is not CT-Marked, so \textit{doctor} must be.
-  \item \textit{a [doctor]}$_{CT} \approx$ \textit{[a doctor]}$_{CT}$
+  \item The A-Accent, which corresponds to the Wh-element in each example marks Focus.
+  \item \textcite{buring2003d} refers to the B-accented element as the CT (cf. \posscite{roberts2012information} \textit{dependant focus})
+  \item The function of CT, like that of Focus, is to generate alternatives.
+  \item Focus alternatives are representable as sets of propositions \parencite{rooth1992theory} equivalent to the interpretations of questions \parencite{groenendijkstokhof1996questions}
+  \item CT alternatives are representable as sets of sets of propositions.
 \end{itemize}
+\ex. 
+\a. $\llbracket\text{FRED}_B\text{ ate the BEANS}_A\rrbracket^{f} = 
+\begin{Bmatrix}
+  \text{Fred ate the corn}\\
+  \text{Fred ate the beans}\\
+  \text{Fred ate the apples}\\
+  \cdots
+\end{Bmatrix}
+= \llbracket\text{What did Fred eat?}\rrbracket
+$
+\b.$\llbracket\text{FRED}_B\text{ ate the BEANS}_A\rrbracket^{ct} = 
+\begin{Bmatrix}
+  \text{What did Fred eat?}\\
+  \text{What did Mary eat?}\\
+  \text{What did Robin eat?}\\
+  \cdots
+\end{Bmatrix}
+= \llbracket\text{What did who eat?}\rrbracket
+$
+
+\begin{itemize}
+  \item B\"uring represents these interpretations as d(iscourse)-trees
+\end{itemize}
+\ex. $\llbracket\text{FRED}_{CT}\text{ ate the BEANS}_{F}\rrbracket^{ct}$\\
+\begin{forest}
+  tree defaults
+  [What did who eat?
+    [What did Mary eat?]
+    [What did Robin eat?]
+    [\textbf{What did Fred eat?}
+      [Fred ate the corn]
+      [Fred ate the apples]
+      [\textbf{Fred ate the beans}]
+    ]
+  ]
+\end{forest}
+
+\begin{itemize}
+  \item Generally, CT-Foc structures identify a question and superquestion that they answer.
+  \item CT-Foc structures have multiple discourse functions that the d-trees can represent.
+\end{itemize}
+\ex.\label{ex:ChinaCTF}
+\a.
+\a.[A:] When are you going to China? \hfill \parencite{roberts2012information}
+\b.[B:] I'm going to [China]$_{CT}$ in [April]$_F$.
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [When are you going to which place?
+    [When are you going to \ldots?]
+    [\textbf{When are you going to China?}
+      [\textbf{April}]
+    ]
+  ]
+\end{forest}
+\z.
+
+\ex.\label{ex:CaftansCTF}
+\a.
+\a.[A:] What did the pop stars wear? \hfill \parencite{buring2003d}
+\b.[B:] The [female]$_{CT}$ pop stars wore [caftans]$_F$.
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [\textbf{What did the pop stars wear?}
+    [What did the male pop stars wear?]
+    [What did the female pop stars wear?
+      [\textbf{The female pop stars wore caftans.}]
+    ]
+  ]
+\end{forest}
+\z.
+
+\section{Contrastive is the right kind of topic for SCC subjects}
+\begin{itemize}
+  \item SCC subjects are topics, but neither givenness nor aboutness are sufficient
+\end{itemize}
+\ex.[\textbf{Hypothesis 1: }] SCC subjects must be givenness topics
+
+\begin{itemize}
+  \item If SCC subjects must be relatively given, then fully given subjects ought to be preferred.
+  \item Fully given subjects are infelicitous, partially given subjects are acceptable
+\end{itemize}
+\ex. Many philosophers have written about the mind-body problem.
+\a.\# A philosopher who has written about the mind-body problem is Chomsky.
+\b. A modern philosopher who has written about the mind-body problem is Chomsky.
+
+\begin{itemize}
+  \item (Relative) givenness isn't the factor that allows a DP to be an SCC subject.
+\end{itemize}
+\ex.[\textbf{Hypothesis 2: }] SCCs must be about their subjects.
+
+\begin{itemize}
+  \item A sentence's topic, is what the sentence is about.
+\end{itemize}
+\ex.\textbf{Test for aboutness \parencite{reinhart1981pragmatics}: }\\
+If \textit{John saw Bill} is about \textbf{John}, then\\
+\textit{Mary said John saw Bill} = \textit{Mary said about John that he saw Bill} 
+
+\begin{itemize}
+  \item It is permissible for an SCC to be about only part of its subject.
+\end{itemize}
+\ex.[\textbf{Assumption: }] SCC subjects are only interpreted \textit{de dicto}.
+
+\ex. (\textbf{Context:} \textit{David Bowie is my favourite singer.} is True )\\
+My favourite singer is Ziggy Stardust
+\a. Mary said my favourite singer is Ziggy Stardust (\textit{de re}/\textit{de dicto})
+\b. Mary said about singers that my favourite is Ziggy Stardust (*\textit{de re}/\textit{de dicto})
+
+\begin{itemize}
+  \item There seems to be no requirement that SCCs be about their subject DPs.
+\end{itemize}
+\textbf{My Proposal}
+\begin{itemize}
+  \item The licit SCC subjects in \ref{ex:GoodSCCs} are most naturally pronounced with intonational stress on some component.
+\end{itemize}
+\ex.
+\a. A NEWLY-minted doctor is Mary.
+\b. A newly-MINTED doctor is Mary.
+\b. A newly-minted DOCTOR is Mary.
+\b.\# A newly-minted doctor is Mary.
+\z.
+
+\begin{itemize}
+  \item Each of the intonation patterns in \Last[a--c] can be used in a distinct set of discourse contexts.
+  \item The discourse contexts of SCCs are identical to canonical CT-Foc structures.
+\end{itemize}
+
+\ex. Who is a veteran doctor?
+\a. A NEWLY-minted doctor is Mary.
+\b.\# A newly-minted DOCTOR is Mary.
+\z.
+
+\begin{itemize}
+  \item The intonation pattern in \Last[b] is infelicitous because it incorrectly marks \textit{doctor} as novel and \textit{newly-minted} as given.
+\end{itemize}
+\ex.\# A newly-minted DOCTOR is Mary.\\
+\begin{forest}
+  tree defaults
+  [Who is a newly-minted what?
+    [\ldots]
+    [Who is a newly minted doctor?
+      [\ldots]
+      [Is Mary a newly minted doctor?
+	[\textbf{A newly-minted DOCTOR is Mary.}]
+      ]
+    ]
+  ]
+\end{forest}
+
+\ex. A NEWLY-minted doctor is Mary.\\
+\begin{forest}
+  tree defaults
+  [Who is a doctor of what level of experience?
+    [\textbf{Who is a veteran doctor?}
+      [\dots]
+    ]
+    [\dots]
+    [Who is a newly minted doctor?
+      [\ldots]
+      [Is Mary a newly minted doctor?
+	[\textbf{A newly-minted DOCTOR is Mary.}]
+      ]
+    ]
+  ]
+\end{forest}
+
+\ex. \textbf{CT condition on SCC subjects (part one):}\\
+Some constituent of the subject of an SCC must be CT-marked.
+
+\begin{itemize}
+  \item Ruling out simple indefinite SCCs can be done with a simple extension of \Last.
+\end{itemize}
+\ex. \textbf{CT condition on SCC subjects (part two):}\\
+The entire SCC subject must not be CT-marked
+
+\begin{itemize}
+  \item Consider the CT-Foc structure of \Next
+\end{itemize}
+\ex.* A doctor is Mary.
+
+\begin{itemize}
+  \item DP2 is focused. \parencite{mikkelsen2004specifying}
+  \item Some constituent of DP1 is CT-marked.
+  \item te indefinite article is not CT marked.
+  \item \textit{doctor} must be CT-marked.
+  \item Assuming the indefinite article is semantically vacuous, \textit{a [doctor]}$_{CT}$ is equivalent to \textit{[a doctor]}$_{CT}$.
+  \item So, \Last requires that the entire SCC subject be CT-marked, violating the proposed CT condition on SCCs. 
+\end{itemize}
+\subsection{Apparent counter-examples}
+\subsubsection{Stressed \textit{a(n)}}
+\begin{itemize}
+  \item A version of \Last with a stressed indefinite article ([ej] in my dialect) is more acceptable than \Last as is.
+\end{itemize}
+\ex.? A$_{CT}$ doctor is Mary.
+
+\begin{itemize}
+  \item The stressed indefinite article generally marks a contrast with the definite article.
+\end{itemize}
+\ex.
+\a.[A: ] You must be the professor.
+\b.[B: ] I'm A$_F$ professor.
+
+\begin{itemize}
+  \item This is predicted by the proposed CT condition on SCC subjects.
+\end{itemize}
+\ex. \textbf{CT condition on SCC subjects:}
+\a.[(i)] Some constituent of the subject of an SCC must be CT-marked.
+\b.[(ii)] The entire SCC subject must not be CT-marked.
+\z.
+
+\begin{itemize}
+  \item \textit{a}$_{CT}$\textit{ doctor} $\neq$ \textit{[a doctor]}$_{CT}$
+  \item a constituent of the SCC subject rather than the entire subject is CT-marked.
+\end{itemize}
+\subsubsection{\textit{One} and \textit{another}}
+\begin{itemize}
+  \item ``Simple'' indefinite DPs headed by \textit{one} or \textit{another} can be SCC subjects.
+\end{itemize}
+\ex. 
+\a. One doctor is Mary.
+\b. Another doctor is Molly.
+
+\begin{itemize}
+  \item The term ``simple indefinite'' for these examples is a misnomer.
+  \item \textit{One} and \textit{another} are complex determiners.
+  \item \textcite{kayne2015one} argues that \textit{one} is composed of the indefinite determiner and a ``singular classifier.''
+    \begin{itemize}
+      \item \textit{one} = \textit{w-}+\textit{an}
+    \end{itemize}
+  \item \textcite{heim1991reciprocity} provides an analysis of \textit{another} as \textit{an}+\textit{other}
+  \item In both cases the determiner-like element bears a contentful element that can be CT-marked
+\end{itemize}
+\ex.
+\a. w-$_{CT}$-an doctor is Mary.
+\b. an- -other$_{CT}$ doctor is Molly.
+
 \section{Syntactic Instantiation (How?)}
 \begin{itemize}
   \item Consider a particularly difficult SCC in \Next.
@@ -153,10 +441,92 @@ A clause of the form $X$ \textsc{be} $Y$ is a licit specificational clause iff
 \end{itemize}
 \subsection{Free Merge + Interface constraints}
 \begin{itemize}
-  \item 
-\end{itemize}<++>
-\section{Pragmatic Grounding (Why?)}
+  \item A promising direction
+  \item Requires us to be more explicit about our theory of the interfaces.
+  \item Eventually we have to investigate our theory of discourse pragmatics to ask why such a constraint should hold.
+\end{itemize}
+\section{Conclusion}
+\begin{itemize}
+  \item The indefinite restriction is pragmatic in nature.
+  \item Following \posscite{mikkelsen2004specifying} observation, I analysed the SCC subject as topical (in some sense).
+  \item SCC subjects must contain but not be CT-Marked constituents.
+  \item This generalization predicts which indefinite DPs are acceptable SCC subjects in what discourse contexts, and rules out simple indefinite SCC subjects.
+  \item It's an odd generalization, though.
+\end{itemize}
+\printbibliography
+\appendix
+\section{\textcite{heycock2012specification}}\label{sec:Heycock}
+\begin{itemize}
+  \item Heycock argues that the indefinite restriction is a ban on weak-quantified DPs as SCC subjects.
+  \item The argument is based on two parallels 
+\end{itemize}
+\subsection{Parallel 1}
+\begin{itemize}
+  \item English SCC subjects cannot be focused (see \ref{ex:SCCIS}, above), and neither can German scrambled objects. \parencite{lenerz1977zur}
+\end{itemize}
+\ex.
+\ag.Wem hat Peter das Futter gegeben?\\
+who.\textsc{dat} has Peter the.\textsc{acc} food given\\
+``Who has Peter given the food?''
+\ag. Peter hat der Katze das Futter gegeben.\\
+Peter has the.\textsc{dat} cat the.\textsc{acc} food given\\
+``Peter has given the cat the food''\hfill[Default order]
+\bg. Peter hat das Futter der Katze gegeben.\\
+Peter has the.\textsc{acc} food the.\textsc{dat} cat given\\
+``Peter has given the food to the cat''\hfill[Scrambled order]
+\z.
+\bg. Was hat Peter der Katze gegeben?\\
+what.\textsc{acc} has Peter the.\textsc{dat} cat given\\
+``What has Peter given (to) the cat?''
+\ag. Peter hat der Katze das Futter gegeben.\\
+Peter has the.\textsc{dat} cat the.\textsc{acc} food given\\
+``Peter has given the cat the food''\hfill[Default order]
+\bg.\# Peter hat das Futter der Katze gegeben.\\
+Peter has the.\textsc{acc} food the.\textsc{dat} cat given\\
+``Peter has given the food to the cat''\hfill[Scrambled order]
+\z.
+\z.
+
+\begin{itemize}
+  \item According to \textcite{dehoop1992case} and \textcite{diesing1992indefinites} scrambled objects are obligatorily interpreted strong.
+\end{itemize}
+\subsection{Parallel 2}
+\begin{itemize}
+  \item \textcite{milsark1974existential} argues that only strong-quantified DPs can serve as subjects of Individual-Level predicate
+\end{itemize}
+\ex. I had been struggling with a complicated set of data \ldots
+\a.?* A problem was particularly hard.
+\b. One problem was particularly hard.
+\b. \{?A/one\} problem that I came across was particularly hard.
+\b. One of the problems was particularly hard.\hfill\parencite{heycock2012specification}
+
+\begin{itemize}
+  \item Heycock argues that the same pattern holds for indefinite SCC subjects as shown in \Next.
+\end{itemize}
+\ex.
+\a.?* A problem was that we didn't understand all the parameters.
+\b. One problem was that we didn't understand all the parameters.
+\b. \{A/one\} problem that I came across was that we didn't understand all the parameters.
+\b. One of the problems was that we didn't understand all the parameters.\hfill\parencite{heycock2012specification}
+
+\subsection{Issues}
+\begin{itemize}
+  \item Heycock's proposal that the indefinite restriction is a restriction on weak-quantified SCC subjects fails to capture the data
+  \item Some weak-quantified DPs can be SCC subjects \Next and some strong-quantified DPs cannot \NNext. 
+\end{itemize}
+\ex.
+\a.
+\a. There is \textbf{a building no-one likes} on St George Street.
+\b. \textbf{a building no-one likes} is Robarts.
+\z.
+\b.
+\a. There are \textbf{sm side-effects}.
+\b. \textbf{Sm side-effects} are headaches and dizziness. 
+\z.
+
+\ex.
+\a. Each doctor is Mary, Bill, Sue, and John. (*Specificational)
+\b.? Most early generative grammarians are Chomsky and Halle. (*Specificational)
+\b.? SOME side-effects are drowsiness and blurred vision. (*Specificational)
 
 \end{document}
-
-
