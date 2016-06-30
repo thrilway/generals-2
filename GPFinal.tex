@@ -23,11 +23,14 @@
 \usepackage{amssymb}
 \usepackage{forest}
 
+\useforestlibrary{linguistics}
+
 \forestset{tree defaults/.style={for tree={parent anchor=south, child anchor=north},every tree node/.style={align=center,anchor=north},level/.style={sibling distance=50mm/#1},baseline}}
 
 \forestset{en/.style={parent anchor=center, child anchor=center}}
 \forestset{em/.style={parent anchor=north west, child anchor=north west}}
 \forestset{el/.style={parent anchor=north, child anchor=north}}
+
 
 \usetikzlibrary{positioning}
 \DeclareNameFormat{labelname:poss}{% Based on labelname from biblatex.def
@@ -73,8 +76,7 @@
   \hskip2em\hbox{}\nobreak\hfil#1%
   \parfillskip=0pt \finalhyphendemerits=0 \par}}
 
-\title{Specifying why a doctor isn't Mary\\
-\large Generals Paper 2: Semantics/Pragmatics}
+\title{Specifying why a doctor isn't Mary}
 \author{Daniel Milway\thanks{
   Special thanks to Michela Ippolito for her excellent supervision and helpful comments, questions and encouragement and to the rest of my committee, Guillaume Thomas and Diane Massam, for their comments on various drafts of this paper.
   Thanks also to members of the UofT Syntax Project and the SEMPRAG group, the audience and organizers of BLS42, and anyone who I asked for judgements.
@@ -82,6 +84,12 @@
 
 \begin{document}
 \maketitle
+\begin{abstract}
+  This paper offers a discourse-pragmatic account of the constraint on indefinite DPs as subjects of specificational copular clauses (*\textit{a doctor is Mary}).
+  Building on Mikkelsen's (2004) proposal that specificational subjects are topics, I argue that they must contain but not wholly be contrastive topics.
+  I show that this can account for the absolute ban on simple indefinite subjects, and allow for more complex indefinites to be subjects.
+  I further argue that this constraint can be derived from a general constraint on discourse that requires both novel and presupposed content in utterances.
+\end{abstract}
 \doublespacing
 \section{Introduction}
 The specificational clause is one of the varieties of copular clauses identified by \textcite{higgins1973pseudo}, characterized by an apparently predicative DP in subject position (DP1) and an argumental DP in post-copular position (DP2).
