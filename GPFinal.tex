@@ -10,6 +10,12 @@
 \usepackage{subfiles}
 \usepackage[margin=1in]{geometry}
 \usepackage[backend=biber,style=authoryear-comp,useprefix=false]{biblatex}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+\usepackage[]{graphicx}
+
+\usepackage{placeins}
 
 \usepackage{setspace}
 
@@ -33,42 +39,42 @@
 
 
 \usetikzlibrary{positioning}
-\DeclareNameFormat{labelname:poss}{% Based on labelname from biblatex.def
-  \ifcase\value{uniquename}%
-    \usebibmacro{name:last}{#1}{#3}{#5}{#7}%
-  \or
-    \ifuseprefix
-      {\usebibmacro{name:first-last}{#1}{#4}{#5}{#8}}
-      {\usebibmacro{name:first-last}{#1}{#4}{#6}{#8}}%
-  \or
-    \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
-  fi
-  \usebibmacro{name:andothers}%
-  \ifnumequal{\value{listcount}}{\value{liststop}}{'s}{}}
-
-\DeclareFieldFormat{shorthand:poss}{%
-  \ifnameundef{labelname}{#1's}{#1}}
-
-\DeclareFieldFormat{citetitle:poss}{\mkbibemph{#1}'s}
-
-\DeclareFieldFormat{label:poss}{#1's}
-
-\newrobustcmd*{\posscitealias}{%
-  \AtNextCite{%
-    \DeclareNameAlias{labelname}{labelname:poss}%
-    \DeclareFieldAlias{shorthand}{shorthand:poss}%
-    \DeclareFieldAlias{citetitle}{citetitle:poss}%
-    \DeclareFieldAlias{label}{label:poss}}}
-
-\newrobustcmd*{\posscite}{%
-  \posscitealias%
-  \textcite}
-
-\newrobustcmd*{\Posscite}{\bibsentence\posscite}
-
-\newrobustcmd*{\posscites}{%
-  \posscitealias%
-  \textcites}
+%\DeclareNameFormat{labelname:poss}{% Based on labelname from biblatex.def
+%  \ifcase\value{uniquename}%
+%    \usebibmacro{name:last}{#1}{#3}{#5}{#7}%
+%  \or
+%    \ifuseprefix
+%      {\usebibmacro{name:first-last}{#1}{#4}{#5}{#8}}
+%      {\usebibmacro{name:first-last}{#1}{#4}{#6}{#8}}%
+%  \or
+%    \usebibmacro{name:first-last}{#1}{#3}{#5}{#7}%
+%  fi
+%  \usebibmacro{name:andothers}%
+%  \ifnumequal{\value{listcount}}{\value{liststop}}{'s}{}}
+%
+%\DeclareFieldFormat{shorthand:poss}{%
+%  \ifnameundef{labelname}{#1's}{#1}}
+%
+%\DeclareFieldFormat{citetitle:poss}{\mkbibemph{#1}'s}
+%
+%\DeclareFieldFormat{label:poss}{#1's}
+%
+%\newrobustcmd*{\posscitealias}{%
+%  \AtNextCite{%
+%    \DeclareNameAlias{labelname}{labelname:poss}%
+%    \DeclareFieldAlias{shorthand}{shorthand:poss}%
+%    \DeclareFieldAlias{citetitle}{citetitle:poss}%
+%    \DeclareFieldAlias{label}{label:poss}}}
+%
+%\newrobustcmd*{\posscite}{%
+%  \posscitealias%
+%  \textcite}
+%
+%\newrobustcmd*{\Posscite}{\bibsentence\posscite}
+%
+%\newrobustcmd*{\posscites}{%
+%  \posscitealias%
+%  \textcites}
 
 \bibliography{GP2}
 \newcommand\quelle[1]{{%
@@ -77,38 +83,57 @@
   \parfillskip=0pt \finalhyphendemerits=0 \par}}
 
 \title{Specifying why a doctor isn't Mary}
-%\author{Daniel Milway\thanks{
-  Special thanks to Michela Ippolito for her excellent supervision and helpful comments, questions and encouragement and to the rest of my committee, Guillaume Thomas and Diane Massam, for their comments on various drafts of this paper.
-  Thanks also to members of the UofT Syntax Project and the SEMPRAG group, the audience and organizers of BLS42, and anyone who I asked for judgements.
-}}
-
+\author{Daniel Milway%\thanks{
+%  Special thanks to Michela Ippolito for her excellent supervision and helpful comments, questions and encouragement and to the rest of my committee, Guillaume Thomas and Diane Massam, for their comments on various drafts of this paper.
+%  Thanks also to members of the UofT Syntax Project and the SEMPRAG group, the audience and organizers of BLS42, and anyone who I asked for judgements.
+%}
+}
+\date{}
 \begin{document}
 \maketitle
 \begin{abstract}
   This paper offers a discourse-pragmatic account of the constraint on indefinite DPs as subjects of specificational copular clauses (*\textit{a doctor is Mary}).
   Building on Mikkelsen's (2004) proposal that specificational subjects are topics, I argue that they must contain but not wholly be contrastive topics.
   I show that this can account for the absolute ban on simple indefinite subjects, and allow for more complex indefinites to be subjects.
-  I further argue that this constraint can be derived from a general constraint on discourse that requires both novel and presupposed content in utterances.
+  Finally, I discuss the syntactic analysis that would be predicted given my pragmatic analysis, and the puzzles that arise from it.
 \end{abstract}
 \doublespacing
 \section{Introduction}
-The specificational clause is one of the varieties of copular clauses identified by \textcite{higgins1973pseudo}, characterized by an apparently predicative DP in subject position (DP1) and an argumental DP in post-copular position (DP2).
-They contrast with predicational copular clauses in which DP1 is argumental and DP2 is predicational.
+The specificational clause is one of the varieties of copular clauses identified by \textcite{higgins1973pseudo}, characterized by a predicative DP in subject position (DP1) and a referential DP in post-copular position (DP2).
+They contrast with predicational copular clauses in which DP1 is referential and DP2 is predicational.\footnote{
+	\textcite{higgins1973pseudo} identifies two other classes of copular clauses:
+	Identificational clauses like \Next, in which DP1 is a demonstrative and DP2 is a referential nominal, and equational clauses like \NNext, in which both DP1 and DP2 are referential nominals.
+	\ex. That (book) is \textit{War \& Peace}.
+
+	\ex. \textit{War \& Peace} is \foreignlanguage{russian}{``Война и мир''}.
+
+}
 \ex.
 \a.\textbf{Specificational}\\
 My favourite book is \textit{War \& Peace}.
 \b. \textbf{Predicational}\\
 \textit{War \& Peace} is my favourite book.
 
-In predicational clauses, DP1 can be any argumental DP and DP2 can be any DP predicate.
-In specificational clauses (SCs), there is a restriction on indefinite subjects.
+In predicational clauses, DP1 can be any referential DP and DP2 can be any DP predicate.\footnote{This is, of course an overgeneralization, but it will do for the current purposes.}
+In specificational clauses (SCs), there is a restriction on indefinite DP1's (hereafter SC subjects).\footnote{
+	This paper is about a particular structural position within a particular class of clause.
+	I refer to the clauses as \textit{specificational clauses}, or SCs for short, and the structural position as the \textit{subject} of those clauses.
+	Although this terminology is commonly associated with \textcite{higgins1973pseudo}, it's use in this paper is not to be taken as an endorsement of the analysis of copular clause contained therein, nor any other analysis.
+	Rather, I use these terms because they are standard terminology in work of these types of copular clauses \parencite[see, for instance,][]{heycock2012specification,bejarkahnemuyipour2013agreement,mikkelsen2005copular}.
+
+	In fact, for the purposes of this paper, this terminological system could be translated into another system \textit{salva veritate}.
+	For instance, if I were to use the terminology of \textcite{moro1997raising}, the terms \textit{predicational copular clause} and \textit{specificational copular clause} would be replaced by \textit{canonical copular clause} and \textit{inverted copular clause}, respectively, and what I refer to as the \textit{subject} of a specificational clause would be referred to as an \textit{raised predicative DP/NP}. 
+	This is not to say that the choice of terminology is free of theoretical commitments \textit{per se}, but rather that those theoretical commitments are immaterial to the discussion at hand.
+}
 \ex.\label{ex:TheData}
 \a.\textbf{Specificational}\\
 *A book is \textit{War \& Peace}.
 \b. \textbf{Predicational}\\
 \textit{War \& Peace} is a book.
 
-The restriction on indefinite SC subjects, which this paper addresses, presents a puzzle for any syntactic or semantic analysis of SCs because it is not an absolute ban on indefinite DPs in subject position.
+The restriction on indefinite SC subjects, which this paper addresses,\footnote{
+	It is also discussed by \textcite{mikkelsen2005copular,halliday1967notes,higgins1973pseudo,heggie1988diss,heycock1994internal,williams1997asymmetry}, among others.
+} presents a puzzle for any syntactic or semantic analysis of SCs because it is not an absolute ban on indefinite DPs in subject position.
 Rather, as I will discuss in section \ref{sec:LitReview}, the fact that some indefinite DPs are able to act as SC subjects, as demonstrated below in \Next, means that, before we can adduce the indefinite restriction as evidence for or against a particular analysis of SCs, we must first understand its provenance.
 \ex.\label{ex:TheData} 
 \a.
@@ -121,32 +146,1317 @@ Rather, as I will discuss in section \ref{sec:LitReview}, the fact that some ind
 \z.
 \b.
 \a.* A building is Robarts.
-\b. A buiding no-one likes is Robarts.
+\b. A building no-one likes is Robarts.
 \z.
 
-In the remainder of this paper I argue that the indefinite restriction is pragmatic in nature.
-Specifically, I claim that there is a requirement that SC subjects contain both ``new'' and ``old'' information.
+In the remainder of this paper I develop and defend a hypothesis that the indefinite restriction is pragmatic in nature.
+Specifically, I propose that there is a requirement that SC subjects contain both ``new'' and ``old'' information.
 It is important to note that this claim is not only about \textit{indefinite} SC subjects, but SC subjects in general.
-As such, I will demonstrate that definite DPs also meet this requirement.
-In section \ref{sec:TheoryBackground}, I introduce some of the theoretical machinery required for my analysis and in section \ref{sec:MainArgument} I present my main claim and the arguments in its favour.
-In section \ref{sec:GenConst} I expand my proposal to a general constraint on contrastive topic and focus structures, and in \ref{sec:Conclusion} I conclude.
+As such, I will present evidence that definite DPs also meet this requirement.
+In section \ref{sec:TheoryBackground}, I introduce some of the theoretical machinery required for my analysis and in section \ref{sec:MainArgument}, I present my main claim and the arguments in its favour.
+In section \ref{sec:syntax}, I suggest a syntactic analysis based on \textcite{constant2014diss} and discuss a puzzle that arises from it, and in \ref{sec:Conclusion}, I conclude.
 %Section \ref{sec:Leftovers} addresses some residual issues of my analysis and section \ref{sec:Conclusion} concludes.
 \section{The place of the indefinite restriction in linguistic theory}\label{sec:LitReview}
-\subfile{LitReview}
+Though rarely discussed in much depth, the restriction on indefinite SC subjects is often exploited for evidence in the debate over the proper syntactic/semantic analysis of SCs.
+As such, I will briefly outline the analyses and how indefinite subjects fit into them.
+
+The inversion analysis is argued for explicitly by \textcite{mikkelsen2005copular} and \textcite{moro1997raising}, and states that that predicative copular clauses and SCs have identical underlying structures.
+According to this analysis, the two sentences in \ref{ex:SCPCPair} are each derived from the same small clause structure, given in \ref{ex:CopUnderlying}, and differ in which constituent of the the small clause is raised.
+Predicative clauses surface when the argument raises, and SCs surface when the predicate raises.
+\ex.\label{ex:SCPCPair}
+\a.\label{ex:SCPCPairPC} Ian is my favourite singer.
+\b.\label{ex:SCPCPairSC} My favourite singer is Ian.
+
+\ex.\label{ex:CopUnderlying} 
+\begin{minipage}[t]{\textwidth}
+  \textbf{Base Structure}\\
+\begin{forest}
+  tree defaults
+  [,l=8mm,s=10mm
+    [be] 
+    [,el
+      [Arg\\\textit{Ian},align=center]
+      [Pred
+	[\textit{my favourite singer},roof]
+      ]
+    ]
+  ]
+\end{forest}
+\end{minipage}
+%$[_{VP} \text{be} [ [_{Arg} \text{Ian}] [_{Pred} \text{my favourite singer}]]]$
+\a.\label{ex:PCStruct}
+\begin{minipage}[t]{\textwidth}
+\textbf{Predicational Clause}\\
+\begin{forest}
+  tree defaults
+  [,l=8mm,s=10mm
+    [Arg\\\textit{Ian},align=center,name=subj]
+    [,el,l=8mm,s=10mm
+      [be]
+      [,el,l=8mm,s=5mm
+	[{$\langle \text{Arg}\rangle$},name=arg]
+	[Pred
+	  [\textit{my favourite singer},roof]
+	]
+      ]
+    ]
+  ]
+  \draw[->,thick](arg) to[out=south west, in=south] (subj);
+  \end{forest}
+\end{minipage}
+%$[ [_{Arg} \text{Ian} ] \ldots [_{VP} \text{be} [ t_{Arg} [_{Pred} \text{my favourite singer}]]]]$
+\b.\label{ex:SCStructure}
+\begin{minipage}[t]{\textwidth}
+\textbf{Specificational Clause}\\
+\begin{forest}
+  tree defaults
+  [,l=8mm,s=10mm
+    [Pred
+      [\textit{my favourite singer},roof,name=subj]
+    ]
+    [,el,l=8mm,s=10mm
+      [be]
+      [,el,l=8mm,s=5mm
+	[Arg\\\textit{Ian},align=center]
+	[{$\langle\text{Pred}\rangle$},name=pred]
+      ]
+    ]
+  ]
+  \draw[->,thick](pred) .. controls +(south:2cm) and +(south:1cm) .. (subj);
+\end{forest}
+%$[ [_{Pred} \text{My favourite singer}] \ldots [_{VP} \text{be} [ [_{Arg} \text{Ian}] t_{Pred}]]]$
+\end{minipage}
+
+Semantically, this analysis requires that SC subjects be construed as predicates (type $\langle e,t\rangle$ or higher) rather than arguments (type \textit{e}).
+
+The equational analysis, as presented by \textcite{heycockkroch1999pseudocleft}, says that both DPs in SCs are type $e$ and the copula serves to equate them.
+In \ref{ex:SCPCPairSC}, then, \textit{my favourite singer} and \textit{Ian} each refers to an individual, and the copula says that they refer to the same individual.
+\textcite{heycockkroch1999pseudocleft} use the restriction on indefinite subjects to argue that SC subjects cannot be construed as predicates.
+If SC subjects were inverted predicates, the argument goes, we would expect all predicative phrases, including indefinite descriptions, to be acceptable.
+
+As I will describe in more detail in section \ref{sec:Mikkelsen}, \textcite{mikkelsen2005copular} proposes that pragmatic factors are responsible for the indefinite restriction.
+Specifically, SC's have a fixed information structure, requiring their subjects to be topics, a role which indefinites are not well-suited for.
+\textcite{heycock2012specification}, responds to Mikkelsen's analysis and data  by arguing that, rather than a requirement that SC subjects be topics, the indefinite restriction is actually a restriction on \textit{weak} indefinites (\textit{i.e.}, DPs headed by weak determiners) as SC subjects.
+
+The restriction on indefinites, then is a fact that must be explained or allowed for in any syntactic/semantic analysis of SCs.
+
+\subsection{\textcite{mikkelsen2005copular}}\label{sec:Mikkelsen}
+Line Mikkelsen's dissertation \parencite[published as][]{mikkelsen2005copular} contains one of the only attempts to define the restriction on indefinite SC subjects.
+Though she admits that her attempt falls short of a proper explication of the restriction, the attempt itself provides an excellent starting point for my attempt.
+
+After arguing in favour of a predicate inversion analysis of SC, Mikkelsen considers the restriction on indefinites and concedes that, as \textcite{heycockkroch1999pseudocleft} argue, it is not predicted by the inversion analysis.
+She does not concede, however, that it represents a strong argument against the inversion analysis.
+The restriction on indefinites would only be strong evidence against an inversion analysis if it were a categorical restriction, which it is not.
+
+Mikkelsen demonstrates the non-categorical nature of the restriction with the following examples
+\ex.\label{ex:MikkPhilosopher} \textbf{A philosopher who seems to share the Kiparskys' intuition on some factive predicates} is Unger (1972) who argues that \dots\footnote{\textcite[][p. 195 fn8]{delacruz1976factives} cited by \textcite[117]{mikkelsen2005copular}}
+
+\ex.\label{ex:MikkSpeaker} \textbf{Another speaker at the conference} was the \textit{Times} columnist Nicholas Kristof, who got Wilson's permission to mention the Niger trip in a column.\footnote{Seymore M. Hersh ``The Stovepipe'', The New Yorker, Oct 27, 2003, p. 86 cited by \textcite[118]{mikkelsen2005copular}}
+
+\ex.\label{ex:MikkEmigre} \textbf{One Iraqi \'emigr\'e who has heard from the scientists' families} is Shakir al Kha Fagi, who left Iraq as a young man and runs a successful business in the Detroit area.\footnote{Seymore M. Hersh ``The Stovepipe'', The New Yorker, Oct 27, 2003, p. 86 cited by \textcite[118]{mikkelsen2005copular}}
+
+\ex.\label{ex:MikkBarcan} \textbf{A doctor who might be able to help you} is Harry Barcan.\footcite[118]{mikkelsen2005copular}
+
+Since the restriction is not categorical, she argues, it is not due to a semantic type mismatch, rather it must be pragmatic in nature.
+
+Mikkelsen points out \parencite[following, among others,][]{halliday1967notes} that, unlike predicational clauses, SCs have a fixed information structure.
+As demonstrated in \ref{ex:MikkQandA}, SCs are infelicitous in contexts that focus the initial DP, while predicational clauses are more flexible.
+\ex.\label{ex:MikkQandA}
+\a. Q: Who is the winner?\\
+A1: The winner is JOHN.\hfill[Specificational]\\
+A2: JOHN is the winner.\hfill[Predicational]
+\b. Q: What is John?\\
+A1: \#The WINNER is John.\hfill[Specificational]\\
+A2: John is the WINNER.\hfill[Predicational]\\
+\quelle{\parencite[195]{mikkelsen2005copular}}
+\z.
+
+Mikkelsen argues that this fixed information structure of SCs follows from SCs being inversion structures.
+Following \textcite{birner1994information,birner1996discourse}, she assumes that the discourse function of inversion is to mark the inverted material as linking a clause to previous discourse.
+The inverted material, then, must be more discourse-familiar than the post-verbal logical subject.
+Mikkelsen then shows that these discourse familiarity considerations can explain the acceptability of \ref{ex:MikkPhilosopher}-\ref{ex:MikkBarcan}.
+
+This pragmatic account, while sufficient to explain the acceptability of \ref{ex:MikkPhilosopher}-\ref{ex:MikkBarcan}, does not explain why the restriction on simple indefinites (\textit{i.e.}, DPs of the form [$_\text{DP}$\textit{a}(\textit{n}) N]) as SC subjects, as shown in \ref{ex:TheData}, seems to be categorical.
+That is, even if the material in a simple indefinite is familiar, the indefinite cannot be the subject of an SC.
+\ex.\label{ex:MikkFamSC} Bill is a doctor. \#A doctor is John (too).
+
+Mikkelsen suggests that the discourse familiarity requirement of inverted material clashes with the Novelty Condition on indefinites \parencite{heim1982semantics}.
+She points out, however, that this cannot be the entire story, since the Novelty Condition only requires that indefinites introduce new discourse referents.
+This means that, since the two instances of \textit{a doctor} in \ref{ex:MikkFamSC} do not share a discourse referent, the Novelty Condition does not rule out the indefinite subject.
+
+Mikkelsen also suggests that those instances of familiar yet unacceptable simple indefinite SC subjects might be infelicitous because there is a general ban on repeating indefinites, as in the example below.
+\ex.\label{ex:MikkRepeat} Sally is a doctor. \#A doctor came to dinner last night.
+
+This, however, does not seem to hold.
+Utterances, such as \ref{ex:MikkRepeat}, that are barred because of repeated indefinites are made better if the first occurrence of the indefinite is modified.
+If the barred utterance has an SC with an indefinite subject, as in \ref{ex:MikkFamSC}, then only changing the SC will improve it.
+\ex.\label{ex:IndefGiven} I know many doctors.
+\a. \#A doctor is Patrick.
+\b. A doctor came to dinner last night.
+\z.
+
+To sum up, Mikkelsen observes that there seems to be a requirement that SC subjects be topical.
+She attempts to use this requirement to explain the restriction on indefinite subjects, arguing that topics must be given, while indefinites tend to be novel, so indefinites are not good topics and, as a corollary, indefinites tend to make poor SC subjects.
+She notes, however, that this account runs into a problem in that even when simple indefinites can be made topical, they cannot be SC subjects.
+\subsection{\textcite{heycock2012specification}}\label{sec:Heycock}
+Addressing the indefinite restriction, \textcite{heycock2012specification} begins with the information structure pattern shown in \ref{ex:MikkQandA}, which she frames as a restriction on focusing SC subjects.
+She notes that this is parallel to a fact about scrambling in German observed by \textcite{lenerz1977zur}.
+
+\ex.
+\ag.Wem hat Peter das Futter gegeben?\\
+who.\textsc{dat} has Peter the.\textsc{acc} food given\\
+``Who has Peter given the food?''
+\ag. Peter hat der Katze das Futter gegeben.\\
+Peter has the.\textsc{dat} cat the.\textsc{acc} food given\\
+``Peter has given the cat the food''\hfill[Default order]
+\bg. Peter hat das Futter der Katze gegeben.\\
+Peter has the.\textsc{acc} food the.\textsc{dat} cat given\\
+``Peter has given the food to the cat''\hfill[Scrambled order]
+\z.
+\bg. Was hat Peter der Katze gegeben?\\
+what.\textsc{acc} has Peter the.\textsc{dat} cat given\\
+``What has Peter given (to) the cat?''
+\ag. Peter hat der Katze das Futter gegeben.\\
+Peter has the.\textsc{dat} cat the.\textsc{acc} food given\\
+``Peter has given the cat the food''\hfill[Default order]
+\bg.\# Peter hat das Futter der Katze gegeben.\\
+Peter has the.\textsc{acc} food the.\textsc{dat} cat given\\
+``Peter has given the food to the cat''\hfill[Scrambled order]
+\z.
+\z.
+
+As \Last demonstrates the canonical order for ditransitive objects in German is \textsc{dat} $\prec$ \textsc{acc}.
+The scrambled order, \textsc{acc} $\prec$ \textsc{dat}, is unavailable when the accusative argument is focused, as shown in \Last[b-ii]. 
+Just as SCs subjects cannot be focused in English, scrambled objects cannot be focused in German.
+
+With this information structure parallel established, \textcite{heycock2012specification} attempts to extend the comparison of English SC subjects with German scrambled objects to a semantic parallel.
+Following \textcite{dehoop1992case} and \textcite{diesing1992indefinites}, Heycock assumes that scrambled DPs in German are necessarily interpreted as strong DPs.
+She claims that SC subjects are also restricted to strong interpretations.
+As evidence for this claim she presents another parallel.
+A property of weak indefinites, according to \textcite{milsark1974existential}, is that they cannot serve as subjects of Individual-Level predicates, as shown in \Next
+\ex. I had been struggling with a complicated set of data \ldots
+\a.?* A problem was particularly hard.
+\b. One problem was particularly hard.
+\b. \{?A/one\} problem that I came across was particularly hard.
+\b. One of the problems was particularly hard.\hfill\parencite{heycock2012specification}
+
+Heycock argues that the same pattern holds for indefinite SC subjects as shown in \Next.
+\ex.
+\a.?* A problem was that we didn't understand all the parameters.
+\b. One problem was that we didn't understand all the parameters.
+\b. \{A/one\} problem that I came across was that we didn't understand all the parameters.
+\b. One of the problems was that we didn't understand all the parameters.\hfill\parencite{heycock2012specification}
+
+Given these parallels, Heycock proposes that the indefinite restriction is actually a restriction on \textit{weak} indefinites as SC subjects.
+
+Assuming Heycock is using the terms \textit{weak} and \textit{strong} to refer to those DPs that do not, and and those DPs that do show \citeauthor{milsark1974existential}'s (\citeyear{milsark1974existential}) Definiteness Effect, respectively, 
+this proposal is problematic for two reasons.
+First, the terms \textit{weak} and \textit{strong} in this context, properly refer to interpretations rather than lexical items.
+A determiner is called \textit{strong} if it is always interpreted as strong, while \textit{weak determiners} can be interpreted as either weak or strong depending on the context \parencite{diesing1992indefinites}.
+So, supposing we take \citeauthor{heycock2012specification}'s (\citeyear{heycock2012specification}) analysis to be correct, the question changes from ``Why is the indefinite X a licit SC subject, while Y is illicit?'' to ``Why can X receive a strong interpretation, while Y cannot?''.
+
+The second, and perhaps more compelling, argument against \citeauthor{heycock2012specification}'s (\citeyear{heycock2012specification}) proposal is that it is not borne out by the data.
+Although most weak quantifiers are ambiguous between weak and strong, \textit{a(n)} and \textit{sm} (the reduced form of the strong quantifier \textit{some}) do not seem to be.
+Despite not being strong though, \textit{a(n)} and \textit{sm} can head SC subjects.
+\ex.
+\a. An UNDERrated figure in the history of generative grammar is Eric Lenneberg.
+\b. Sm SIDE-effects are headache, blurred vision and sore throat.
+\z.
+
+DPs with strong quantifiers, however, do not seem to be able to function as SC subjects, as demonstrated below in \Next.
+\ex.
+\a. Each doctor is Mary, Bill, Sue, and John. (*Specificational)
+\b.? Most early generative grammarians are Chomsky and Halle. (*Specificational)
+\b.? SOME side-effects are drowsiness and blurred vision. (*Specificational)
+
+Copular clauses with strong indefinite subjects, instead, are most naturally interpreted as identificational.
+Consider also, the minimal pair in \Next, with only strong/weak varying between the two.
+\ex.
+\a.? SOME side-effects are drowsiness and blurred vision. (*Specificational)
+\b. sm side-effects are drowsiness and blurred vision.
+
+Note that \textit{some} in \Last[a] is interpreted as a quantifier (paraphrasable as \textit{some, maybe all \dots}), while \textit{sm} in \Last[b] seems to be roughly equivalent to a plural indefinite article.
+
+The subject in \Last[b] is a weak indefinite because it and others like it can be used in existential constructions.
+\ex. 
+\a. There is \textbf{a building no-one likes} on St George Street.
+\b. \textbf{A building no-one likes} is Robarts.
+
+\ex.
+\a. There are \textbf{sm side-effects}.
+\b. \textbf{Sm side-effects} are headaches and dizziness. 
+
+Contrary to \citeauthor{heycock2012specification}'s (\citeyear{heycock2012specification}) proposal, it is the weak counterpart that can be the subject of an SC.
+It seems, then, that the proposal that weak indefinites are barred from being SC subjects cannot stand.
+
+\textcite{heycock2012specification}, further argues that what \textcite{mikkelsen2005copular} cites as SCs with indefinite subjects, may, in fact be predicate inversion constructions formed by A$^{\prime}$ movement.
+According to Heycock, SCs and inversion structures can be distinguished in English by the agreement of the copula:
+In SCs, the copula agrees with the first DP, as in \Next, while in inversion constructions, the copula agrees with the DP to its right, as in \NNext.
+\ex. My favourite team \{is/*are\} the Maple Leafs.
+
+\ex. A threat to the Habs' dominance \{*is/are\} the Maple Leafs.
+
+Indeed, using this diagnostic for SCs, we can construct SCs with indefinite DP1s.
+Consider the examples \Next and \NNext, each presented with their corresponding predicational clause, for contrast.
+\ex. A committee that I'd hate to present to is Sue, Jerry, and Alex.\\
+(\textit{cf.} Sue, Jerry, and Alex are a committee that I'd hate to present to.)
+
+\ex. A team I've cheered for all my life is the Maple Leafs.\\
+(\textit{cf.} The Maple Leafs are a team I've cheered for all my life.)
+
+So, by this diagnostic, it seems that indefinite SC subjects are possible.
+\subsection{Summary}
+Each of the two approaches to explaining the indefinite restriction reviewed in this section has its own issues.
+The pragmatic approach of \textcite{mikkelsen2005copular} covers a greater portion of the data but lacks a precise and cohesive account of it.
+The semantic approach of \textcite{heycockkroch1999pseudocleft} and \textcite{heycock2012specification} is more precise at the expense of its empirical coverage.
+In the following sections I will outline a pragmatic explanation of the indefinite restriction that increases not only the precision of \citeauthor{mikkelsen2005copular}'s (\citeyear{mikkelsen2005copular}) approach, but its empirical coverage.
 \section{Theoretical Background}\label{sec:TheoryBackground}
-\subfile{TheoryBackground}
+What I refer to as Contrastive Topic here is closely related to what \textcite{jackendoff1972semantics} refers to as the B-accent in his now classic examples, reproduced here in \ref{ex:JDoffExes}.
+\ex.\label{ex:JDoffExes}
+\a. (What about FRED? What did HE eat?)\\
+FRED$_{\text{B}}$ ate the BEANS$_{\text{A}}$.
+\b. (What about the BEANS? Who ate them?)\\
+FRED$_{\text{A}}$ ate the BEANS$_{\text{B}}$.\hfill\parencite[261]{jackendoff1972semantics}
+
+Jackendoff identifies the A and B pitch accents with a falling contour and a rise-fall-rise contour, respectively, and addresses their discourse pragmatics.
+Since Jackendoff's work, there has been research on the pragmatics, semantics, syntax, and prosody of these phenomena, some of which I outline in this chapter.
+In section \ref{sec:rooth}, I discuss the theory of alternative semantics, first developed to model the interpretation of focus.
+In section \ref{sec:roberts}, I introduce Roberts' (\citeyear{roberts2012information}) \textit{question under discussion} model of discourse, which provides a preliminary analysis of the pragmatics of focus.
+Roberts' model is further refined by \textcite{buring2003d}, whose d-tree formalism I discuss in section \ref{sec:BuringCT}.
+Finally, \textcite{constant2014diss} revises B\"uring's account of CT and develops a syntactic account of it which I discuss in section \ref{sec:Constant}
+\subsection{Alternative Semantics \parencite{rooth1992theory}}\label{sec:rooth}
+Alternative semantics, as developed by \textcite{rooth1992theory}, proposes that, in addition to ordinary interpretations ($\llbracket\cdot\rrbracket^\mathcal{O}$), sentences receive a focus interpretation ($\llbracket\cdot\rrbracket^f$) which is derived from the ordinary interpretation and the focused constituent.
+Consider the following example.
+\ex.\label{ex:BasicFocus} [Mary]$_F$ answered Sue.
+
+The ordinary interpretation of this sentence is the proposition it expresses
+\ex.\label{ex:OrdinaryInterpretation} $\llbracket\ref{ex:BasicFocus}\rrbracket^\mathcal{O} = [answered(\mathbf{m}, \mathbf{s})]$
+
+The focus interpretation is the set of propositions generated by replacing the focused material with a variable.
+\ex.\label{ex:FocusInterpretation} $\llbracket\ref{ex:BasicFocus}\rrbracket^f = \left\{ answered(x, \mathbf{s}) | x \in D_e \right\}$
+
+Note that the focus semantics of \ref{ex:BasicFocus} is equivalent to the ordinary interpretation of the question \textit{Who answered Sue?} following \textcite{hamblin1973questions}. 
+This relation between focus interpretation and question interpretation is key to the model of discourse I assume here.
+
+\subsection{Discourse Pragmatics \parencite{roberts2012information}}\label{sec:roberts}
+\textcite{roberts2012information}\footnote{
+	Roberts synthesizes and formalizes a good deal of previous work from various authors.
+	Of particular interest for this paper is \textcite{rooth1992theory,krifka1992compositional,stechow1991focusing,jackendoff1972semantics}.
+} models discourse as a cooperative game, following \textcite{lewis1979scorekeeping}, the goal of which is to answer the \textit{questions under discussion} (QUDs).
+Utterances are represented as moves, with questions being setup moves and assertions being payoff moves.
+At a given point in the discourse there is an immediate QUD, and discourse proceeds either by answering that question or by asking a subquestion (\textit{i.e.} one whose answer is a partial answer to the QUD), which becomes the new immediate QUD.
+Roberts models the QUDs as a stack structure, so new subquestions are pushed into the stack when asked, and the immediate QUD is popped off of stack upon being answered.
+A move is considered (ir)relevant based on the question at the top of the QUD stack.
+
+Roberts' model of a particular discourse is given below as a series of questions, subquestions, and answers. 
+\ex.[($\mathcal{D}_0$)] Who ate what?
+	\a.[\texttt{a}.] What did Hilary eat?
+		\a.[\texttt{i}.] Did Hilary eat bagels?\\
+		Ans(\texttt{a}$_\texttt{i}$) = yes
+		\b.[\texttt{ii}.]Did Hilary eat tofu?\\
+		Ans(\texttt{a}$_\texttt{ii}$) = no
+		\z.
+	\b.[\texttt{b}.] What did Robin eat?
+		\a.[\texttt{i}.]Did Robin eat bagels?\\
+		Ans(\texttt{b}$_\texttt{i}$) = no
+		\b.[\texttt{ii}.]Did Robin eat tofu?\\
+		Ans(\texttt{b}$_\texttt{ii}$) = yes
+		\z.
+	\z.
+
+Note, that this discourse goes beyond the explicitness we see in natural speech.
+For example, when question (a) is asked, we don't require that (a$_\text{i}$) and (a$_\text{ii}$) are asked so that we may answer \textit{yes} or \textit{no}.
+Instead we can answer with an assertion that includes a focused constituent that matches the wh-word of the QUD.
+\ex. A: \texttt{a}/\#\texttt{b}\\
+B: Hilary ate [bagels]$_F$.
+
+To ensure that an assertion is used felicitously, Roberts exploits the fact that focus interpretations of assertions are of the same type as question interpretations.
+An assertion, like that in \Last is felicitous if its focus interpretation is equal to the interpretation of the QUD (\cite[31]{roberts2012information}, generalizing from \cite{stechow1991focusing}).
+\ex.
+\a.
+$\llbracket\text{Hilary ate [bagels]}_F.\rrbracket^f = 
+\begin{Bmatrix}
+  \text{Hilary ate bagels.}\\
+  \text{Hilary ate tofu.}
+\end{Bmatrix}
+$
+\b.
+$\llbracket\text{What did Hilary eat?}\rrbracket^\mathcal{O} =
+\begin{Bmatrix}
+  \text{Hilary ate bagels.}\\
+  \text{Hilary ate tofu.}
+\end{Bmatrix}
+$\hfill (=\Last[a])
+\b.
+$\llbracket\text{What did Robin eat?}\rrbracket^\mathcal{O} =
+\begin{Bmatrix}
+  \text{Robin ate bagels.}\\
+  \text{Robin ate tofu.}
+\end{Bmatrix}
+$\hfill ($\neq$\Last[a])
+
+Roberts goes on to address contrastive topics, which she refers to as \textit{dependent focus}, in much the same way as she treats focus.
+Structures with CT and focus are given focus interpretation, that is, they are interpreted as a set of alternatives under alternative semantics.
+An example of a CT-F utterance and its focus interpretation is given below in \Next.
+\ex.
+\a. [Hilary]$_{CT}$ ate [bagels]$_F$.
+\b. $\left\{ x\text{ ate }y | x,y \in D_e \right\}$
+
+This suggests that \Last[a] presupposes the question in \Last[b] (\textit{Who ate what?}), a proposal that Roberts shows does not hold up to further scrutiny.
+This hypothesis predicts that \Last[a] ought to have the same felicity conditions if its CT and F marking were reversed as in \Next below.
+\ex. 
+\a. [Hilary]$_F$ ate [bagels]$_{CT}$.
+\b. $\left\{ x\text{ ate }y | x,y \in D_e \right\}$
+
+Roberts suggests that, rather than only presupposing a QUD, CT-F structured utterances also presuppose ``a possibly complex strategy of questions.'' \parencite[][p.50]{roberts2012information}
+As Roberts acknowledges, this is a very preliminary account of the pragmatics of CT which will require further empirical and theoretical investigation.
+
+\subsection{The discourse pragmatics of Contrastive Topics \parencite{buring2003d,buring2016topic}}\label{sec:BuringCT}
+\textcite{buring2003d} represents Roberts' structured discourses as \textit{d(iscourse)-trees}.
+The discourse $\mathcal{D}_0$, then is represented by the tree below.
+\ex.
+\begin{forest}
+  tree defaults
+  [question\\Who ate what?,for tree={align=center}
+    [subquestion\\\texttt{a}
+      [subsubquestion\\\texttt{a}$_\texttt{i}$
+	[Ans(\texttt{a}$_\texttt{i}$)]
+      ]
+      [subsubquestion\\\texttt{a}$_\texttt{ii}$
+	[Ans(\texttt{a}$_\texttt{ii}$)]
+      ]
+    ]
+    [subquestion\\\texttt{b}
+      [subsubquestion\\\texttt{b}$_\texttt{i}$
+	[Ans(\texttt{b}$_\texttt{i}$)]
+      ]
+      [subsubquestion\\\texttt{b}$_\texttt{ii}$
+	[Ans(\texttt{b}$_\texttt{ii}$)]
+      ]
+    ]
+  ]
+\end{forest}
+
+B\"uring also distinguishes between the focus value ($\llbracket\cdot\rrbracket^f$) and the CT value ($\llbracket\cdot\rrbracket^{ct}$) of an utterance and defines an algorithm for determining the CT value, given below in \Next.
+\ex. CT-value formation:
+\a.[step 1:] Replace the focus with a \textit{wh}-word and front the latter; if focus marks the finite verb or negation, front the finite verb instead.
+\b.[step 2:] Form a set of questions from the result of step 1 by replacing the contrastive topic with some alternative to it.\hfill\parencite{buring2003d}
+\z.
+
+Note, as demonstrated below, this algorithm generates a set of questions, which is a set of sets of propositions.
+This way, \textcite{buring2003d} is able to build into his representations the fact that a CT-F structure presupposes a QUD and a strategy for answering it.
+\ex.
+\a.\label{ex:HilBagCT-F} [Hilary]$_{CT}$ ate [bagels]$_F$.
+	\b. CT-value formation:
+		\a.[step 1: ] What did Hilary eat?
+		\b.[step 2: ] $
+		\begin{Bmatrix}
+		  \text{What did Hilary eat?}\\
+		  \text{What did Robin eat?}
+		\end{Bmatrix}$
+		\z.
+	\b. $\llbracket$[Hilary]$_{CT}$ ate [bagels]$_F$.$\rrbracket^{ct} = \left\{ \left\{ x\text{ ate }y | y \in D_e \right\} | x \in D_e \right\}$
+	\z.
+
+Under this analysis of CT-value, the CT-F structure of an utterance is represented by the value. 
+So the CT-value of \Last[a] is distinct from that \Next[a], below, which inverts the CT-F structure.
+\ex.
+\a.\label{ex:HilBagF-CT} [Hilary]$_F$ ate [bagels]$_{CT}$.
+\b. CT-value formation:
+\a.[step 1:] Who ate bagels?
+\b.[step 2:] $
+\begin{Bmatrix}
+  \text{Who ate bagels?}\\
+  \text{Who ate tofu?}
+\end{Bmatrix}$
+\z.
+\b. $\llbracket$[Hilary]$_F$ ate [bagels]$_{CT}$.$\rrbracket = \left\{ \left\{ x\text{ ate }y | x \in D_e \right\} y \in D_e \right\}$\hfill($\neq\llbracket\LLast[a]\rrbracket^{ct}$)
+\z.
+
+The nested nature of these CT-values, makes them directly translatable into d-trees which I provide below.
+\ex.
+\a. \begin{forest}
+  tree defaults
+  [{$\llbracket\ref{ex:HilBagCT-F}\rrbracket^{ct}$}
+    [What did Robin eat?]
+    [What did Hilary eat
+      [Hilary ate bagels]
+    ]
+  ]
+\end{forest}
+\b.
+\begin{forest}
+  tree defaults
+  [{$\llbracket\ref{ex:HilBagF-CT}\rrbracket^{ct}$}
+    [Who ate tofu?]
+    [Who ate bagels
+      [Hilary ate bagels]
+    ]
+  ]
+\end{forest}
+
+D-trees provide a perspicuous way of representing various aspects of discourse structure in a way that leverages a vocabulary already used by generative linguists.
+They allow us to define pragmatic notions such as assertions, questions, alternatives, \textit{etc} in terms of nodes, sisterhood, dominance, \textit{etc.}
+For instance, assertions and questions are distinguished by the fact that the former are terminal nodes while the latter are non-terminal.
+
+It should be noted that CT-F structures are used in a variety of discourse contexts to achieve subtly different conversational goals.
+Consider the following examples.
+\ex.\label{ex:ChinaCTF}
+\a.[A:] When are you going to China? \hfill \parencite{roberts2012information}
+\b.[B:] I'm going to [China]$_{CT}$ in [April]$_F$.
+\z.
+
+\ex.\label{ex:CaftansCTF}
+\a.[A:] What did the pop stars wear? \hfill \parencite{buring2003d}
+\b.[B:] The [female]$_{CT}$ pop stars wore [caftans]$_F$.
+\z.
+
+\ex.\label{ex:DoctorChiroCTF}
+\a.[A:] Who's a good psychiatrist?
+\b.[B:] [My sister Monica]$_{F}$ is a [psychologist]$_{CT}$.
+\z.
+
+All of these instances of CT-F structures signal what B\"uring calls \textit{implicit moves}, each instance has a different sort of implicit move that can be easily represented by its d-tree.
+In \ref{ex:ChinaCTF} the assertion directly answers the question, but implies the existence of a relevant superquestion (\textit{When are you going to which place?}).
+The d-tree in \Next shows this by marking the explicit moves in bold.
+\ex.
+\begin{forest}
+  tree defaults
+  [When are you going which place?
+    [When are you going to \ldots?]
+    [\textbf{When are you going to China?}
+      [\textbf{April}]
+    ]
+  ]
+\end{forest}
+
+The assertion in \ref{ex:CaftansCTF}, on the other hand, does not answer the explicit question, but instead answers an implied subquestion (\textit{What did the female pop-stars wear}).
+Again this can be represented clearly in the d-tree in \Next.
+\ex.
+\begin{forest}
+  tree defaults
+  [\textbf{What did the pop stars wear?}
+    [What did the male pop stars wear?]
+    [What did the female pop stars wear?
+      [\textbf{The female pop stars wore caftans.}]
+    ]
+  ]
+\end{forest}
+
+Finally, the assertion in \ref{ex:DoctorChiroCTF} answers neither the explicit question, nor an implied subquestion.
+Instead, it answers an implicit subquestion of a superquestion of the explicit question, as we can see in its d-tree in \Next.
+\ex.
+\begin{forest}
+  tree defaults
+  [Who's a good mental health professional?
+    [\textbf{Who's a good psychiatrist \ldots?}]
+    [Who's a good \ldots?]
+    [Who's a good psychologist \ldots?
+      [\textbf{Monica}]
+    ]
+  ]
+\end{forest}
+
+So, although a given CT-F structure can be mapped onto a single d-tree in a predictable way, the context in which it is uttered determines its place in and effect on the discourse.
+Implicit in \textcite{buring2003d} is an informal condition on CT felicity which I give in \Next.
+\ex. M is a move that uses a CT-F structure.\\
+Q is a question.\\
+M is felicitous in the context of the QUD Q iff the M defines a d-tree DT such that Q is represented in DT.
+
+Though informal, this condition can effectively rule out several examples of infelicitous CT-F structures.
+The infelicity of the CT-Foc structures in \Next and \NNext is predicted by the fact that the explicit question that they answer is not found in the d-trees they project. 
+\ex.\label{ex:HilBagelInfel} 
+\a.
+\a.[A:] Who ate bagels?
+\b.[B:] \#[Hilary]$_{CT}$ ate [bagels]$_F$.
+\z.
+\b. $\llbracket$[Hilary]$_{CT}$ ate [bagels]$_F\rrbracket^{ct}$\\
+\begin{forest}
+  tree defaults
+  [What did who eat?
+    [What did Robin eat?]
+    [What did Hilary eat?
+      [\textbf{Hilary ate bagels}]
+    ]
+  ]
+\end{forest}
+\z.
+
+\ex.\label{ex:MonChiroInfel}
+\a.
+\a.[A:] Who's a good psychiatrist?
+\b.[B:]\# [My sister Monica]$_{CT}$ is a [psychologist]$_{F}$
+\z.
+\b.
+\begin{forest}
+  tree defaults
+  [Who's a good mental health professional?
+    [Monica's a good mental health professional?
+      [\textbf{Monica's a good psychologist}]
+    ]
+    [Joe's a good mental health professional?
+      [\ldots]
+    ]
+  ]
+\end{forest}
+
+\subsection{The Topic Abstraction analysis of CT \parencite{constant2014diss}}\label{sec:Constant}
+In his thesis, \textcite{constant2014diss} proposes and argues for a comprehensive revision of B\"uring's theory of contrastive topic.
+This revision includes a more nuanced analysis of the syntax of CTs and a more precise description of the prosody associated with CTs in English\footnote{
+	The thesis also includes a proposed semantics CTs and an analysis of the Mandarin discourse particle \textit{-ne} as a CT marker.
+	These topics, however, are beyond the scope of this paper, so I will not address them.
+} Which I will outline in turn in this section.
+
+Constant analyzes the pitch contour in terms of \citeauthor{pierrehumbert1990meaning}'s (\citeyear{pierrehumbert1990meaning}) ToBI formalism\footnote{\textcite[14--16]{constant2014diss} provides a succinct description of the ToBI system, so rather than reproduce that description, I encourage interested readers to seek out this portion of the thesis and works cited therein.} and shows that the the characteristic rise-fall-rise contour of CTs is analyzable as a pitch accent (L+H*) followed by a low phrase tone (L-) and a high boundary tone (H\%), as shown in \ref{ex:FredToBI} and \ref{ex:BeansToBI}.
+\ex.\label{ex:FredToBI}
+\a.[A:] What about FRED? What did HE eat?
+\bg.[B:] FRED {\ldots} {ate the beans.}\\
+L+H* L-H\% {}\\
+
+\ex.\label{ex:BeansToBI}
+\a.[A:] What about the BEANS? Who ate THEM?
+\bg.[B:] {Fred ate the} BEANS \ldots\\
+{} L+H* L-H\%\\
+
+Constant further notes that the pitch accent and boundary tones are associated to different things.
+The pitch accent, he argues, is associated with an F-marked constituent, while the boundary tone is associated with the right edge of the phrase that contains the f-marked.
+This can be seen in \ref{ex:FemaleToBI} and \ref{ex:SingersToBI}, where the placement of the L+H* accent depends on the discourse context, while the L-H\% boundary tone is associated with the edge of the DP.
+\ex.\label{ex:FemaleToBI}
+\a.[A:] What did the singers wear?
+\bg.[B:] The {\hspace{1em}FEMALE} singers \ldots {wore caftans.}\\
+{} L+H* {\hspace{2em}L-} H\% {}\\
+
+\ex.\label{ex:SingersToBI}
+\a.[A:] What did the female performers wear?
+\bg.[B:] {The female} {\hspace{1em}SINGERS} {\hspace{1em}\ldots} {wore caftans.}\\
+{} L+H* L-H\% {}\\
+
+Based on this pattern (and other reasons), Constant proposes that what B\"uring calls CT-marking, is identical to F-Marking, and the distinction between CT and exhaustive focus (hereafter Exh, following Constant) is due the structural configuration of those phrases that contain F-marked constituents.
+
+In order to show capture the distinction between CT and Exh, Constant proposes an operator in the left periphery, CT-$\lambda$ whose specifier is interpreted as a CT. 
+So, CT phrases are raised, sometimes covertly, to the left periphery (in the sense of \textcite{rizzi1997fine}) and the CT-$\lambda$ operator cliticizes to the intonational phrase, yeilding the L-H\% boundary tone.
+The proposed LF structure of \ref{ex:BeansToBI}, then, is given in \ref{fig:BeansLF}, where a dashed arrow indicates covert movement.
+\ex.\label{fig:BeansLF}
+\begin{forest}
+  tree defaults
+  [
+	  [DP$_{i}$[the beans$_F$, roof,name=ct]]
+	  [
+		  [CT-$\lambda$]
+		  [
+			  [DP[Fred$_F$,roof]]
+			  [
+				  [ate]
+				  [$t_i$,name=obj]
+			  ]
+		  ]
+	  ]
+  ]
+  \draw[->,dashed] (obj) to[out=south west, in=south] (ct);
+\end{forest}
+
+Topicalization, as in \ref{ex:Topicalize}, then occurs when CT Abstraction is overt, according to Constant.
+\ex.\label{ex:Topicalize} 
+\a.[A:] What about the BEANS? Who ate THEM?
+\bg.[B:] The BEANS \ldots{Fred ate.} \\
+{} L+H* L-H\% {}\\
+
+\subsection{Summary}
+In this section, I have outlined some basic properties of CTs which will be useful in the discussion of SC subjects.
+In semantico-pragmatic terms, CTs are interpreted as a nested set of alternatives, which imply a complex discourse structure.
+That is, if an utterance without a CT indicates a question-answer move in the discourse (either asking a question and expecting a complete answer, or giving a complete answer to a question under discussion), then an utterance \textit{with} a CT indicates a question-subquestion-answer strategy.
+In syntactic terms, a CT is a phrase which (\textit{i}) has an F-marked constituent, and (\textit{ii}) is generated in, or moves, often covertly, to the specifier of a a phrase projected by a CT operator (CT-$\lambda$).
+Prosodically, the F-marking in a CT is realized as a rising pitch accent (L+H*) and the CT-$\lambda$ operator, which cliticizes to the phrase in its specifier, is realized as a rising boundary tone (L-H\%). 
 \section{The Contrastive Topic requirement on SC subjects}\label{sec:MainArgument}
-\subfile{MainArgument}
-\section{A General Constraint on CT-Foc structures}\label{sec:GenConst}
-\subfile{GeneralConstraint}
+I am now prepared to modify Mikkelsen's (\citeyear{mikkelsen2005copular}) analysis of SCs so that is properly captures the indefinite restriction.
+Recall that Mikkelsen argued that SCs have a fixed information structure, with the postcopular DP being focus and the subject being topic, as shown in \Next below, and that for Mikkelsen, topicality requires discourse familiarity.
+\ex. [My favourite singer]$_\text{Top}$ is [Ian]$_F$.
+
+I propose that SC subjects must be \textit{contrastive} topic, in the sense of \textcite{constant2014diss}, but must not be wholly F-marked.
+I will show, in the remainder of this section, that this addition to Mikkelsen's analysis effectively captures the indefinite restriction.
+Specifically, requiring SC subjects to properly contain an F-marked constituent will account for the fact that more complex/heavy indefinites (such as those in \ref{ex:MikkPhilosopher}-\ref{ex:MikkBarcan}) are more likely to be acceptable SC subjects as well as the fact that simple indefinites are almost never allowed as SC subjects.
+\ex.\label{ex:CTReq} \textbf{The Contrastive Topic requirement on Specificational Clauses}\\
+A clause of the form $X$ \textsc{be} $Y$ is a licit specificational clause iff
+\a. $\llbracket X\rrbracket(\llbracket Y\rrbracket)$ is defined,
+\b. $Y$ is an exhaustive focus, \parencite{mikkelsen2005copular}
+\b. $X$ is a contrastive topic, and
+\b. A F-marked constituent is properly contained by $X$.
+
+In the above definition, \Last[a] restricts the requirement to possible SCs, and \Last[b] incorporates Mikkelsen's observation of the fixed information structure of SCs.
+The final two parts of the requirement, \Last[c] and \Last[d] are what I will argue for in the following two sections.
+
+I have framed this proposal as a condition on SCs in general rather than one on indefinite subects of SCs for reasons of parsimony.
+While indefinite subjects play an important role in the discussion that follows, I intersperse SCs with definite subjects for ease of demonstration.
+
+\subsection{SC subjects must be contrastive topics}
+The first claim of my proposal that must be justified is that \textit{contrastive} topichood, rather than givenness or aboutness topichood is the relevant notion for SC subjects.
+This claim can be further divided into three claims.
+First, CT-Exh structure is a licit information structure for SCs.
+Second, SC subjects cannot be entirely discourse given.
+Finally, SC subjects cannot be aboutness topics.
+In the following subsection I will present evidence for each of these claims in turn.
+Following that, I will address the second component claim of my proposal, that SC subjects cannot be wholly F-marked
+\subsubsection{CT-Exh structure is compatible with SCs}\label{sec:CanBeCTs}
+English SCs are most naturally uttered with intonational stress on some part of their subject as shown in \Next.
+\ex.
+\a. A building on campus no-one LIKES is Robarts.
+\b. A building on campus NO-ONE likes is Robarts.
+\b. A building on CAMPUS no-one likes is Robarts.
+\b. A building ON campus no-one likes is Robarts.
+\b. A BUILDING on campus no-one likes is Robarts.
+\b.? A building on campus no-one likes is Robarts.
+\z.
+
+English intonational stress is associated with informational prominence, and since, as Mikkelsen shows, DP2 position in SCs is necessarily focused, the intonational stress in the subjects of \Last cannot be primary focus.
+
+More precisely, the intonational stress in SC subjects is a rising pitch accent (L+H*) generally followed by a low phrase tone (L-).
+To show this I recorded an native speaker of Canadian English\footnote{
+	The speaker is  S--- E---, a local actor and comedian. (name redacted for review process)
+} saying the SC in \ref{ex:BarometerRising} in various three different discourse contexts.
+\ex. \label{ex:BarometerRising} A book I would recommend is \textit{Barometer Rising}.
+
+The first context, designed to target \textit{book} for F-marking, is given in \ref{ex:BookContext}, with ellipses indicating the target sentence \ref{ex:BarometerRising}.
+The resulting intonational contour\footnote{
+	The pitch contour analysis was performed in Praat \parencite{praat}.
+	Letters with tildes below them indicate creaky voice.
+} is given in figure \ref{fig:BookContour}.
+\ex.\label{ex:BookContext}
+\a.[A:] I'm looking for a new TV show, can you recommend any?
+\b.[B:] I don't really watch TV, but \dots
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Book.png}
+	\caption{The intonational contour of \ref{ex:BarometerRising} in context \ref{ex:BookContext}}
+	\label{fig:BookContour}
+\end{figure}
+\FloatBarrier
+The second context, designed to target the embedded subject \textit{I} for F-marking, is given in \ref{ex:IContext}.
+The resulting intonational contour is given in figure \ref{fig:IContour}.
+\ex.\label{ex:IContext}
+\a.[A:] I'm looking for a new book. Everyone's telling me to read \textit{Handmaid's Tale}. What do you think?
+\b.[B:] I didn't really like it. \dots
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Shawna_I.png}
+	\caption{The intonational countour of \ref{ex:BarometerRising} in context \ref{ex:IContext}}
+	\label{fig:IContour}
+\end{figure}
+\FloatBarrier
+The third context, designed to target \textit{would} for F-marking, is given in \ref{ex:WouldContext}.
+The resulting intonational contour is given in figure \ref{fig:WouldContour}.
+\ex.\label{ex:WouldContext}
+\a.[A:] (Hands B a list of books) Which of these would you recommend?
+\b.[B:] I wouldn't recommend any of those. \dots
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.8\textwidth]{Would.png}
+	\caption{The intonational contour of \ref{ex:BarometerRising} in context \ref{ex:WouldContext}}
+	\label{fig:WouldContour}
+\end{figure}
+\FloatBarrier
+In all of these, we see the characteristic L+H* pitch accent followed by a L- phrase tone of a CT constituent. 
+There is some variation in the presence of a H\% boundary tone, that \textcite{constant2014diss} associates with a cliticized CT-$\lambda$ head.
+In the contour shown in figure \ref{fig:WouldContour}, we see no rising pitch at the right edge of the SC subject, and furthermore, a second recorded speaker, whose context-contour pairs are given in an appendix (\ref{sec:append}), shows a complete lack of H\% tones on SC subjects. 
+I will set this variation aside for now, addressing it briefly in section \ref{sec:syntax}.
+Boundary tones aside, though, the intonational contour associated with SC subjects seems to be that of a CT constituent.
+
+Pragmatically, CT-Exh structures are characterized by association with a complex discourse strategy of a question and subquestion.
+SCs can indeed be associated with a question-subquestion strategy.
+Consider the example in \Next.
+\ex.(Not many people like the Athletic Centre.)\\
+A building on campus NO ONE likes is Robarts.
+
+If DP2 is Exh F-Marked as an Exh, and the stressed constituent \textit{no one} is CT F-Marked, then we can use \citeauthor{buring2003d}'s (\citeyear{buring2003d}) CT-value formation procedure to construct the d-tree associated with it.
+
+\ex. CT-value formation:
+\a.[step 1: ] What's a building on campus no one likes?
+\b.[step 2: ] $
+\begin{Bmatrix}
+  \text{What's a building on campus no one likes?}\\
+  \text{What's a building on campus  someone likes?}\\
+  \cdots\\
+  \text{What's a building on campus  everyone likes?}
+\end{Bmatrix}
+$
+
+\ex.
+\begin{forest}
+  tree defaults
+  [What is a building on campus who likes?
+    [What is a building on campus no one likes?
+      [Is Robarts a building on campus no one likes?
+	[A building on campus no one likes is Robarts.]
+      ]
+      [\ldots]
+    ]
+    [\ldots]
+  ]
+\end{forest}
+\z.
+
+Similarly, we can see that the felicity conditions on the accent placement in SC subjects match the those of the canonical CT-Foc structures demonstrated in \ref{ex:HilBagelInfel} and \ref{ex:MonChiroInfel}.
+So, the SCs in question need to imply a question and subquestion to which they provide a (partial) answer, and this question-subquestion-answer sequence must be congruent with the QUD.
+For instance, consider the infelicitous discourses in \ref{ex:BuildingSCInfel} and \ref{ex:LikesSCInfel}.
+\ex.\label{ex:BuildingSCInfel}
+Everyone likes Hart House\\
+\# A BUILDING on campus no-one likes is Robarts.
+
+\ex.\label{ex:LikesSCInfel} 
+\a.[A:] What's a building on campus no one likes?
+\b.[B:]\# A building on campus everyone LIKES is Hart House.
+
+If we assume that the SCs in these examples represent CT-Exh structures, then we can easily explain their infelicty.
+Assuming the stressed element, \textit{building}, in \ref{ex:BuildingSCInfel} is F-marked within a CT, and the DP2 \textit{Robarts} is the exhaustive focus, then we can represent the CT-Value generation and resulting d-tree in \ref{ex:BuildingSCCT} below.
+\ex.\label{ex:BuildingSCCT}
+\a. CT-Value Formation
+\a.[step 1:] What is a building on campus that no-one likes?
+\b.[step 2:] $
+\begin{Bmatrix}
+	\text{What is a building on campus that no-one likes,}\\
+	\text{What is a sculpture on campus that no-one likes,}\\
+	\text{What is a quadrangle on campus that no-one likes,}\\
+	\cdots\\
+	\text{What is a lecture room on campus that no-one likes,}
+\end{Bmatrix}
+$
+\z.
+\b. 
+\begin{forest}
+  tree defaults
+  [What is a what on campus no-one likes?
+    [What is a quad \ldots?
+	      [\ldots,roof]
+      ]
+    [What is a building on campus no-one likes?
+      [Is Hart House \ldots?
+	      [\ldots]
+      ]
+	    [Is Robarts \ldots?
+	[A building on campus no one likes is Robarts.]
+      ]
+      [\ldots]
+    ]
+    [\ldots]
+  ]
+\end{forest}
+\z.
+
+Note that the prior discourse, \textit{Everyone likes Hart House}, is nowhere to be found in the d-tree generated by the SC.
+Therefore, the SC is infelicitous because its d-tree is incongruous with the the discourse it is embedded in.
+
+Similar remarks apply to the SC in \ref{ex:LikesSCInfel}, whose proposed CT-Value and d-tree are represented in \ref{ex:LikesSCCT}.
+\ex.\label{ex:LikesSCCT}
+\a. CT-Value formation
+\a.[step 1:] What is a building on campus everyone likes``
+\b.[step 2:] $
+\begin{Bmatrix}
+	\text{What is a building on campus everyone loves?}\\
+	\text{What is a building on campus everyone likes?}\\
+	\text{What is a building on campus everyone could take or leave?}\\
+	\cdots\\
+	\text{What is a building on campus everyone hates?}\\
+\end{Bmatrix}
+$
+\z.
+\b.
+\begin{forest}
+	tree defaults
+	[What is a building on campus everyone feels what way about?
+		[\ldots]
+		[What is a building on campus everyone likes?
+			[Is Hart House \ldots?
+				[A building on campus everyone likes is Hart house]
+			]
+			[\ldots]
+		]
+		[What is \ldots everyone hates?
+		[\ldots,roof]]
+	]
+\end{forest}
+
+As with the previous example, the prior discourse is not in the d-tree generated by this SC, rendering the SC infelicitous in the context.
+So, the intonational stress in SC subjects is consistent with a CT-Exh structure.
+\subsubsection{SC subjects are not wholly givenness topics}
+If \textcite{mikkelsen2005copular} is correct, and SC subjects are necessarily topics which must contain given material, then we would expect that a maximally given DP is the ideal SC subject.
+As \ref{ex:PhilosInfel} demonstrates, however, maximally given DPs are not good SC subjects, but SC subjects that are minimally contrastive are acceptable.\footnote{
+  The infelicity is not due to a constraint on repeating indefinites.
+  Consider the following pair:
+  \ex. Many philosophers have written about the mind-body problem.
+  \a.\# A philosopher who has written about the mind-body problem is Chomsky.
+  \b. A philosopher who has written about the mind-body problem came to dinner last night.
+  \z.
+
+}
+
+\ex. Many philosophers have written about the mind-body problem.
+\a.\label{ex:PhilosInfel}\# A philosopher who has written about the mind-body problem is Chomsky.
+\b. A modern philosopher who has written about the mind-body problem is Chomsky.
+
+The entire content of the subject in \Last[a] has already been introduced in the discourse, meaning it is all discourse given.
+One might, however, object that, according Heim's (\citeyear{heim1982semantics}) Novelty Condition, an indefinite DP must introduce a new discourse referent, meaning that the subject of \Last[a] is not wholly given.
+Even if this were the case, the new dicourse referent would be included in the set of philosophers who have written about the mind-body problem, meaning that it could still be considered discourse-given.
+So, it seems that SC subjects are not wholly givenness topics.
+\subsubsection{SC subjects are not wholly aboutness topics}
+\textcite{reinhart1981pragmatics} argues that the important notion associated with topichood is aboutness rather than givenness.
+If we wish to retain \citeauthor{mikkelsen2005copular}'s (\citeyear{mikkelsen2005copular}) analysis, the natural move would be to claim that licit SC subjects are characterized by aboutness.
+Aboutness is diagnosable by a paraphrasing test.
+\ex. \textbf{Reinhart's test for aboutness}\\
+If sentence S is about constituent X, then S is paraphrasable by the sentence \textit{They said about }X\textit{, that }S$^\prime$, where S$^\prime$ is derived by replacing X in S with a proform.
+
+As \Next shows, when the entire SC subject is the aboutness topic, as diagnosed by Reinhart's test, it is interpreted \textit{de re}, rendering the copular clause equative rather than specificational.
+Conversely, when the subject is not entirely the aboutness topic, it is interpreted \textit{de dicto} rendering the clause specificational.
+\ex. \textbf{Background:} David Bowie = John's favourite singer.\\
+(Mary said that) John's favourite singer is Iggy Pop. (Equative/Specificational)
+\a. Mary said of John's favourite singer that \{he/?it\}'s Iggy Pop.(Equative/*Specificational)\\
+(=Mary said David Bowie is Iggy Pop)
+\b. Mary said of singers that John's favourite (one) is Iggy Pop. (*Equative/Specificational)\\
+($\neq$Mary said David Bowie is Iggy Pop)
+\c. Mary said of John that his favourite singer is Iggy Pop. (*Equative/Specificational)\\
+($\neq$Mary said David Bowie is Iggy Pop)
+\d. Mary said of people's favourite singers that John's is Iggy Pop. (*Equative/Specificational)\\
+($\neq$Mary said David Bowie is Iggy Pop)
+\z.
+
+In the above examples, Mary's claim that John's favourite singer is Iggy Pop is invariably false, but varies in the exact claim being made.
+In the case that \textit{John's favourite singer} is understood \textit{de re}, Mary is wrongly identifying David Bowie as Iggy Pop.
+When \textit{John's favourite singer} is understood \textit{de dicto}, Mary is wrongly specifying the singer that John prefers above all other singers is Iggy Pop.
+
+One might consider the possibility that it is the pronominal subject of \Last[a] that forces its equative reading.
+That is, pronouns are inherently referential, and since the subject of the copular clause in \Last[a] is a pronoun, and therefore referential, that copular clause cannot be specificational. 
+While I am not prepared to concede this point, even if it were true, we are left with \Last[b]--\Last[d] which cannot be captured by this claim.
+If pronomial subjects forced equative readings, the reverse could not be true, as most SCs with full (definite) DP subjects are ambiguous with equative readings.
+If we were to apply this hypothesis to \Last[b]--\Last[d] it would be non-predictive, so we would need a further explanation for the fact that specificational readings are forced when only part of the subject is an aboutness topic as in \Last[b]--\Last[d].
+
+So, absent any compelling argument otherwise, it seems that while some part of an SC subject can be an aboutness topic, the entire subject DP cannot be the aboutness topic.
+
+\subsubsection{Summary}
+Since SC subjects are compatible with F-marking and cannot be givenness or aboutness topics, it is reasonable to assume that SC subjects are CTs.
+\subsection{SC subjects cannot entirely be contrastive topics}
+The second claim of my proposal is that SC subjects cannot be entirely F-marked constituents.
+That is, if the entirety of the SC subject is new/contrastive, the SC is unacceptable.
+So, the B utterance in \ref{ex:AllFMarked} is infelicitous because the entire SC subject is new/contrastive material.
+\ex.\label{ex:AllFMarked}
+\a.[A:] Tell me about your home university?
+\b.[B:]\# A BUILDING on campus no-one likes is Robarts.
+
+This hypothesis -- that SC subjects must contain but not be an F-marked constituent -- in fact predicts the fact that simple indefinites cannot be SC subjects.
+Consider the unacceptable SC \textit{*A doctor is Mary}.
+The subject \textit{a doctor} must contain an F-marked constituent, in this case \textit{doctor}.
+Since the indefinite article is standardly assumed to be semantically vacuous, it does not encode any particular information.
+Therefore, F-marking on the nominal is equivalent to F-marking on the entire DP.\footnote{
+It is worth noting here that indefinite articles seem to be able to be F-marked when a definiteness contrast is relevant in a discourse.
+In these cases, simple indefinites can be SC subjects.
+\ex. Who is the guitarist?\\
+$[$ej$]$ guitarist is John.
+
+It is not immediately clear how this would be analyzed in an alternative semantics framework.
+This problem, I believe, is beyond the scope of this paper, so I set it aside for now.
+}
+So, simple indefinites can be SC subjects if they contain but do not comprise an F-marked constituent.
+As stated, this is a necessary condition but not sufficient.
+For instance, consider the the example of an over-informative answer to a polar question in \Next \parencite[adapted from][]{mikkelsen2008specification}.
+\ex.
+\a.[A:] Is Eve the undergraduate advisor?
+\b.[B:]
+\a. No, Eve is the GRAduate advisor.
+\b.\# No, the GRAduate advisor is Eve.
+
+If the condition discussed above was the only condition on SCs, we would expect an SC to be a felicitous answer to A's question in \Last.
+A's question implies the QUD \textit{who is the undergraduate advisor?}, and B's F-marking of \textit{GRAduate} implies the superquestion \textit{who is which advisor?}, suggesting that the DP \textit{the GRAduate advisor} is a CT.
+However, the SC is infelicitous due to the other DP \textit{Eve}.
+Recall that in an SC, DP2 must be Exh, however, in \Last, \textit{Eve} seems to be an aboutness topic, as the examples in \Next indicates.
+\ex. 
+\a. Mary asked about Eve$_i$ if she$_i$ was the undergraduate advisor.
+\b.* Mary asked about Eve$_i$ if the undergraduate advisor was her.
+
+If A's question is reformulated, however, the judgements of B's responses is reversed, as shown in \Next.
+\ex.
+\a.[A:] Is the undergraduate advisor Eve?
+\b.[B:]
+\a.\# No, Eve is the GRAduate advisor.
+\b. No, the GRAduate advisor is Eve.
+
+In this case, \textit{Eve} is the Exh, and \textit{the GRAduate advisor} is the CT with \textit{GRAduate} being F-marked.
+The SC response to A's question in \Last, now meets all of the conditions on SCs as expressed in \ref{ex:CTReq}.
+
+\subsection{Apparent counter-examples}
+\subsubsection{\textit{One} and \textit{another}}
+As mentioned in above the determiner-like elements \textit{one} and \textit{another} can serve as CTs in SC subjects.
+\ex.\label{ex:AONeAnother}
+\a.* A doctor$_{CT}$ is Mary.
+\b.\label{ex:OneCT} One$_{CT}$ doctor is Mary.
+\b.\label{ex:AnotherCT} Another$_{CT}$ doctor is Mary.
+
+In this section I argue that \textit{one} and \textit{another} can be CT marked, meaning they encode enough semantic material to generate alternatives.
+Where possible I will attempt to sketch what is encoded by these items and what their alternatives might be.
+Since \textit{one} and \textit{another} each warrant a dedicated research project, these sketches are decidedly preliminary.
+
+Let's consider \textit{another} first.
+Following \textcite{heim1991reciprocity}, I take the meaning of  \textit{other} to include two crucial parts: anaphoricity and distinctness.
+Consider the sentence in \Next.
+\ex. Alice met with another student.
+
+This sentence presupposes that there is a previously mentioned student (anaphoricity) and asserts that the student Alice met with is distinct from the presupposed antecedent (distinctness). 
+As we can see from \Next, the anaphoricity projects when embedded, but the distinctness does not.
+\ex.
+\a. Alice didn't meet with another student
+\a.\# \dots she never met with any student.
+\b. \dots it was the same student.
+\z.
+\b. If Alice met with another student, she would have told us.
+\a.\# She didn't tell us because she hadn't met with a student previous to this one.
+\b. She didn't tell us because it was the same student.
+\z.
+\b. Alice probably met with another student.
+\a.\# but she might not have met with a student previous to this one.
+\b. but it might have been the same student. 
+\z.
+\b. Johan thought that Alice met with another student.
+\a.\# He was wrong. She hadn't met with a student previous to this one.
+\b. He was wrong. It was the same student.
+\z.
+\z.
+
+The SC in \ref{ex:AnotherCT}, then, is roughly paraphrasable as \textit{A doctor [OTHER than x] is Mary}, where the value of \textit{x} is resolved contextually.
+Assuming that \textit{other} is CT marked in \ref{ex:AnotherCT}, and, following \textcite{heim1991reciprocity}, that  \textit{other} is a three-place predicate\footnote{
+  \textcite{heim1991reciprocity}, discussing the reciprocals \textit{each other} and \textit{one another} give the following denotation for \textit{other}: \textit{z} is an atomic part of \textit{y}, a plural individual, and \textit{z} is distinct from \textit{x}.
+  \ex. $\llbracket$other$\rrbracket = \lambda x\lambda y\lambda z(x \cdot\Pi y \wedge z \neq x)$
+
+  If we were to translate this directly into the example under discussion (\textit{Another doctor is Mary.}), \textit{x} would be the contextually given doctor, \textit{y} would be the plural individual \textit{doctor} and \textit{z} would be \textit{Mary}.
+  So the SC roughly means that \textit{x} is a doctor, Mary is not \textit{x}, and Mary is a doctor.
+}, we can calculate the SC's CT-value.\footnote{
+  There may be good reason to question the particulars of both of these assumptions.
+  There is also good reason to believe that the particulars of these assumptions are irrelevant to the discussion at hand.
+}
+If we calculate the CT-value of \ref{ex:AnotherCT} given this understanding of its semantics, we can see that its acceptibility is expected under my proposal.
+
+\ex. 
+\a.
+\a. $\llbracket$ANOTHER$_{CT}$ doctor is Mary$_F\rrbracket^f = \left\{ doctor(x) \wedge other(x)(\bigwedge doctor)(y) | x \in D_e \right\} (y \text{ is a doctor})$\\
+(Who is another doctor?)
+\b. $\llbracket$ANOTHER$_{CT}$ doctor is Mary$_F\rrbracket^{ct} = \left\{ \left\{ doctor(x) \wedge P(x)(y)(\bigwedge doctor) | x \in D_e \right\} | P \in D_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}\right\}$\\
+($\approx$ Who is a doctor?)
+\z.
+\b. Molly$_i$ is a doctor.\\
+Another$_i$ doctor is Mary.
+\b.
+\begin{forest}
+  tree defaults
+  [Who is a doctor?
+	  [Is Molly a doctor?
+		  [\textbf{Molly$_i$ is a doctor.}]
+	  ]
+	  [Is Mary a(nother) doctor?
+		  [\textbf{Another$_i$ doctor is Mary.}]
+	  ]
+	  [\ldots]
+  ]
+\end{forest}
+\z.
+
+So, \textit{ANOTHER doctor} contains both new/contrastive information, in \textit{other} and given/presupposed material in \textit{doctor}, thus it is a licit SC subject.
+
+The SC in \ref{ex:OneCT} shows the inverse felicity conditions, it requires that doctors have been discussed but none have been named as demonstrated in \Next.
+\ex.
+\a. Let me tell you about doctors.\\
+One doctor is Mary.
+\b. Molly is a doctor.\\
+\#One doctor is Mary.
+
+If \textit{one} is merely the stressed pronunciation of \textit{a/an}, then the account I have proposed would likely require serious revision.
+Fortunately, there are good reasons believe that \textit{one} and \textit{a/an} are distinct lexical items.
+First, it is unlikely that \textit{one} is the stressed version of \textit{a/an}, since \textit{a/an} has another stressed version pronounced [ej]/[\ae{}n], which usually marks a contrast of definiteness.
+\ex.
+\a.[A:] Are you the professor?
+\b.[B:] I'm [ej] professor.
+
+Also, \textcite{kayne2015one} presents several pieces of evidence that \textit{one} is lexically distinct from \textit{a/an}.
+While \textit{a/an NP}  can be interpreted as generic, \textit{one NP} cannot
+\ex.
+\a. A spider has eight legs and many eyes. (generic/specific)
+\b. One spider has eight legs and many eyes. (*generic/specific)\hfill\parencite{kayne2015one}
+
+He also notes that the syntactic distribution of \textit{a/an} differs from \textit{one} as shown below.
+\ex.
+	\a. 
+		\a. too long a book
+		\b.* too long one book
+		\z.
+	\b.
+		\a. a few books
+		\b.* one few books
+		\z.
+	\b.
+		\a.* They're selling a-drawer desks in the back of the store.
+		\b. They're selling one-drawer desks in the back of the store.
+		\z.\hfill\parencite{kayne2015one}
+
+Kayne argues that \textit{one} is a complex determiner composed of \textit{a/an} and a \textit{singular classifier}, with the syntactic structure given below in \Next
+Since the locus of CT marking is not the indefinite article, it must be the \textit{singular classifier}, which means that the classifier ought to be contentful enough to generate alternatives.
+\ex.
+\begin{forest}
+  tree defaults
+  [DP
+    [D
+      [Clf\\\textit{w-},align=center]
+      [D\\\textit{an},align=center]
+    ]
+    [ClfP
+      [$\langle \text{Clf} \rangle$]
+      [NP]
+    ]
+  ]
+\end{forest}
+
+The licit SC \textit{One doctor is Mary} would, by hypothesis, have the following CT-Foc structure.
+\ex.
+\a.[\textbf{CT}: ] $\llbracket w-\rrbracket$
+\b.[\textbf{Focus}: ] Mary
+\b.[\textbf{given/presupposed}: ] doctor/doctors/a doctor
+
+Note that the licitness of \ref{ex:MikkEmigre} can be explained if \textit{one}, or rather the hypothesized \textit{w-} classifier, is F-marked within a CT.
+We can see that this, in fact, fits with the context in which the SC in \ref{ex:MikkEmigre} is found, reproduced in \ref{ex:MikkEmigreCtx}
+\ex.\label{ex:MikkEmigreCtx} {
+	Among the best potential witnesses on the subject of Iraq’s actual nuclear capabilities are the men and women who worked in the Iraqi weapons industry and for the National Monitoring Directorate, the agency set up by Saddam to work with the United Nations and I.A.E.A. inspectors.
+	Many of the most senior weapons-industry officials, even those who voluntarily surrendered to U.S. forces, are being held in captivity at the Baghdad airport and other places, away from reporters. Their families have been told little by American authorities.
+	Desperate for information, they have been calling friends and other contacts in America for help.\\
+\hspace{2em}\textbf{One Iraqi \'emigr\'e who has heard from the scientists' families} is Shakir al Kha Fagi, who left Iraq as a young man and runs a successful business in the Detroit area.\footnote{Seymore M. Hersh ``The Stovepipe'', The New Yorker, Oct 27, 2003, p. 86 cited by \textcite[118]{mikkelsen2005copular}}}
+
+The first paragraph is about Iraqi weapons scientists and introduces the group of Iraqi \'emigr\'es who have been contacted by families of these scientists.
+The second paragraph introduces a particular member of that group.
+As I discussed above, this discourse pivot from group to individual member is naturally achieved by an F-marked \textit{one} (\textit{ONE Iraqi \'emigr\'e \ldots}).
+Since DP2, in this case \textit{Shakir al Kha Fagi}, is the Exh of the SC, the F-marking in the SC subject must be indicative of a CT.
+
+If this is the correct analysis of F-marked \textit{one}, then the singular classifier must be able to generate alternatives.
+The question is, what counts as an alternative to \textit{one}.
+A proper answer to that question would require an in depth study of the semantics and pragmatics of \textit{one}, which is beyond the scope of this paper.
+%In lieu of a proper analysis of the singular classifier component of \textit{one} I will stipulate that it encodes \posscite{carlson1977reference} REL operator, which defines the set of individuals that \textit{realize} its kind referring argument, with an additional singularity assertion.
+%\ex. $\llbracket w-\rrbracket = \lambda k \in D_e . \lambda y \in D_e (REL(k)(y) \wedge Sg(y) )$
+%
+%So the alternatives to \textit{ONE doctor} would be non-singular realizations of the kind doctor, or perhaps all the other sets of individuals generable from the kind doctor.
+%The focus-value for \textit{One doctor is Mary} would, then, be equivalent to the question \textit{Who is one doctor?}, leading to the following d-tree.
+%\ex.
+%\begin{forest}
+%  tree defaults
+%  [Who is a doctor?
+%    [Who is one doctor?
+%      [Is one doctor Mary?
+%	[One doctor is Mary.]
+%      ]
+%      [\ldots]
+%    ]
+%    [\ldots]
+%  ]
+%\end{forest}
+%
+%This is, of course, a first attempt based on a stipulated meaning for \textit{one}.
+%Future analyses of \textit{one} will likely suggest a different denotation and therefore a different alternative set.
+%So long as it is not demonstrated that \textit{one}, in fact, does not generate alternatives, however, these future analyses will be consistent with the overall claim of this paper.
+
+\subsubsection{Simple indefinites with relational nouns}
+An anonymous reviewer suggested the apparent counterexample in \ref{ex:Example}.
+\ex. \label{ex:Example} Many young people are turning away from technology; \textbf{an example is Sam}, who replaced her iPhone with a flip-phone this year.
+
+In this example, the underlined clause is an SC with an apparent simple indefinite subject.
+On the surface, this seems to invalidate the generalization in \ref{ex:CTReq}, for two reasons.
+First, the subject \textit{an example} is, in a sense, anaphoric to the preceding discourse, and therefore given/presupposed rather than new/contrastive.
+Second, the subject seems to be a simple indefinite, and therefore, any F-marking would constitute F-marking of the entire constituent.
+These arguments, however, do not hold water.
+
+First, in the natural intonational contour of \ref{ex:Example}, \textit{example} bears a L+H* pitch accent, as can be seen in \ref{fig:Example}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Example.png}
+	\caption{A Natural pitch contour of \textit{an example is Sam} in \ref{ex:Example}}
+	\label{fig:Example}
+\end{figure}
+This suggests that \textit{example} is new/contrastive, rather than given/presupposed.
+Which brings us to the second argument: \textit{Example} being F-marked amounts to the entire DP being F-marked.
+When we consider the nature of the noun \textit{example}, however, we can see that the apparent simplicity of the DP \textit{an example} is just that: apparent.
+
+\textit{Example} is a relational noun, meaning there are no example-things in the world the way there are dog-things, red-things, or courage-things.
+If an entity is an example, it is an example \textit{of} something.
+In this case Sam is an example of a young person who is turning away from technology.
+So, if we assume that the DP \textit{an example} includes an elided complement, two things are explained:
+First, the fact that we seem to have a licit SC with a simple indefinite subject, and second, the fact that \textit{an example} seems to be discourse anaphoric.
+So, the SC in \ref{ex:Example}, is properly analyzed as in \ref{ex:Example2}.
+\ex. \label{ex:Example2} [An exAMple$_\text{F}$ $\emptyset_\text{PP}$] is Sam$_\text{Exh}$.
+
+Note that if we replace \textit{example} with an non-relational noun, \ref{ex:Example} becomes unacceptable.
+\ex. \label{ex:Luddite} Many young people are turning away from technology; \textbf{\#a luddite is Sam}, who replaced her iPhone with a flip-phone this year.
+
+Thus, \ref{ex:Example} is not a counterexample to the analysis of SC subjects offered in this paper.
+\subsubsection{Simple Definite SC Subjects}
+
+\textcite{heycock2010variability} and \textcite{bejarkahnemuyipour2013agreement} discuss a particular reading of SCs with simple definite subjects, called ``the Poirot reading'' which is shown below in \Next.
+\ex.And Poirot pointed at the Major and said ``For a long time now we have been trying to establish the identity of the murderer. But now I know\ldots\\
+\ldots The murderer is you''
+
+At first blush, this seems to be a counterexample to my proposal.
+In this context, the existence and relevance \textit{the murderer} is entirely given/presupposed, while the fact that the identity of the murderer is Poirot's addressee seems to be new/contrastive. 
+This would mean that no part of the subject is F-marked, which should render the clause unacceptable.
+
+If we consider the context carefully, we can see that this is not the entire story.
+The sentence \textit{The murderer is you} would occur at the culmination of a murder mystery at which point many properties of \textit{the murderer} have been gleaned from the evidence.
+The only relevant ``property'' left is \textit{the murderer}'s identity.
+So, what is given is the existence, salience and uniqueness of  some murderer and several of \textit{the murderer}'s properties.
+What is new/contrastive is the identity of \textit{the murderer}, and that that identity is Poirot's addressee.
+
+Consider the following alternative discourse:
+\ex. We already know the following: The murderer is 6 feet tall. The murder has dark hair. The murderer walks with a limp. From this I have deduced that \\
+\ldots The murderer is you.
+
+In the discourse leading up to \textit{The murderer is you}, we can see that \textit{the murderer} is only used referentially.
+The culminating accusation shifts the usage of \textit{the murderer} to that of a predicate.
+For the purposes of this paper, I will assume that shifting \textit{the murderer} from $e$ to $\langle e, t\rangle$ is accomplished by an \textsc{ident} operator \parencite[cf.][]{partee1987noun}.
+The SC in \Last and \LLast, then, has the following CT-Foc structure:
+\ex. The murderer is you.
+\a.[\textbf{Focus: }] \textit{you}
+\b.[\textbf{CT: }] \textsc{ident}
+\c.[\textbf{Given/presupposed:} ] \textit{the murderer}
+\z.
+
+Another example of SCs with simple definite subjects, provided by an anonymous reviewer, is given in \Next.
+\ex. 
+\a.[A:] Who are the members of the Ramanu Trio?
+\b.[B:] The PIanist is Zach Pitts, The DRUmmer is Monica Brown, and the SINGer is Sue Listman.
+
+This, however, is not a counterexample.
+Taking the first SC, \textit{the PIanist is Zach Pitts}, as an example, we can see that \textit{Zach Pitts}, being the Exh of the sentence, is new/contrastive, as is \textit{pianist}, being F-marked.
+To see what is given/presupposed, consider what B is actually asserting by uttering \textit{the PIanist is Zach Pitts}.
+They are asserting that Zach Pitts is the pianist \textit{in the Ramanu Trio}.
+This sugests one of two possible things:
+One possibility is that there is actually an elided PP in the SC subject in question, in which case, the SC subject is not a simple definite.
+The other possibility, is that the content of the PP comes from the context by way of the definite determiner, in which case, the determiner cannot be F-marked.
+In either case, F-marking of the nouns in \Last, does not entail F-Marking of the entire SC subject.
+
+So, simple definite SC subjects can, in fact, be accounted for by the proposal in this paper, and therefore do not represent a counterexample.
+\subsection{Summary}
+In this section I have presented evidence that the restriction on indefinite SC subjects comes from a requirement that SC subjects contain but not be CT marked constituents.
+I first showed that \textit{contrastive} rather than aboutness or givenness topichood is the source of the restriction.
+I then argued that the ban on simple indefinite SC subjects is neatly predicted if the SC subject itself, rather than a proper part of it, is banned from being the F-marked constituent.
+In the next section, I will discuss the prospects of relating this discourse pragmatic account of SCs to their syntax.
+\section{The syntax of SCs and CTs}\label{sec:syntax}
+It may seem, given the fact that Constant's theory of CTs includes a syntactic analysis, that providing a syntactic analysis of the pragmatic account argued for above would be a trivial matter, but as we will see, the syntactic analysis has at least two interesting consequences.
+First, it allows us to explain the variation in boundary tones pointed out in section \ref{sec:CanBeCTs}.
+Second, it reveals a rather puzzling property of the CT restriction on SC subjects.
+In this section, I will begin by making the syntactic analysis explicit and discussing it in terms of the two competing theories of copular clauses discussed in section \ref{sec:LitReview}, and then proceed to discuss the above mentioned consequences in turn.
+
+\subsection{A syntactic analysis}
+\textcite[124]{constant2014diss} proposes that the CT-$\lambda$ head occupies a position in the left periphery.
+Specifically, he proposes that it occupies one of the Top positions first hypothesized by \textcite{rizzi1997fine}.
+The CT constituent, then, occupies the specifier position of the phrase projected by CT-$\lambda$, having moved there from a lower position, often covertly.
+It is, I believe, quite reasonable to hypothesize that the overt SC subject postion is, in fact, this [Spec, CT-$\lambda$] position.
+Assuming the copula surfaces at least as high as T, an SC can be represented as in \ref{fig:CTTree1}.
+\ex.\label{fig:CTTree1} [$_\text{TopP}$ [$_\text{DP}$ An example$_\text{F}\,\emptyset_\text{PP}$] CT-$\lambda$ [$_\text{TP}$ is Sam.]]
+
+If the SC surfaces as \Last, then we would expect the CT-$\lambda$ to cliticize to the DP and be pronounced as a H\% tone \parencite[following][]{constant2014diss}.
+However, as I discussed in section \ref{sec:CanBeCTs}, there is some variation in the boundary tone associated with the SC subject.
+Specifically, some SC subjects lack H\% boundary tones.
+This seems to run counter to Constant's phonetic diagnostic for CTs, but can be explained if we assume that the copula optionally raises to CT-$\lambda$.
+In this case, one of two things will occur: either the \textsc{cop}+CT-$\lambda$ amalgam will cliticize to the subject DP in th form of =\textit{'s}, or it will fail to cliticize, and surface as an independent word.
+\ex. [$_\text{TopP}$ [$_\text{DP}$ An example$_\text{F}\,\emptyset_\text{PP}$] is+CT-$\lambda$ [$_\text{TP}$ Sam.]]
+\a. An example's Sam.
+\b. An example is Sam.
+
+In either case, the CT-$\lambda$ head will not surface as an H\% boundary tone.
+
+\subsection{Difficulties in expressing the CT condition syntactically}
+Since the CT-condition is a restriction on a particular syntactic structure, it should be expressible in syntactic terms.
+According to the analysis presented above, an SC is characterized by a copular clause embedded below a TopP headed by CT-$\lambda$.
+This head, then triggers the movement of a predicative DP if some part of that DP is F-marked.
+Adapting this analysis to reflect the CT condition, however, is problematic.
+To demonstrate this, I will assume that a CT feature on the predicative DP triggers/licenses SCs (at least with indefinite subjects).
+Consider the SC in \Next, below.
+\ex. $[_{DP}$A figure $[_{PP}$in the history $[_{PP}$of generative$_\text{F}$ grammar $]]]$ is Eric Lenneberg.
+
+In this case the F-marking is on an adjective in a PP, which is embedded in a PP in the SC subject, rather than the SC subject itself.
+If we assume that this F-marking behaves like classic F-marking, then it ought to project in the manner that \textcite{selkirk1996sentence} describes.
+\ex. \textbf{Focus Projection} \parencite{selkirk1996sentence}
+\a. F-marking of the \textit{head} of a phrase licenses the F-marking of the phrase.
+\b. F-marking of an \textit{internal argument} of a head licenses the F-marking of the head.
+
+Crucially, according to Selkirk, non-arguments do not project focus, so F-marking of \textit{generative} in \LLast Would not project to the entire subject.
+
+Suppose, however, the CT condition is satisfied by Agree.
+It is still not clear that this could account for the SC in \LLast, as the F-marked constituent is contained in a strong island (\textit{i.e.} a complex NP).
+In standard theories, Agree has the same structural requirements as movement, so we expect it to obey strong island constraints, rendering the the F-marked constituent \textit{generative} inaccessible to Agree.
+
+It seems, then, that more work will be required to express the CT condition syntactically.
+
+
+%\section{A General Constraint on CT-Foc structures}\label{sec:GenConst}
+%\subfile{GeneralConstraint}
 %\section{Residual Data}\label{sec:Leftovers}
 %\subfile{Leftovers}
-\section{Conclusions}\label{sec:Conclusion}
+\section{Concluding remarks}\label{sec:Conclusion}
 In this paper I have presented a pragmatic account of the restriction on indefinite SC subjects.
-According to this account, SC subjects must contain but not be a CT-marked constituent.
+According to this account, SC subjects must be a CT, but must not be wholly F-marked.
 I have shown how this captures the fact that simple indefinites cannot be SC subjects.
-Furthermore, I argued that the indefinite restriction can be derived from a more general constraint on CT-Foc structured sentences that requires them to include given/presupposed material.
+If this account is correct, and the indefinite restriction is due to pragmatic rather than semantic constaints, then  the restriction can no longer be adduced as evidence against an inversion analysis of SCs. 
+This is not to say that I have presented evidence in favour of the inversion analysis.
+Rather, I have striven to present my account of the restriction in neutral terms with respect to this debate.
 
+That said, a couple of comments regarding the dabate are called for.
+I have proposed that SCs have a rather rigid information structure (DP1 is CT, DP2 is Exh), and any theory of SCs must account for that.
+Since current syntactic theories of information structure tend to involve movement to Topic or Focus projections and inversion accounts of SCs necessarily involve movement, the latter seem to be more naturally suited to explaining SCs.
+It may turn out, however, that other facts militate against an inversion analysis.
+In this case, our theory must account for the rigid CT-Exh structure of SCs in some way.
+This, however, is a topic for another paper.
+
+\appendix
+\section{Additional SC Pitch Contours}\label{sec:append}
+In addition to the recordings presented in section \ref{sec:CanBeCTs}, I recorded another native speaker of Canadian English uttering SCs.
+Unlike the speaker in section \ref{sec:CanBeCTs}, who is an actor and comedian, this speaker is a linguistics graduate student.
+The target utterance was \Next, and each context was designed to target a distinct CT-Exh structure.
+\ex.\label{ex:Aspects} A book I would recommend is \textit{Aspects}.
+
+The first context, given in \Next, is designed to target \textit{book} for F-marking.
+The resulting pitch contour is given in figure \ref{fig:BookRuth}.
+\ex. \label{ex:AspectsBookCtx}
+\a.[A:] Do you know any good papers on syntactic theory?
+\b.[B:] No, but \dots
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{BookRuth.png}
+	\caption{The intonational contour of \ref{ex:Aspects} in context \ref{ex:AspectsBookCtx}}
+	\label{fig:BookRuth}
+\end{figure}
+\FloatBarrier
+
+The second context, given in \Next, is designed to target \textit{I} for F-marking.
+The resulting pitch contour is given in figure \ref{fig:IRuth}.
+\ex.\label{ex:AspectsICtx}
+\a.[A:] What’s the best book on syntactic theory?
+\b.[B:] Most people recommend \textit{Syntactic Structures}, but \dots
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{IRuth.png}
+	\caption{The intonational contour of \ref{ex:Aspects} in context \ref{ex:AspectsICtx}}
+	\label{fig:IRuth}
+\end{figure}
+\FloatBarrier
+
+The third context, given in \Next, is designed to target \textit{would} for F-marking.
+The resulting pitch contour is given in figure \ref{fig:WouldRuth}.
+\ex.\label{ex:AspectsWouldCtx}
+\a.[A:] Which of these books on syntactic theory would you recommend?
+\b.[B:] I wouldn’t recommend any of those, but \dots
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{WouldRuth.png}
+	\caption{The intonational contour of \ref{ex:Aspects} in context \ref{ex:AspectsWouldCtx}}
+	\label{fig:WouldRuth}
+\end{figure}
+\FloatBarrier
+
+\nocite{mikkelsen2004specifying}
 \printbibliography
 \end{document}
 
