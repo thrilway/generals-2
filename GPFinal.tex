@@ -6,7 +6,10 @@
 % arara: biber
 % arara: pdflatex: {options: "-draftmode"}
 % arara: pdflatex: {options: "-file-line-error-style"}
-\documentclass[letterpaper]{article}
+\documentclass[
+	letterpaper,
+%	gb4e
+]{article}
 \usepackage{subfiles}
 \usepackage[margin=1in]{geometry}
 \usepackage[backend=biber,style=authoryear-comp,useprefix=false]{biblatex}
@@ -19,7 +22,9 @@
 
 \usepackage{setspace}
 
-\usepackage{linguex}
+\usepackage{gb4e}
+\noautomath
+%\usepackage{linguex}
 
 \usepackage[normalem]{ulem}
 
@@ -102,45 +107,59 @@
 The specificational clause is one of the varieties of copular clauses identified by \textcite{higgins1973pseudo}, characterized by a predicative DP in subject position (DP1) and a referential DP in post-copular position (DP2).
 They contrast with predicational copular clauses in which DP1 is referential and DP2 is predicational.\footnote{
 	\textcite{higgins1973pseudo} identifies two other classes of copular clauses:
-	Identificational clauses like \Next, in which DP1 is a demonstrative and DP2 is a referential nominal, and equational clauses like \NNext, in which both DP1 and DP2 are referential nominals.
-	\ex. That (book) is \textit{War \& Peace}.
-
-	\ex. \textit{War \& Peace} is \foreignlanguage{russian}{``Война и мир''}.
+	Identificational clauses like \ref{ex:IDCl}, in which DP1 is a demonstrative and DP2 is a referential nominal, and equational clauses like \ref{ex:EqCl}, in which both DP1 and DP2 are referential nominals.
+	\begin{xlisti}
+		\ex\label{ex:IDCl} That (book) is \textit{War \& Peace}.
+		\ex\label{ex:EqCl} \textit{War \& Peace} is \foreignlanguage{russian}{``Война и мир''}.	
+	\end{xlisti}
 
 }
-\ex.
-\a.\textbf{Specificational}\\
-[My favourite book]$_{\text{DP1}}$ is [\textit{War \& Peace}]$_{\text{DP2}}$.
-\b. \textbf{Predicational}\\
-[\textit{War \& Peace}]$_{\text{DP1}}$ is [my favourite book]$_{\text{DP2}}$.
-
+\begin{exe}
+	\ex
+	\begin{xlist}	
+		\ex \textbf{Specificational}\\
+		{[My favourite book]$_{\text{DP1}}$} is {[\textit{War \& Peace}]$_{\text{DP2}}$}.
+		\ex \textbf{Predicational}\\
+		{[\textit{War \& Peace}]$_{\text{DP1}}$} is {[my favourite book]$_{\text{DP2}}$}.
+	\end{xlist}
+\end{exe}
 This description and these examples suggest an analysis according to which predicational clauses and specificational clauses (SCs) are inverses of each other.
 In fact, one such analysis by \textcite{moro1997raising} refers to predicational clauses as \textit{canonical copular clauses} and specificational copular clauses as \textit{inverted copular clauses}.
 One of the hurdles for this analysis is that the set of DPs that can be specificational subjects is not coextensive with the set of DPs that can be DP2 in predicational clauses.
 As demonstrated in \ref{ex:SimpleIndef}, for instance, while indefinite DPs can freely be DP2 in predicational clauses, their ability to be SC subjects is restricted. 
-\ex.\label{ex:SimpleIndef}
-\a.\textbf{Specificational}\\
-*A book is \textit{War \& Peace}.
-\b. \textbf{Predicational}\\
-\textit{War \& Peace} is a book.
-
+\begin{exe}
+	\ex\label{ex:SimpleIndef}
+	\begin{xlist}
+		\ex  \textbf{Specificational}\\
+		*A book is \textit{War \& Peace}.
+		\ex \textbf{Predicational}\\
+		\textit{War \& Peace} is a book.	
+	\end{xlist}
+\end{exe}
 This restriction on indefinite SC subjects, hereafter referred to as \textit{the indefinite restriction}, which this paper addresses,\footnote{
 	It is also discussed by \textcite{mikkelsen2005copular,halliday1967notes,higgins1973pseudo,heggie1988diss,heycock1994internal,williams1997asymmetry}, among others.
 } presents a puzzle for any syntactic or semantic analysis of SCs because it is not an absolute ban on indefinite DPs in subject position.
-Rather, the fact that some indefinite DPs are able to act as SC subjects, as demonstrated in \Next, means that, before we can adduce the indefinite restriction as evidence for or against a particular analysis of SCs, we must first understand provenance of the restriction.
-\ex.\label{ex:TheData} 
-\a.
-\a.* A doctor is Mary.
-\b. A newly-minted doctor is Mary.
-\z.
-\b.
-\a.* A linguist is Eric Lenneberg.
-\b. An underrated linguist is Eric Lenneberg.
-\z.
-\b.
-\a.* A building is Robarts.
-\b. A building no-one likes is Robarts.
-\z.
+Rather, the fact that some indefinite DPs are able to act as SC subjects, as demonstrated in \ref{ex:TheData}, means that, before we can adduce the indefinite restriction as evidence for or against a particular analysis of SCs, we must first understand provenance of the restriction.
+\begin{exe}
+	\ex\label{ex:TheData}
+	\begin{xlist}
+		\ex
+		\begin{xlist}
+			\ex[*] A doctor is Mary.
+			\ex A newly-minted doctor is Mary.	
+		\end{xlist}
+		\ex
+		\begin{xlist}
+			\ex[*] A linguist is Eric Lenneberg.
+			\ex An underrated linguist is Eric Lenneberg.	
+		\end{xlist}
+		\ex
+		\begin{xlist}
+			\ex[*] A building is Robarts.
+			\ex A building no-one likes is Robarts.	
+		\end{xlist}
+	\end{xlist}
+\end{exe}
 
 In the remainder of this paper I develop and defend a hypothesis that the indefinite restriction is pragmatic in nature.
 Specifically, I propose that SC subjects are contrastive topics in the sense of \textcite{buring2003d} and \textcite{constant2014diss}.
@@ -152,19 +171,29 @@ In section \ref{sec:TheoryBackground}, I introduce some of the theoretical machi
 In section \ref{sec:syntax}, I suggest a syntactic analysis based on \textcite{constant2014diss} and discuss a puzzle that arises from it, and in \ref{sec:Conclusion}, I conclude.
 %Section \ref{sec:Leftovers} addresses some residual issues of my analysis and section \ref{sec:Conclusion} concludes.
 \subsection{A note on the use of acceptibility judgement markers}
+The asterisk (*) and the hash mark (\#) are commonly taken to indicate syntactic and semantic/pragmatic deviance, respectively.
+This paper strays from this convention slightly for two reasons.
+First, the question of why, for example, the (\textit{i}) examples in \ref{ex:TheData} are judged to be deviant is precisely what is at issue.
+Therefore, marking them as either ungrammatical or infelicitous at this stage amounts to question-begging.
+Second, because I will be proposing a discourse-pragmatic analysis in this paper, it will be useful to be able to differentiate between expressions which are \textit{per se} deviant and those that are deviant in a given discourse context but otherwise acceptable.
 
-\section{The place of the indefinite restriction in linguistic theory}\label{sec:LitReview}
-Though rarely discussed in much depth, the restriction on indefinite SC subjects is often exploited for evidence in the debate over the proper syntactic/semantic analysis of SCs.
+With this in mind I use the asterisk (*) to mark expressions as \textit{per se} deviant and the hash mark (\#) to mark expressions that are deviant in a given discourse context. 
+All other judgement markers are used according to convention.
+
+\section{Previous analyses of the indefinite restriction}\label{sec:LitReview}
+Though rarely discussed in much depth, the  restriction on indefinite SC subjects is often exploited for evidence in the debate over the proper syntactic/semantic analysis of SCs.
 As such, I will briefly outline the analyses and how indefinite subjects fit into them.
 
 The inversion analysis is argued for explicitly by \textcite{mikkelsen2005copular} and \textcite{moro1997raising}, and states that that predicative copular clauses and SCs have identical underlying structures.
 According to this analysis, the two sentences in \ref{ex:SCPCPair} are each derived from the same small clause structure, given in \ref{ex:CopUnderlying}, and differ in which constituent of the the small clause is raised.
 Predicative clauses surface when the argument raises, and SCs surface when the predicate raises.
-\ex.\label{ex:SCPCPair}
-\a.\label{ex:SCPCPairPC} Ian is my favourite singer.
-\b.\label{ex:SCPCPairSC} My favourite singer is Ian.
-
-\ex.\label{ex:CopUnderlying} 
+\begin{exe}
+\ex\label{ex:SCPCPair}
+\begin{xlist}
+\ex\label{ex:SCPCPairPC} Ian is my favourite singer.
+\ex\label{ex:SCPCPairSC} My favourite singer is Ian.	
+\end{xlist}
+\ex\label{ex:CopUnderlying} 
 \begin{minipage}[t]{\textwidth}
   \textbf{Base Structure}\\
 \begin{forest}
@@ -181,7 +210,8 @@ Predicative clauses surface when the argument raises, and SCs surface when the p
 \end{forest}
 \end{minipage}
 %$[_{VP} \text{be} [ [_{Arg} \text{Ian}] [_{Pred} \text{my favourite singer}]]]$
-\a.\label{ex:PCStruct}
+\begin{xlist}
+\ex\label{ex:PCStruct}
 \begin{minipage}[t]{\textwidth}
 \textbf{Predicational Clause}\\
 \begin{forest}
@@ -202,7 +232,7 @@ Predicative clauses surface when the argument raises, and SCs surface when the p
   \end{forest}
 \end{minipage}
 %$[ [_{Arg} \text{Ian} ] \ldots [_{VP} \text{be} [ t_{Arg} [_{Pred} \text{my favourite singer}]]]]$
-\b.\label{ex:SCStructure}
+\ex\label{ex:SCStructure}
 \begin{minipage}[t]{\textwidth}
 \textbf{Specificational Clause}\\
 \begin{forest}
@@ -223,7 +253,8 @@ Predicative clauses surface when the argument raises, and SCs surface when the p
 \end{forest}
 %$[ [_{Pred} \text{My favourite singer}] \ldots [_{VP} \text{be} [ [_{Arg} \text{Ian}] t_{Pred}]]]$
 \end{minipage}
-
+\end{xlist}
+\end{exe}
 Semantically, this analysis requires that SC subjects be construed as predicates (type $\langle e,t\rangle$ or higher) rather than arguments (type \textit{e}).
 
 The equational analysis, as presented by \textcite{heycockkroch1999pseudocleft}, says that both DPs in SCs are type $e$ and the copula serves to equate them.
@@ -246,19 +277,19 @@ She does not concede, however, that it represents a strong argument against the 
 The restriction on indefinites would only be strong evidence against an inversion analysis if it were a categorical restriction, which it is not.
 
 Mikkelsen demonstrates the non-categorical nature of the restriction with the following examples
-\ex.\label{ex:MikkPhilosopher} \textbf{A philosopher who seems to share the Kiparskys' intuition on some factive predicates} is Unger (1972) who argues that \dots\footnote{\textcite[][p. 195 fn8]{delacruz1976factives} cited by \textcite[117]{mikkelsen2005copular}}
-
-\ex.\label{ex:MikkSpeaker} \textbf{Another speaker at the conference} was the \textit{Times} columnist Nicholas Kristof, who got Wilson's permission to mention the Niger trip in a column.\footnote{Seymore M. Hersh ``The Stovepipe'', The New Yorker, Oct 27, 2003, p. 86 cited by \textcite[118]{mikkelsen2005copular}}
-
-\ex.\label{ex:MikkEmigre} \textbf{One Iraqi \'emigr\'e who has heard from the scientists' families} is Shakir al Kha Fagi, who left Iraq as a young man and runs a successful business in the Detroit area.\footnote{Seymore M. Hersh ``The Stovepipe'', The New Yorker, Oct 27, 2003, p. 86 cited by \textcite[118]{mikkelsen2005copular}}
-
-\ex.\label{ex:MikkBarcan} \textbf{A doctor who might be able to help you} is Harry Barcan.\footcite[118]{mikkelsen2005copular}
-
+\begin{exe}
+	\ex\label{ex:MikkPhilosopher} \textbf{A philosopher who seems to share the Kiparskys' intuition on some factive predicates} is Unger (1972) who argues that \dots\footnote{\textcite[][p. 195 fn8]{delacruz1976factives} cited by \textcite[117]{mikkelsen2005copular}}
+	\ex\label{ex:MikkSpeaker} \textbf{Another speaker at the conference} was the \textit{Times} columnist Nicholas Kristof, who got Wilson's permission to mention the Niger trip in a column.\footnote{Seymore M. Hersh ``The Stovepipe'', The New Yorker, Oct 27, 2003, p. 86 cited by \textcite[118]{mikkelsen2005copular}}
+	\ex\label{ex:MikkEmigre} \textbf{One Iraqi \'emigr\'e who has heard from the scientists' families} is Shakir al Kha Fagi, who left Iraq as a young man and runs a successful business in the Detroit area.\footnote{Seymore M. Hersh ``The Stovepipe'', The New Yorker, Oct 27, 2003, p. 86 cited by \textcite[118]{mikkelsen2005copular}}
+	\ex\label{ex:MikkBarcan} \textbf{A doctor who might be able to help you} is Harry Barcan.\footcite[118]{mikkelsen2005copular}
+\end{exe}
 Since the restriction is not categorical, she argues, it is not due to a semantic type mismatch, rather it must be pragmatic in nature.
 
 Mikkelsen points out \parencite[following, among others,][]{halliday1967notes} that, unlike predicational clauses, SCs have a fixed information structure.
 As demonstrated in \ref{ex:MikkQandA}, SCs are infelicitous in contexts that focus the initial DP, while predicational clauses are more flexible.
-\ex.\label{ex:MikkQandA}
+\begin{exe}
+\ex\label{ex:MikkQandA}
+\begin{xlist}
 \a. Q: Who is the winner?\\
 A1: The winner is JOHN.\hfill[Specificational]\\
 A2: JOHN is the winner.\hfill[Predicational]
@@ -266,7 +297,8 @@ A2: JOHN is the winner.\hfill[Predicational]
 A1: \#The WINNER is John.\hfill[Specificational]\\
 A2: John is the WINNER.\hfill[Predicational]\\
 \quelle{\parencite[195]{mikkelsen2005copular}}
-\z.
+\end{xlist}
+\end{exe}
 
 Mikkelsen argues that this fixed information structure of SCs follows from SCs being inversion structures.
 Following \textcite{birner1994information,birner1996discourse}, she assumes that the discourse function of inversion is to mark the inverted material as linking a clause to previous discourse.
@@ -275,53 +307,60 @@ Mikkelsen then shows that these discourse familiarity considerations can explain
 
 This pragmatic account, while sufficient to explain the acceptability of \ref{ex:MikkPhilosopher}-\ref{ex:MikkBarcan}, does not explain why the restriction on simple indefinites (\textit{i.e.}, DPs of the form [$_\text{DP}$\textit{a}(\textit{n}) N]) as SC subjects, as shown in \ref{ex:TheData}, seems to be categorical.
 That is, even if the material in a simple indefinite is familiar, the indefinite cannot be the subject of an SC.
-\ex.\label{ex:MikkFamSC} Bill is a doctor. \#A doctor is John (too).
-
+\begin{exe}
+	\ex\label{ex:MikkFamSC} Bill is a doctor. \#A doctor is John (too).
+\end{exe}
 Mikkelsen suggests that the discourse familiarity requirement of inverted material clashes with the Novelty Condition on indefinites \parencite{heim1982semantics}.
 She points out, however, that this cannot be the entire story, since the Novelty Condition only requires that indefinites introduce new discourse referents.
 This means that, since the two instances of \textit{a doctor} in \ref{ex:MikkFamSC} do not share a discourse referent, the Novelty Condition does not rule out the indefinite subject.
 
 Mikkelsen also suggests that those instances of familiar yet unacceptable simple indefinite SC subjects might be infelicitous because there is a general ban on repeating indefinites, as in the example below.
-\ex.\label{ex:MikkRepeat} Sally is a doctor. \#A doctor came to dinner last night.
-
+\begin{exe}
+	\ex\label{ex:MikkRepeat} Sally is a doctor. \#A doctor came to dinner last night.
+\end{exe}
 This, however, does not seem to hold.
 Utterances, such as \ref{ex:MikkRepeat}, that are barred because of repeated indefinites are made better if the first occurrence of the indefinite is modified.
 If the barred utterance has an SC with an indefinite subject, as in \ref{ex:MikkFamSC}, then only changing the SC will improve it.
-\ex.\label{ex:IndefGiven} I know many doctors.
-\a. \#A doctor is Patrick.
-\b. A doctor came to dinner last night.
-\z.
-
+\begin{exe}
+\ex\label{ex:IndefGiven} I know many doctors.
+\begin{xlist}
+	\ex[\#]{A doctor is Patrick.}
+	\ex A doctor came to dinner last night.
+\end{xlist}
+\end{exe}
 To sum up, Mikkelsen observes that there seems to be a requirement that SC subjects be topical.
 She attempts to use this requirement to explain the restriction on indefinite subjects, arguing that topics must be given, while indefinites tend to be novel, so indefinites are not good topics and, as a corollary, indefinites tend to make poor SC subjects.
 She notes, however, that this account runs into a problem in that even when simple indefinites can be made topical, they cannot be SC subjects.
 \subsection{\textcite{heycock2012specification}}\label{sec:Heycock}
 Addressing the indefinite restriction, \textcite{heycock2012specification} begins with the information structure pattern shown in \ref{ex:MikkQandA}, which she frames as a restriction on focusing SC subjects.
 She notes that this is parallel to a fact about scrambling in German observed by \textcite{lenerz1977zur}.
-
-\ex.
-\ag.Wem hat Peter das Futter gegeben?\\
-who.\textsc{dat} has Peter the.\textsc{acc} food given\\
-``Who has Peter given the food?''
-\ag. Peter hat der Katze das Futter gegeben.\\
-Peter has the.\textsc{dat} cat the.\textsc{acc} food given\\
-``Peter has given the cat the food''\hfill[Default order]
-\bg. Peter hat das Futter der Katze gegeben.\\
-Peter has the.\textsc{acc} food the.\textsc{dat} cat given\\
-``Peter has given the food to the cat''\hfill[Scrambled order]
-\z.
-\bg. Was hat Peter der Katze gegeben?\\
-what.\textsc{acc} has Peter the.\textsc{dat} cat given\\
-``What has Peter given (to) the cat?''
-\ag. Peter hat der Katze das Futter gegeben.\\
-Peter has the.\textsc{dat} cat the.\textsc{acc} food given\\
-``Peter has given the cat the food''\hfill[Default order]
-\bg.\# Peter hat das Futter der Katze gegeben.\\
-Peter has the.\textsc{acc} food the.\textsc{dat} cat given\\
-``Peter has given the food to the cat''\hfill[Scrambled order]
-\z.
-\z.
-
+\begin{exe}
+	\ex
+	\begin{xlist}
+		\ex \gll Wem hat Peter das Futter gegeben?\\
+			who.\textsc{dat} has Peter the.\textsc{acc} food given\\
+		\trans `Who has Peter given the food?'
+		\begin{xlist}
+			\ex \gll Peter hat der Katze das Futter gegeben.\\
+				Peter has the.\textsc{dat} cat the.\textsc{acc} food given\\
+			\trans `Peter has given the cat the food.' \hfill[Default order]
+			\ex \gll Peter hat das Futter der Katze gegeben.\\
+			Peter has the.\textsc{acc} food the.\textsc{dat} cat given\\
+			\trans `Peter has given the food to the cat'\hfill[Scrambled order]	
+		\end{xlist}
+		\ex \gll Was hat Peter der Katze gegeben?\\
+			what.\textsc{acc} has Peter the.\textsc{dat} cat given\\
+		\trans `What has Peter given (to) the cat?'
+		\begin{xlist}
+			\ex \gll Peter hat der Katze das Futter gegeben.\\
+			Peter has the.\textsc{dat} cat the.\textsc{acc} food given\\
+			\trans `Peter has given the cat the food'\hfill[Default order]
+			\ex \gll \# Peter hat das Futter der Katze gegeben.\\
+			{} Peter has the.\textsc{acc} food the.\textsc{dat} cat given\\
+			\trans `Peter has given the food to the cat'\hfill[Scrambled order]	
+		\end{xlist}
+	\end{xlist}
+\end{exe}
 As \Last demonstrates the canonical order for ditransitive objects in German is \textsc{dat} $\prec$ \textsc{acc}.
 The scrambled order, \textsc{acc} $\prec$ \textsc{dat}, is unavailable when the accusative argument is focused, as shown in \Last[b-ii]. 
 Just as SCs subjects cannot be focused in English, scrambled objects cannot be focused in German.
@@ -331,19 +370,25 @@ Following \textcite{dehoop1992case} and \textcite{diesing1992indefinites}, Heyco
 She claims that SC subjects are also restricted to strong interpretations.
 As evidence for this claim she presents another parallel.
 A property of weak indefinites, according to \textcite{milsark1974existential}, is that they cannot serve as subjects of Individual-Level predicates, as shown in \Next
-\ex. I had been struggling with a complicated set of data \ldots
-\a.?* A problem was particularly hard.
-\b. One problem was particularly hard.
-\b. \{?A/one\} problem that I came across was particularly hard.
-\b. One of the problems was particularly hard.\hfill\parencite{heycock2012specification}
-
+\begin{exe}
+\ex I had been struggling with a complicated set of data \ldots
+\begin{xlist}
+	\ex[?*]{A problem was particularly hard.}
+	\ex One problem was particularly hard.
+	\ex \{?A/one\} problem that I came across was particularly hard.
+	\ex One of the problems was particularly hard.\hfill\parencite{heycock2012specification}
+\end{xlist}
+\end{exe}
 Heycock argues that the same pattern holds for indefinite SC subjects as shown in \Next.
+\begin{exe}
 \ex.
-\a.?* A problem was that we didn't understand all the parameters.
-\b. One problem was that we didn't understand all the parameters.
-\b. \{A/one\} problem that I came across was that we didn't understand all the parameters.
-\b. One of the problems was that we didn't understand all the parameters.\hfill\parencite{heycock2012specification}
-
+\begin{xlist}
+	\ex[?*] A problem was that we didn't understand all the parameters.
+	\ex One problem was that we didn't understand all the parameters.
+	\ex \{A/one\} problem that I came across was that we didn't understand all the parameters.
+	\ex One of the problems was that we didn't understand all the parameters.\hfill\parencite{heycock2012specification}	
+\end{xlist}
+\end{exe}
 Given these parallels, Heycock proposes that the indefinite restriction is actually a restriction on \textit{weak} indefinites as SC subjects.
 
 Assuming Heycock is using the terms \textit{weak} and \textit{strong} to refer to those DPs that do not, and and those DPs that do show \citeauthor{milsark1974existential}'s (\citeyear{milsark1974existential}) Definiteness Effect, respectively, 
